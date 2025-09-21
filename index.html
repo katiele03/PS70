@@ -9,26 +9,31 @@
 </head>
 
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-sm" style="background-color:#4682B4;">
-    <div class="container-fluid" style="align-items:center; justify-content:space-between;">
-      <h2 class="nav-title" style="color:white;">PS70</h2>
+  <!-- Single Navbar (no duplicate) -->
+  <nav class="navbar navbar-expand-sm" style="background-color:#3A5FCD;"> <!-- Indigo Blue -->
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <h2 class="nav-title text-white">PS70</h2>
       <div class="navbar-nav">
-        <a class="nav-link" href="./about.html" style="color:white;">About Me</a>
-        <a class="nav-link" href="./assignments/index.html" style="color:white;">Assignments</a>
-        <a class="nav-link" href="./13_finalproject/index.html" style="color:white;">Final Project</a>
+        <a class="nav-link text-white" href="./about.html">About Me</a>
+        <a class="nav-link text-white" href="./assignments/index.html">Assignments</a>
+        <a class="nav-link text-white" href="./13_finalproject/index.html">Final Project</a>
       </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <header class="hero">
+  <header class="hero" style="background: linear-gradient(135deg, #5A7FDB, #8AB6F9); color:white; text-align:center; padding:100px 20px;">
     <div class="hero-content">
-      <h1 class="hero-title">Katie Le</h1>
-      <p class="hero-text">
-        Hi! I’m a senior at Harvard studying bioengineering on the electrical track. 
+      <h1 class="hero-title" style="font-size:3rem; font-weight:700;">Katie Le</h1>
+      <p class="hero-text" style="font-size:1.25rem; margin:20px auto; max-width:700px;">
+        Hi! I’m a senior at Harvard studying bioengineering on the electrical track.  
         I love working on projects involving digital fabrication, prototyping, and medical device design.
       </p>
+      <div class="hero-buttons" style="margin-top:30px;">
+        <a href="about.html" class="btn btn-light btn-lg mx-2">About Me</a>
+        <a href="assignments/index.html" class="btn btn-light btn-lg mx-2">Assignments</a>
+        <a href="13_finalproject/index.html" class="btn btn-light btn-lg mx-2">Final Project</a>
+      </div>
     </div>
   </header>
 </body>
