@@ -1,98 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <title>PS70: Final Project | Katie Le</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PS70: Intro to Digital Fabrication</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- style.css is one level up from this folder -->
   <link href="../style.css" rel="stylesheet">
 </head>
 
-<body style="background:#fff; color:#000;">
-
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-sm" style="background-color:#4682B4;">
-    <div class="container-fluid" style="align-items:center; justify-content:space-between;">
-      <h2 class="nav-title" style="color:white;">PS70</h2>
-      <div class="navbar-nav">
-        <a class="nav-link" href="../about.html" style="color:white;">About Me</a>
-        <a class="nav-link" href="../assignments/index.html" style="color:white;">Assignments</a>
-        <a class="nav-link" href="../13_finalproject/index.html" style="color:white;">Final Project</a>
-      </div>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-sm" style="background-color:#4682B4;">
+  <div class="container-fluid" style="align-items:center; justify-content:space-between;">
+    <h2 class="nav-title" style="color:white;">PS70</h2>
+    <div class="navbar-nav">
+      <a class="nav-btn" href="../index.html">Home</a>
+      <a class="nav-btn" href="../about.html">About Me</a>
+      <a class="nav-btn" href="../assignments/index.html">Assignments</a>
+      <a class="nav-btn" href="../13_finalproject/index.html">Final Project</a>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <!-- Strapdown parses Markdown inside <xmp> -->
-  <xmp style="display:none;">
+<div class="container my-5">
+  <h1 class="text-center mb-4">Final Project Idea: Booming Battle Board 🚢💥</h1>
 
-# Final Project Idea: Booming Battle Board 🚢💥
+  <!-- Traditional Battleship -->
+  <section class="my-5">
+    <h3>Traditional Battleship</h3>
+    <ul>
+      <li>A two player game where each player has two grids in front of them:
+        <ul>
+          <li>their own board, where their ships varying in sizes on the grid horizontally or vertically are placed and where they mark when they’ve been hit</li>
+          <li>their tracking board, where they mark the coordinates they’ve attacked their opponent</li>
+        </ul>
+      </li>
+      <li>The two players take turn “attacking” each other’s ships by picking coordinates where they think the other player has placed their ships</li>
+      <li>The objective of the game is to sink your opponent’s ships</li>
+      <li>If the ship lies in the cell/coordinate, it is a hit</li>
+      <li>If the ship does not lie in the cell/coordinate, it is a miss</li>
+      <li>A ship is sunk when all cells the ship lies in has been hit</li>
+      <li>Players keep track of the cells that are called on the grid in front of them</li>
+    </ul>
+    <div class="text-center my-3">
+      <img src="../battle.jpg" alt="Battle Example" class="img-fluid" style="max-width:600px;">
+    </div>
+  </section>
 
----
+  <!-- My Twist -->
+  <section class="my-5 text-center">
+    <h3>My Twist on Battleship</h3>
+    <p>
+      A two-player Battleship board with LED feedback and sensors! Instead of calling out coordinates to sink a ship, you can physically tap coordinates on your grid. This causes the board to light up red for “hit” or white for “miss” with sound effects.
+    </p>
+    <img src="../ship.jpg" alt="Ship Example" class="img-fluid" style="max-width:600px;">
+  </section>
 
-### Traditional Battleship
+  <!-- 3D Design -->
+  <section class="my-5">
+    <h3>3D design and fabrication (mold/cast, 3D print, lasercut, etc.)</h3>
+    <ul>
+      <li>Laser cutting: create grid plates with engraved coordinates and frosted tiles for LEDs</li>
+      <li>3D printing: 3D print ships and encasing for board grids</li>
+    </ul>
+  </section>
 
-- Two players, each with two grids:  
-  - **Own board** → ships are placed, hits marked  
-  - **Tracking board** → attacks recorded  
-- Take turns calling coordinates  
-- **Hit** if a ship is there, **miss** otherwise  
-- A ship is sunk when all its cells are hit  
+  <!-- Electronics -->
+  <section class="my-5">
+    <h3>Electronics (input and output)</h3>
+    <h5>Inputs:</h5>
+    <ul>
+      <li>Ship detection:
+        <ul>
+          <li>Magnetic detection: embed magnets in ships and place Hall effect sensors under each tile</li>
+          <li>Conductive detection: embed conductive foil in ships so that capacitive pads under grid tiles can sense when a ship is there</li>
+        </ul>
+      </li>
+      <li>Capacitive touch grid: detects when a cell is tapped so user can attack opponent</li>
+    </ul>
+    <h5>Outputs:</h5>
+    <ul>
+      <li>RGB LEDs placed under each tile
+        <ul>
+          <li>red = hit opponent's ship</li>
+          <li>white = miss opponent's ship</li>
+          <li>green = ship is on grid (on own player's board)</li>
+        </ul>
+      </li>
+      <li>Sound
+        <ul>
+          <li>explosion/boom = hit opponent's ship</li>
+          <li>splash = miss opponent's ship</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
 
-<div style="text-align:center;">
-  <img src="../battle.jpg" alt="Battle Example" style="max-width:600px; width:100%; height:auto;">
+  <!-- Microcontroller -->
+  <section class="my-5">
+    <h3>Microcontroller programming</h3>
+    <ul>
+      <li>will be used to detect when player taps a tile</li>
+      <li>detects when a ship is present on a tile</li>
+      <li>turn on and off LEDs</li>
+      <li>play sound</li>
+    </ul>
+  </section>
 </div>
 
----
-
-### My Twist on Battleship 
-
-Two-player Battleship board with **LED feedback + sensors**:  
-
-- Tap a cell instead of calling coordinates  
-- Red = hit  
-- White = miss  
-- Sounds for feedback  
-
-<div style="text-align:center;">
-  <img src="../ship.jpg" alt="Ship Example" style="max-width:600px; width:100%; height:auto;">
-</div>
-
----
-
-### 3D Design + Fabrication  
-- Laser cut grid plates with engraved coordinates + frosted LED tiles  
-- 3D print ships + casing for board  
-
----
-
-### Electronics
-
-**Inputs:**  
-- Ship detection:  
-  - Magnets + Hall sensors, OR  
-  - Conductive foil + capacitive pads  
-- Capacitive touch → detect taps  
-
-**Outputs:**  
-- RGB LEDs:  
-  - 🔴 Red = hit  
-  - ⚪ White = miss  
-  - 🟢 Green = ship on board  
-- Sounds:  
-  - 💥 Boom = hit  
-  - 💦 Splash = miss  
-
----
-
-### Microcontroller Programming  
-- Detects taps + ship placement  
-- Controls LEDs  
-- Plays sounds  
-
-  </xmp>
-
-  <script src="../strapdown.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
