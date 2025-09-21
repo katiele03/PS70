@@ -87,3 +87,28 @@ body {
   font-size: 0.9rem;
   color: #374151;
 }
+
+/* Hero Header */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 4rem 1rem 3rem;
+  background: linear-gradient(to bottom, #60a5fa, #93c5fd00);
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
