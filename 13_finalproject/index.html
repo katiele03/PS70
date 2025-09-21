@@ -3,85 +3,93 @@
 <head>
   <title>PS70: Intro to Digital Fabrication</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- style.css is one level up -->
+  <!-- this page is in a subfolder, so style.css is one level up -->
   <link href="../style.css" rel="stylesheet">
 </head>
 
 <body>
-<nav class="navbar navbar-expand-sm navbar-dark" style="background:#3b82f6; color:#fff;">
-  <div class="container-fluid" style="align-items:center; justify-content:space-between;">
-    <h2 class="nav-title">PS70 Fall 2025</h2>
+<nav class="navbar navbar-expand-sm navbar-dark" style="color:#EEE7E8;">
+  <div class="container-fluid" style="align-items:center; justify-content:center;">
+    <div class="flexrow">
+      <h2 class="nav-title">PS70 Fall 2025</h2>
+    </div>
     <div class="navbar-nav">
-      <a class="nav-link" href="../index.html">Home</a>
-      <a class="nav-link" href="../assignments/index.html">Assignments</a>
+      <h4><a class="nav-link" href="../index.html">Home</a></h4>
+      <h4><a class="nav-link" href="../about.html">About</a></h4>
     </div>
   </div>
 </nav>
 
 <!-- Strapdown reads Markdown inside this XMP. Keep it PURE MARKDOWN. -->
-<xmp style="display:none;" theme="cerulean">
+<xmp style="display:none;">
 
 # Final Project Idea: Booming Battle Board 🚢💥
 
 ---
 
-## Traditional Battleship
+### Traditional Battleship
 
-- Each player has two grids in front of them:
-  - **Own board** → ships are placed and marked when hit  
-  - **Tracking board** → tracks opponent’s coordinates attacked
-- Players take turns calling out coordinates to attack  
-- A ship is **sunk** when all its cells are hit  
-- Goal: sink all opponent’s ships  
+- A two player game where each player has two grids in front of them:  
+  - **Own board** – where their ships are placed, marked when they’ve been hit  
+  - **Tracking board** – where they mark coordinates they’ve attacked  
+- Players take turns attacking by picking coordinates  
+- Objective: sink all of the opponent’s ships  
+- If the ship lies in the chosen coordinate → it’s a **hit**  
+- If not → it’s a **miss**  
+- A ship is sunk when all its cells are hit  
+- Players keep track of called cells on their grid  
 
-![Battle Example](../battle.jpg)
-
----
-
-## My Twist on Battleship 
-
-A two-player Battleship board with **LED feedback and sensors**.  
-Instead of calling out coordinates, players tap directly on their grid.  
-- Lights up **red** for “hit”  
-- Lights up **white** for “miss”  
-- Plays sound effects  
-
-![Ship Example](../ship.jpg)
+<div style="text-align:center;">
+  <img src="../battle.jpg" alt="Battle Example" style="max-width:600px; width:100%; height:auto;">
+</div>
 
 ---
 
-## 3D Design and Fabrication
-- **Laser cutting** → engraved coordinate plates + frosted LED tiles  
-- **3D printing** → ships + board casing  
+### My Twist on Battleship 
+
+A two-player Battleship board with **LED feedback** and **sensors**!  
+Instead of calling out coordinates, players physically tap the grid:  
+
+- Board lights up **red** for “hit”  
+- Board lights up **white** for “miss”  
+- Sound effects for immersion  
+
+<div style="text-align:center;">
+  <img src="../ship.jpg" alt="Ship Example" style="max-width:600px; width:100%; height:auto;">
+</div>
 
 ---
 
-## Electronics (Input / Output)
+### 3D Design and Fabrication  
+- Laser cutting: create grid plates with engraved coordinates + frosted LED tiles  
+- 3D printing: ships and casing for board grids  
 
-**Inputs**  
-- Ship detection  
-  - Magnets + Hall sensors  
-  - Conductive foil + capacitive pads  
+---
+
+### Electronics (Input and Output)
+
+**Inputs:**  
+- Ship detection:  
+  - Magnetic → embed magnets in ships + Hall sensors under tiles  
+  - Conductive → foil in ships + capacitive pads under tiles  
 - Capacitive touch grid → detects tapped cells  
 
-**Outputs**  
-- RGB LEDs under each tile  
+**Outputs:**  
+- RGB LEDs under each tile:  
   - 🔴 Red = hit opponent’s ship  
   - ⚪ White = miss  
   - 🟢 Green = ship on own board  
-- Sounds  
+- Sounds:  
   - 💥 Explosion = hit  
   - 💦 Splash = miss  
 
 ---
 
-## Microcontroller Programming
-- Detects when a player taps a tile  
+### Microcontroller Programming  
+- Detects when a tile is tapped  
 - Detects when a ship is present  
 - Turns LEDs on/off  
 - Plays sounds  
-
----
 
 </xmp>
 
