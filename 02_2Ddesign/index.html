@@ -2,183 +2,71 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PS70: Week 2 - 2D Design</title>
-  <link href="../style.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Katie Le | PS70 Portfolio</title>
+  <link href="style.css" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: Cambria, Georgia, serif;
-      background: linear-gradient(to bottom, #e0f2fe, #bfdbfe, #93c5fd); /* soft blue gradient */
-      color: #1e3a8a;
+      background: linear-gradient(to bottom, #5eead4, #2dd4bf, #14b8a6); /* teal gradient */
+      color: #0f172a;
       text-align: center;
     }
 
-    /* Navbar */
-    .navbar {
+    .hero {
+      padding: 6rem 1rem 4rem;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero-text {
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    /* Themed Buttons (teal for this page) */
+    .hero-buttons {
       display: flex;
       justify-content: center;
-      padding: 1rem;
-    }
-    .nav-links {
-      display: flex;
       gap: 1rem;
       flex-wrap: wrap;
     }
+
     .nav-btn {
-      padding: 0.6rem 1.3rem;
+      padding: 0.7rem 1.5rem;
       border-radius: 9999px;
-      background: linear-gradient(135deg, #38bdf8, #2563eb); /* teal-blue gradient */
+      background: linear-gradient(135deg, #2dd4bf, #0d9488); /* teal gradient */
       color: white;
       text-decoration: none;
       font-weight: 600;
       transition: all 0.3s ease;
     }
-    .nav-btn:hover {
-      background: linear-gradient(135deg, #2563eb, #1e40af);
-    }
 
-    /* Images */
-    img {
-      border-radius: 12px;
-      margin-bottom: 0.5rem;
-      max-width: 100%;
-      height: auto;
-    }
-    .text-center p {
-      margin-top: 0.5rem;
+    .nav-btn:hover {
+      background: linear-gradient(135deg, #0d9488, #134e4a); /* darker teal on hover */
     }
   </style>
 </head>
 
 <body>
-  <!-- Navbar with pill buttons -->
-  <nav class="navbar">
-    <div class="nav-links">
-      <a class="nav-btn" href="../index.html">Home</a>
-      <a class="nav-btn" href="../about.html">About Me</a>
-      <a class="nav-btn" href="../assignments/index.html">Assignments</a>
-      <a class="nav-btn" href="../13_finalproject/index.html">Final Project</a>
+  <header class="hero">
+    <h1 class="hero-title">Katie Le</h1>
+    <p class="hero-text">
+      Hi! I’m a senior at Harvard studying bioengineering on the electrical track. 
+      I love working on projects involving digital fabrication, prototyping, and medical device design.
+    </p>
+    <div class="hero-buttons">
+      <a href="about.html" class="nav-btn">About Me</a>
+      <a href="assignments/index.html" class="nav-btn">Assignments</a>
+      <a href="13_finalproject/index.html" class="nav-btn">Final Project</a>
     </div>
-  </nav>
-  
-  <!-- Strapdown parses Markdown inside <xmp> -->
-  <xmp style="display:none;">
-
-# Assignment Part A: Laser Cutting a Box
-
----
-
-## CAD Model
-<div class="text-center mb-4">
-  <img src="CAD_box.jpg" alt="CAD of box on Fusion" style="max-width:600px;">
-  <p>Here is the first CAD model of my box.</p>
-</div>
-
----
-
-## Parameters Used
-<div class="text-center mb-4">
-  <img src="parameters.jpg" alt="Parameters in Fusion" style="max-width:400px;">
-  <p>Here are the parameters I used.</p>
-</div>
-
----
-
-## Measuring Cardboard
-<div class="text-center mb-4">
-  <img src="cardboard.jpg" alt="Measuring Cardboard" style="max-width:400px;">
-  <p>Measuring the thickness of the cardboard with calipers.</p>
-</div>
-
----
-
-## Engraving Initials
-<div class="text-center mb-4">
-  <img src="initials.jpg" alt="Engraving Initials" style="max-width:300px;">
-  <p>I engraved my initials on the box using Illustrator.</p>
-</div>
-
----
-
-## First Attempt
-<div class="row text-center mb-4">
-  <div class="col-md-4">
-    <img src="learn_laser.jpg" alt="Learning laser cutter" style="max-width:300px;">
-    <p>My first time using the laser cutter.</p>
-  </div>
-  <div class="col-md-4">
-    <img src="waiting.jpg" alt="Waiting for cut" style="max-width:300px;">
-    <p>Waiting for my first version to be cut.</p>
-  </div>
-  <div class="col-md-4">
-    <img src="boo.jpg" alt="Thumbs down" style="max-width:300px;">
-    <p>A misalignment mishap :(</p>
-  </div>
-</div>
-
----
-
-## The Next Day…
-<div class="text-center mb-4">
-  <img src="mini_box.jpg" alt="Mini Box" style="max-width:400px;">
-  <p>I had a scaling issue and made a mini box.</p>
-</div>
-
----
-
-## Third Time is the Charm 🍀
-<div class="text-center mb-4">
-  <img src="dino_paint.jpg" alt="Painted Dinosaur Box" style="max-width:400px;">
-  <p>I created a dinosaur by adding scales, head, and tail to my box. Painted it green, purple, and gold, with toilet paper roll feet and toenails.</p>
-</div>
-
----
-
-## Final Version
-<div class="text-center mb-4">
-  <img src="final_dino.jpg" alt="Final Dinosaur Box" style="max-width:700px;">
-  <p>Here is my final dinosaur box!</p>
-</div>
-
----
-
-# Assignment Part B: Fusion Modeling 🛠️
-
----
-
-## Object 1: Mallet
-<div class="text-center mb-4">
-  <img src="mallet_w2.jpg" alt="3D Model of Mallet" style="max-width:600px;">
-</div>
-
-<div class="row text-center mb-4">
-  <div class="col-md-2"><img src="mallet1.jpg" style="max-width:120px;"><p>Measurement</p></div>
-  <div class="col-md-2"><img src="mallet2.jpg" style="max-width:120px;"><p>Measurement</p></div>
-  <div class="col-md-2"><img src="mallet3.jpg" style="max-width:120px;"><p>Measurement</p></div>
-  <div class="col-md-2"><img src="mallet4.jpg" style="max-width:120px;"><p>Measurement</p></div>
-  <div class="col-md-2"><img src="mallet5.jpg" style="max-width:120px;"><p>Measurement</p></div>
-</div>
-
----
-
-## Object 2: Funnel
-<div class="text-center mb-4">
-  <img src="funnel_w2.jpg" alt="3D Model of Funnel" style="max-width:600px;">
-</div>
-
-<div class="row text-center mb-4">
-  <div class="col-md-3"><img src="funnel1.jpg" style="max-width:160px;"><p>Measurement</p></div>
-  <div class="col-md-3"><img src="funnel2.jpg" style="max-width:160px;"><p>Measurement</p></div>
-  <div class="col-md-3"><img src="funnel3.jpg" style="max-width:160px;"><p>Measurement</p></div>
-  <div class="col-md-3"><img src="funnel4.jpg" style="max-width:160px;"><p>Measurement</p></div>
-</div>
-
----
-
-</xmp>
-
-<script src="../strapdown.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  </header>
 </body>
 </html>
