@@ -5,51 +5,99 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Me | Katie Le</title>
   <link href="style.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: Cambria, Georgia, serif;
+      background: linear-gradient(to bottom, #f3e8ff, #e9d5ff, #d8b4fe); /* purple gradient */
+      color: #6b21a8; /* deep purple text */
+      text-align: center;
+    }
+
+    h1, h2, h3, p {
+      color: #6b21a8; /* make all headers + text purple */
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0;
+    }
+
+    .nav-btn {
+      padding: 0.7rem 1.5rem;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, #a855f7, #9333ea); /* purple buttons */
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .nav-btn:hover {
+      background: linear-gradient(135deg, #7e22ce, #6b21a8);
+    }
+
+    .about-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .about-img {
+      max-width: 600px;
+      width: 100%;
+      border-radius: 12px;
+      margin: 1rem 0;
+    }
+
+    .about-video {
+      max-width: 600px;
+      width: 100%;
+      margin: 1rem 0;
+      border-radius: 12px;
+    }
+  </style>
 </head>
 
 <body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="container-fluid">
-      <h2 class="nav-title">PS70</h2>
-      <div class="nav-links">
-        <a class="nav-btn" href="index.html">Home</a>
-        <a class="nav-btn" href="assignments/index.html">Assignments</a>
-        <a class="nav-btn" href="13_finalproject/index.html">Final Project</a>
-      </div>
-    </div>
-  </nav>
+  <!-- Pretty buttons navbar -->
+  <div class="hero-buttons">
+    <a href="index.html" class="nav-btn">Home</a>
+    <a href="assignments/index.html" class="nav-btn">Assignments</a>
+    <a href="13_finalproject/index.html" class="nav-btn">Final Project</a>
+  </div>
 
   <!-- About Content -->
   <main class="about-container">
-    <h1 class="hero-title">About Me ✨</h1>
+    <h1>About Me ✨</h1>
 
     <!-- Friends -->
-    <div class="about-section">
+    <div>
       <img src="FDOC.jpg" alt="Friends on Widener steps" class="about-img">
       <p><em>Here is a picture of my friends and I (in the middle) on Widener steps celebrating our last first day of classes.</em></p>
     </div>
 
     <!-- Bio -->
-    <p class="about-text">
+    <p>
       Hi! Thanks for visiting my website. My name is <strong>Katie Le</strong> and I am a senior at Harvard studying
       <strong>Bioengineering (Electrical track)</strong>.  
+      <br>- Interested in medical devices + biotech  
+      <br>- From Columbus, Ohio → huge OSU fan (Go Bucks!) 🏈  
+      <br>- Love traveling (20+ countries), hanging with friends, and walking my dog Lucky (aka the Luckster) 🐶  
     </p>
-    <ul class="about-list">
-      <li>Interested in medical devices + biotech</li>
-      <li>From Columbus, Ohio → huge OSU fan (Go Bucks!) 🏈</li>
-      <li>Love traveling (20+ countries), hanging with friends, and walking my dog Lucky (aka the Luckster) 🐶</li>
-    </ul>
 
     <!-- Dog -->
-    <div class="about-section">
+    <div>
       <h2>The Luckster 🍀</h2>
       <img src="dog.jpg" alt="Katie's dog Lucky" class="about-img">
       <p>Lucky is a Cavachon (Cavalier + Bichon Frise). He’s super loyal and follows anyone with food.</p>
     </div>
 
     <!-- Travel -->
-    <div class="about-section">
+    <div>
       <h2>Travel ✈️</h2>
       <img src="uae.jpg" alt="Abu Dhabi mosque" class="about-img">
       <p>One of my favorite activities this summer was exploring mosques in Abu Dhabi — breathtakingly beautiful.</p>
