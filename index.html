@@ -6,6 +6,24 @@
   <title>Katie Le | PS70 Portfolio</title>
   <link href="style.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Button Styles */
+    .nav-btn {
+      padding: 0.7rem 1.5rem;
+      border-radius: 9999px;
+      background: #e0fdfa;   /* light aqua */
+      color: #065f46;        /* deep teal text */
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: 2px solid #0d9488; /* teal outline */
+      display: inline-block;
+    }
+    .nav-btn:hover {
+      background: #99f6e4;   /* brighter mint */
+      color: #083C4A;
+    }
+  </style>
 </head>
 
 <body>
@@ -17,7 +35,7 @@
         Hi! I’m a senior at Harvard studying bioengineering on the electrical track.  
         I love working on projects involving digital fabrication, prototyping, and medical device design.
       </p>
-      <div class="hero-buttons" style="margin-top:30px;">
+      <div class="hero-buttons" style="margin-top:30px; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
         <a href="about.html" class="nav-btn">About Me</a>
         <a href="assignments/index.html" class="nav-btn">Assignments</a>
         <a href="13_finalproject/index.html" class="nav-btn">Final Project</a>
