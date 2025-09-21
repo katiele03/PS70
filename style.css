@@ -1,13 +1,10 @@
-/* Global styles */
+/* ---------- Global styles ---------- */
 body {
   margin: 0;
   font-family: Cambria, Georgia, serif;
-  background: linear-gradient(to bottom, #e6fffa, #ccfbf1, #99f6e4); /* soft teal gradient */
-  color: #064e3b; /* dark teal text */
   text-align: center;
 }
 
-/* Hero Section */
 .hero {
   display: flex;
   flex-direction: column;
@@ -19,13 +16,11 @@ body {
 .hero-title {
   font-size: 3rem;
   font-weight: 700;
-  color: #065f46; /* deep teal */
   margin-bottom: 0.75rem;
 }
 
 .hero-subtitle {
   font-size: 1.2rem;
-  color: #0f766e; /* medium teal */
   margin-bottom: 1rem;
 }
 
@@ -34,34 +29,69 @@ body {
   margin: 0 auto 2rem;
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #115e59; /* darker teal for text */
 }
 
-/* Buttons */
+/* Navbar Buttons (base) */
 .hero-buttons {
   display: flex;
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
 }
-
 .nav-btn {
   padding: 0.7rem 1.5rem;
   border-radius: 9999px;
-  background: #14b8a6;  /* teal button */
-  color: white;
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
-  font-family: Cambria, Georgia, serif;
 }
 
-.nav-btn:hover {
-  background: #0d9488; /* darker teal hover */
-}
+/* ---------- Themes ---------- */
 
-/* Assignments Grid */
-.container {
+/* Home (teal) */
+body.home {
+  background: linear-gradient(to bottom, #e6fffa, #ccfbf1, #99f6e4);
+  color: #064e3b;
+}
+body.home .hero-title { color: #065f46; }
+body.home .hero-subtitle, 
+body.home .hero-text { color: #115e59; }
+body.home .nav-btn { background: #14b8a6; color: white; }
+body.home .nav-btn:hover { background: #0d9488; }
+
+/* About (purple) */
+body.about {
+  background: linear-gradient(to bottom, #f5f3ff, #ddd6fe, #c4b5fd);
+  color: #2e1065;
+}
+body.about .hero-title { color: #6d28d9; }
+body.about .hero-subtitle, 
+body.about .hero-text { color: #4c1d95; }
+body.about .nav-btn { background: #8b5cf6; color: white; }
+body.about .nav-btn:hover { background: #7c3aed; }
+
+/* Assignments (pink, teal buttons) */
+body.assignments {
+  background: linear-gradient(to bottom, #ffe4e6, #fecdd3, #fda4af);
+  color: #831843;
+}
+body.assignments .hero-title { color: #831843; }
+body.assignments .nav-btn { background: #14b8a6; color: white; }
+body.assignments .nav-btn:hover { background: #0d9488; }
+
+/* Final Project (blue) */
+body.final {
+  background: linear-gradient(to bottom, #dbeafe, #bfdbfe, #93c5fd);
+  color: #1e3a8a;
+}
+body.final .hero-title { color: #1e3a8a; }
+body.final .hero-subtitle, 
+body.final .hero-text { color: #1e40af; }
+body.final .nav-btn { background: #3b82f6; color: white; }
+body.final .nav-btn:hover { background: #2563eb; }
+
+/* ---------- Cards (Assignments) ---------- */
+.container, .assignment-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
@@ -71,7 +101,7 @@ body {
 }
 
 .project-card {
-  background: #ecfdf5; /* pale mint background for cards */
+  background: #fff1f2;
   border-radius: 16px;
   padding: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -79,12 +109,10 @@ body {
   cursor: pointer;
   text-align: center;
 }
-
 .project-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
-
 .project-card img {
   width: 100%;
   height: 180px;
@@ -92,97 +120,22 @@ body {
   border-radius: 12px;
   margin-bottom: 0.75rem;
 }
-
 .project-card h2 {
   margin: 0.5rem 0;
   font-size: 1.25rem;
-  color: #065f46; /* dark teal */
 }
-
 .project-card p {
   font-size: 0.9rem;
   color: #374151;
 }
 
-.about-container {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 1rem;
-  text-align: center;
-}
-
-.about-section {
-  margin: 2rem 0;
-}
-
-.about-img {
-  max-width: 500px;
-  width: 100%;
-  border-radius: 12px;
-  margin-bottom: 0.5rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.about-video {
-  max-width: 600px;
-  width: 100%;
-  border-radius: 12px;
-  margin: 1rem 0;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.about-text {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin: 2rem 0;
-}
-
-
-/* Background (fun purple gradient) */
-body {
-  margin: 0;
-  font-family: Cambria, Georgia, serif;
-  background: linear-gradient(to bottom, #f5f3ff, #ddd6fe, #c4b5fd); /* soft purples */
-  color: #2e1065; /* deep purple text */
-  text-align: center;
-}
-
-/* Navbar */
-.navbar {
-  padding: 1rem;
-  background: #7c3aed; /* vibrant purple */
-}
-.nav-title {
-  color: white;
-  margin: 0;
-}
-.nav-links {
-  display: flex;
-  gap: 1rem;
-}
-.nav-btn {
-  padding: 0.6rem 1.2rem;
-  border-radius: 9999px;
-  background: white;
-  color: #7c3aed;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-.nav-btn:hover {
-  background: #c084fc;
-  color: white;
-}
-
-/* About page */
+/* ---------- About Page ---------- */
 .about-container {
   max-width: 900px;
   margin: 2rem auto;
   padding: 1rem;
 }
-.about-section {
-  margin: 2rem 0;
-}
+.about-section { margin: 2rem 0; }
 .about-img {
   max-width: 500px;
   width: 100%;
@@ -200,13 +153,11 @@ body {
 .about-text {
   font-size: 1.1rem;
   line-height: 1.6;
+  margin: 2rem 0;
 }
 .about-list {
   list-style: none;
   padding: 0;
   font-size: 1.05rem;
 }
-.about-list li {
-  margin: 0.5rem 0;
-}
-
+.about-list li { margin: 0.5rem 0; }
