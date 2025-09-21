@@ -3,75 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PS70: Intro to Digital Fabrication</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="./style.css" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: Cambria, Georgia, serif;
-      background: linear-gradient(to bottom, #f3e5f5, #e1bee7, #ce93d8); /* lavender gradient */
-      color: #4a148c; /* deep purple for text */
-      text-align: center;
-    }
-
-    h3, h2, p {
-      color: #4a148c;
-    }
-  </style>
+  <title>About Me | Katie Le</title>
+  <link href="style.css" rel="stylesheet">
 </head>
 
 <body>
-
-  <!-- Navbar with cool buttons -->
-  <nav class="navbar" style="background:transparent; padding:1rem;">
-    <div class="container-fluid d-flex justify-content-center">
-      <div class="hero-buttons">
-        <a href="./index.html" class="nav-btn">Home</a>
-        <a href="./about.html" class="nav-btn">About Me</a>
-        <a href="./assignments/index.html" class="nav-btn">Assignments</a>
-        <a href="./13_finalproject/index.html" class="nav-btn">Final Project</a>
+  <!-- Navbar -->
+  <nav class="navbar" style="background-color:#20B2AA; padding: 1rem;">
+    <div class="container-fluid" style="display:flex; justify-content:space-between; align-items:center;">
+      <h2 style="color:white; margin:0;">PS70</h2>
+      <div>
+        <a class="nav-btn" href="index.html">Home</a>
+        <a class="nav-btn" href="assignments/index.html">Assignments</a>
+        <a class="nav-btn" href="13_finalproject/index.html">Final Project</a>
       </div>
     </div>
   </nav>
 
-  <!-- Strapdown parses Markdown inside <xmp> -->
-  <xmp style="display:none;">
-  <div class="textcontainer">
+  <!-- About Content -->
+  <main class="about-container">
+    <h1 class="hero-title">About Me ✨</h1>
 
-  # About Me!  
+    <!-- Friends -->
+    <div class="about-section">
+      <img src="FDOC.jpg" alt="Friends on Widener steps" class="about-img">
+      <p><em>Here is a picture of my friends and I (in the middle) on Widener steps celebrating our last first day of classes.</em></p>
+    </div>
 
-  ![FDOC](./FDOC.jpg)  
-  *Here is a picture of my friends and I (in the middle) on Widener steps celebrating our last first day of classes.*  
+    <!-- Bio -->
+    <p class="about-text">
+      Hi! Thanks for visiting my website. My name is <strong>Katie Le</strong> and I am a senior at Harvard studying
+      <strong>Bioengineering (Electrical track)</strong>.  
+      <br>- Interested in medical devices + biotech  
+      <br>- From Columbus, Ohio → huge OSU fan (Go Bucks!) 🏈  
+      <br>- Love traveling (20+ countries), hanging with friends, and walking my dog Lucky (aka the Luckster) 🐶  
+    </p>
 
-  Hi! Thanks for visiting my website. My name is **Katie Le** and I am a current senior at Harvard studying **bioengineering (electrical track)**.  
-  - Interested in medical devices + biotech  
-  - From Columbus, Ohio → OSU fan (Go Bucks!)  
-  - Love traveling (20+ countries), hanging with friends, and walking my dog Lucky (aka the Luckster) 🐶  
+    <!-- Dog -->
+    <div class="about-section">
+      <h2>The Luckster 🍀</h2>
+      <img src="dog.jpg" alt="Katie's dog Lucky" class="about-img">
+      <p>Lucky is a Cavachon (Cavalier + Bichon Frise). He’s super loyal and follows anyone with food.</p>
+    </div>
 
-  ## The Luckster 🍀  
-  ![Dog](./dog.jpg)  
-  *Here is a picture of me and my dog, the Luckster. He is a Cavachon (mix of Cavalier and Bichon Frise). He is very loyal and follows you everywhere (especially if you have food).*  
+    <!-- Travel -->
+    <div class="about-section">
+      <h2>Travel ✈️</h2>
+      <img src="uae.jpg" alt="Abu Dhabi mosque" class="about-img">
+      <p>One of my favorite activities this summer was exploring mosques in Abu Dhabi — breathtakingly beautiful.</p>
 
-  ## Travel ✈️  
-  **Abu Dhabi**  
-  ![UAE](./uae.jpg)  
-  *Exploring the mosques in Abu Dhabi was one of the most breathtaking parts of my summer.*  
+      <img src="greece.jpg" alt="Greece research" class="about-img">
+      <p>I had the amazing opportunity to conduct research in Greece during my junior year. This is me at the Acropolis.</p>
 
-  **Greece**  
-  ![Greece](./greece.jpg)  
-  *I had the opportunity to conduct research in Greece during my junior year. Here is me at the Acropolis.*  
-
-  **Vietnam 🇻🇳**  
-  <video width="640" height="480" controls>
-    <source src="viet.mp4" type="video/mp4">
-  </video>  
-  *Vietnam will always be special to me because it’s my heritage. This is the Golden Hand Bridge in Bà Nà Hills.*  
-
-  </div>
-  </xmp>
-
-  <script src="./strapdown.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+      <video class="about-video" controls>
+        <source src="viet.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p>One of my favorite countries to visit is Vietnam 🇻🇳. Here is the Golden Hand Bridge in Bà Nà Hills.</p>
+    </div>
+  </main>
 </body>
 </html>
