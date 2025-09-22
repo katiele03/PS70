@@ -4,141 +4,147 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PS70: Week 2 - 2D Design</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="../style.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: Cambria, Georgia, serif;
+      background: linear-gradient(to bottom, #064e3b, #065f46, #047857); /* dark green gradient */
+      color: #f0fdf4; /* light text for readability */
+      text-align: center;
+    }
+    .navbar {
+      display: flex;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .nav-btn {
+      padding: 0.7rem 1.5rem;
+      border-radius: 9999px;
+      background: white;
+      color: #065f46;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0 0.5rem;
+      transition: all 0.3s ease;
+    }
+    .nav-btn:hover {
+      background: #a7f3d0;
+      color: #064e3b;
+    }
+    h1 {
+      margin: 2rem 0;
+      font-size: 2.2rem;
+    }
+    h2 {
+      margin-top: 2rem;
+      color: #bbf7d0;
+    }
+    .content-section {
+      margin: 2rem auto;
+      max-width: 800px;
+    }
+    img {
+      max-width: 600px;
+      width: 100%;
+      border-radius: 10px;
+      margin: 1rem 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    p {
+      font-size: 1rem;
+      color: #e0f2f1;
+    }
+  </style>
 </head>
 
 <body>
-<!-- Navbar -->
-  <nav class="navbar navbar-expand-sm" style="background-color:#3A5FCD;">
-    <div class="container-fluid d-flex justify-content-between align-items-center">
-      <h2 class="nav-title text-white">PS70</h2>
-      <div class="navbar-nav">
-        <a class="nav-link text-white" href="../index.html">Home</a>
-        <a class="nav-link text-white" href="../about.html">About Me</a>
-        <a class="nav-link text-white" href="../assignments/index.html">Assignments</a>
-        <a class="nav-link text-white" href="../13_finalproject/index.html">Final Project</a>
-      </div>
-    </div>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../index.html" class="nav-btn">Home</a>
+    <a href="../about.html" class="nav-btn">About Me</a>
+    <a href="../assignments/index.html" class="nav-btn">Assignments</a>
+    <a href="../13_finalproject/index.html" class="nav-btn">Final Project</a>
   </nav>
-  
-<!-- Strapdown parses Markdown inside <xmp> -->
-<xmp style="display:none;">
 
-# Assignment Part A: Laser Cutting a Box
+  <!-- Page Content -->
+  <div class="container">
+    <h1>Assignment Part A: Laser Cutting a Box</h1>
 
----
+    <div class="content-section">
+      <h2>CAD Model</h2>
+      <img src="CAD_box.jpg" alt="CAD of box on Fusion">
+      <p>Here is the first CAD model of my box.</p>
+    </div>
 
-## CAD Model
-<div class="text-center mb-4">
-  <img src="CAD_box.jpg" alt="CAD of box on Fusion" class="img-fluid" style="max-width:600px;">
-  <p>Here is the first CAD model of my box.</p>
-</div>
+    <div class="content-section">
+      <h2>Parameters Used</h2>
+      <img src="parameters.jpg" alt="Parameters in Fusion">
+      <p>Here are the parameters I used.</p>
+    </div>
 
----
+    <div class="content-section">
+      <h2>Measuring Cardboard</h2>
+      <img src="cardboard.jpg" alt="Measuring Cardboard">
+      <p>Measuring the thickness of the cardboard with calipers.</p>
+    </div>
 
-## Parameters Used
-<div class="text-center mb-4">
-  <img src="parameters.jpg" alt="Parameters in Fusion" class="img-fluid" style="max-width:400px;">
-  <p>Here are the parameters I used.</p>
-</div>
+    <div class="content-section">
+      <h2>Engraving Initials</h2>
+      <img src="initials.jpg" alt="Engraving Initials">
+      <p>I engraved my initials on the box using Illustrator.</p>
+    </div>
 
----
+    <div class="content-section">
+      <h2>First Attempt</h2>
+      <img src="learn_laser.jpg" alt="Learning laser cutter">
+      <p>My first time using the laser cutter.</p>
+      <img src="waiting.jpg" alt="Waiting for cut">
+      <p>Waiting for my first version to be cut.</p>
+      <img src="boo.jpg" alt="Thumbs down">
+      <p>A misalignment mishap :(</p>
+    </div>
 
-## Measuring Cardboard
-<div class="text-center mb-4">
-  <img src="cardboard.jpg" alt="Measuring Cardboard" class="img-fluid" style="max-width:400px;">
-  <p>Measuring the thickness of the cardboard with calipers.</p>
-</div>
+    <div class="content-section">
+      <h2>The Next Day…</h2>
+      <img src="mini_box.jpg" alt="Mini Box">
+      <p>I had a scaling issue and made a mini box.</p>
+    </div>
 
----
+    <div class="content-section">
+      <h2>Third Time is the Charm 🍀</h2>
+      <img src="dino_paint.jpg" alt="Painted Dinosaur Box">
+      <p>I created a dinosaur by adding scales, head, and tail to my box. Painted it green, purple, and gold, with toilet paper roll feet and toenails.</p>
+    </div>
 
-## Engraving Initials
-<div class="text-center mb-4">
-  <img src="initials.jpg" alt="Engraving Initials" class="img-fluid" style="max-width:300px;">
-  <p>I engraved my initials on the box using Illustrator.</p>
-</div>
+    <div class="content-section">
+      <h2>Final Version</h2>
+      <img src="final_dino.jpg" alt="Final Dinosaur Box">
+      <p>Here is my final dinosaur box!</p>
+    </div>
 
----
+    <h1>Assignment Part B: Fusion Modeling 🛠️</h1>
 
-## First Attempt
-<div class="row text-center mb-4">
-  <div class="col-md-4">
-    <img src="learn_laser.jpg" alt="Learning laser cutter" class="img-fluid">
-    <p>My first time using the laser cutter.</p>
+    <div class="content-section">
+      <h2>Object 1: Mallet</h2>
+      <img src="mallet_w2.jpg" alt="3D Model of Mallet">
+      <p>Measurements below:</p>
+      <img src="mallet1.jpg" alt="Mallet measurement 1">
+      <img src="mallet2.jpg" alt="Mallet measurement 2">
+      <img src="mallet3.jpg" alt="Mallet measurement 3">
+      <img src="mallet4.jpg" alt="Mallet measurement 4">
+      <img src="mallet5.jpg" alt="Mallet measurement 5">
+    </div>
+
+    <div class="content-section">
+      <h2>Object 2: Funnel</h2>
+      <img src="funnel_w2.jpg" alt="3D Model of Funnel">
+      <p>Measurements below:</p>
+      <img src="funnel1.jpg" alt="Funnel measurement 1">
+      <img src="funnel2.jpg" alt="Funnel measurement 2">
+      <img src="funnel3.jpg" alt="Funnel measurement 3">
+      <img src="funnel4.jpg" alt="Funnel measurement 4">
+    </div>
   </div>
-  <div class="col-md-4">
-    <img src="waiting.jpg" alt="Waiting for cut" class="img-fluid">
-    <p>Waiting for my first version to be cut.</p>
-  </div>
-  <div class="col-md-4">
-    <img src="boo.jpg" alt="Thumbs down" class="img-fluid">
-    <p>A misalignment mishap :(</p>
-  </div>
-</div>
-
----
-
-## The Next Day…
-<div class="text-center mb-4">
-  <img src="mini_box.jpg" alt="Mini Box" class="img-fluid" style="max-width:400px;">
-  <p>I had a scaling issue and made a mini box.</p>
-</div>
-
----
-
-## Third Time is the Charm 🍀
-<div class="text-center mb-4">
-  <img src="dino_paint.jpg" alt="Painted Dinosaur Box" class="img-fluid" style="max-width:400px;">
-  <p>I created a dinosaur by adding scales, head, and tail to my box. Painted it green, purple, and gold, with toilet paper roll feet and toenails.</p>
-</div>
-
----
-
-## Final Version
-<div class="text-center mb-4">
-  <img src="final_dino.jpg" alt="Final Dinosaur Box" class="img-fluid" style="max-width:700px;">
-  <p>Here is my final dinosaur box!</p>
-</div>
-
----
-
-# Assignment Part B: Fusion Modeling 🛠️
-
----
-
-## Object 1: Mallet
-<div class="text-center mb-4">
-  <img src="mallet_w2.jpg" alt="3D Model of Mallet" class="img-fluid" style="max-width:600px;">
-</div>
-
-<div class="row text-center mb-4">
-  <div class="col-md-2"><img src="mallet1.jpg" class="img-fluid"><p>Measurement</p></div>
-  <div class="col-md-2"><img src="mallet2.jpg" class="img-fluid"><p>Measurement</p></div>
-  <div class="col-md-2"><img src="mallet3.jpg" class="img-fluid"><p>Measurement</p></div>
-  <div class="col-md-2"><img src="mallet4.jpg" class="img-fluid"><p>Measurement</p></div>
-  <div class="col-md-2"><img src="mallet5.jpg" class="img-fluid"><p>Measurement</p></div>
-</div>
-
----
-
-## Object 2: Funnel
-<div class="text-center mb-4">
-  <img src="funnel_w2.jpg" alt="3D Model of Funnel" class="img-fluid" style="max-width:600px;">
-</div>
-
-<div class="row text-center mb-4">
-  <div class="col-md-3"><img src="funnel1.jpg" class="img-fluid"><p>Measurement</p></div>
-  <div class="col-md-3"><img src="funnel2.jpg" class="img-fluid"><p>Measurement</p></div>
-  <div class="col-md-3"><img src="funnel3.jpg" class="img-fluid"><p>Measurement</p></div>
-  <div class="col-md-3"><img src="funnel4.jpg" class="img-fluid"><p>Measurement</p></div>
-</div>
-
----
-
-</xmp>
-
-<script src="../strapdown.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
