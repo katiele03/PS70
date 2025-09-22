@@ -9,8 +9,8 @@
     body {
       margin: 0;
       font-family: Cambria, Georgia, serif;
-      background: linear-gradient(to bottom right, #f3e8ff, #c084fc, #9333ea); /* purple gradient */
-      color: #1e1b4b;
+      background: linear-gradient(to bottom, #ecfccb, #bef264, #84cc16); /* soft lime gradient */
+      color: #1a2e05; /* dark green text for readability */
       text-align: center;
     }
     .navbar {
@@ -27,34 +27,40 @@
       padding: 0.7rem 1.5rem;
       border-radius: 9999px;
       background: white;
-      color: #6b21a8;
+      color: #3f6212;
       text-decoration: none;
       font-weight: 600;
       transition: all 0.3s ease;
     }
     .nav-btn:hover {
-      background: #e9d5ff;
-      color: #4c1d95;
+      background: #d9f99d;
+      color: #365314;
     }
     .hero-title {
       font-size: 2.5rem;
       font-weight: 700;
       margin: 2rem 0;
-      color: #4c1d95;
+      color: #365314; /* dark olive green */
     }
     h3 {
-      color: #4c1d95;
+      color: #3f6212;
       margin-top: 2rem;
     }
     ul {
       text-align: left;
       max-width: 800px;
-      margin: 0 auto;
+      margin: 0 auto 1.5rem;
+    }
+    p {
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+      text-align: left;
     }
     .container img {
-      margin-top: 1rem;
+      margin: 1.5rem auto;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      display: block;
     }
   </style>
 </head>
@@ -74,7 +80,7 @@
     <h1 class="hero-title">Final Project Idea: Booming Battle Board 🚢💥</h1>
 
     <!-- Traditional Battleship -->
-    <section class="my-5">
+    <section>
       <h3>Traditional Battleship</h3>
       <ul>
         <li>A two player game where each player has two grids in front of them:
@@ -90,13 +96,11 @@
         <li>A ship is sunk when all cells the ship lies in has been hit</li>
         <li>Players keep track of the cells that are called on the grid in front of them</li>
       </ul>
-      <div class="text-center my-3">
-        <img src="../battle.jpg" alt="Battle Example" class="img-fluid" style="max-width:600px;">
-      </div>
+      <img src="../battle.jpg" alt="Battle Example" class="img-fluid" style="max-width:600px;">
     </section>
 
     <!-- My Twist -->
-    <section class="my-5 text-center">
+    <section>
       <h3>My Twist on Battleship</h3>
       <p>
         A two-player Battleship board with LED feedback and sensors! Instead of calling out coordinates to sink a ship, you can physically tap coordinates on your grid. This causes the board to light up red for “hit” or white for “miss” with sound effects.
@@ -105,8 +109,8 @@
     </section>
 
     <!-- 3D Design -->
-    <section class="my-5">
-      <h3>3D design and fabrication (mold/cast, 3D print, lasercut, etc.)</h3>
+    <section>
+      <h3>3D Design and Fabrication (mold/cast, 3D print, lasercut, etc.)</h3>
       <ul>
         <li>Laser cutting: create grid plates with engraved coordinates and frosted tiles for LEDs</li>
         <li>3D printing: 3D print ships and encasing for board grids</li>
@@ -114,8 +118,8 @@
     </section>
 
     <!-- Electronics -->
-    <section class="my-5">
-      <h3>Electronics (input and output)</h3>
+    <section>
+      <h3>Electronics (Input and Output)</h3>
       <h5>Inputs:</h5>
       <ul>
         <li>Ship detection:
@@ -132,7 +136,7 @@
           <ul>
             <li>red = hit opponent's ship</li>
             <li>white = miss opponent's ship</li>
-            <li>green = ship is on grid (on own player's baord)</li>
+            <li>green = ship is on grid (on own player's board)</li>
           </ul>
         </li>
         <li>Sound
@@ -145,13 +149,13 @@
     </section>
 
     <!-- Microcontroller -->
-    <section class="my-5">
-      <h3>Microcontroller programming</h3>
+    <section>
+      <h3>Microcontroller Programming</h3>
       <ul>
-        <li>will be used to detect when player taps a tile</li>
-        <li>detects when a ship is present on a tile</li>
-        <li>turn on and off LEDs</li>
-        <li>play sound</li>
+        <li>Will be used to detect when player taps a tile</li>
+        <li>Detects when a ship is present on a tile</li>
+        <li>Turn on and off LEDs</li>
+        <li>Play sound</li>
       </ul>
     </section>
   </div>
