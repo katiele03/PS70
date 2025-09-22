@@ -1,82 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>PS70: Intro to Digital Fabrication</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- this page is in a subfolder, so style.css is one level up -->
+  <title>PS70: Final Project | Katie Le</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../style.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: Cambria, Georgia, serif;
+      background: linear-gradient(to bottom, #ecfccb, #bef264, #84cc16); /* soft lime gradient */
+      color: #1a2e05; /* dark green text for readability */
+      text-align: center;
+    }
+    .navbar {
+      display: flex;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .nav-btn {
+      padding: 0.7rem 1.5rem;
+      border-radius: 9999px;
+      background: white;
+      color: #3f6212;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .nav-btn:hover {
+      background: #d9f99d;
+      color: #365314;
+    }
+    .hero-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin: 2rem 0;
+      color: #365314; /* dark olive green */
+    }
+    h3 {
+      color: #3f6212;
+      margin-top: 2rem;
+    }
+    ul {
+      text-align: left;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+    }
+    p {
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+      text-align: left;
+    }
+    .container img {
+      margin: 1.5rem auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      display: block;
+    }
+  </style>
 </head>
 
 <body>
-<nav class="navbar navbar-expand-sm navbar-dark" style="color:#EEE7E8;">
-  <div class="container-fluid" style="align-items:center;justify-content:center;">
-    <div class="flexrow">
-      <h2 class="nav-title">PS70 Fall 2025</h2>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-links">
+      <a class="nav-btn" href="../index.html">Home</a>
+      <a class="nav-btn" href="../about.html">About Me</a>
+      <a class="nav-btn" href="../assignments/index.html">Assignments</a>
     </div>
-    <div class="navbar-nav">
-      <h4><a class="nav-link" href="../index.html">Home</a></h4>
-      <h4><a class="nav-link" href="../about.html">About</a></h4>
-    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container my-5">
+    <h1 class="hero-title">Final Project Idea: Booming Battle Board 🚢💥</h1>
+
+    <!-- Traditional Battleship -->
+    <section>
+      <h3>Traditional Battleship</h3>
+      <ul>
+        <li>A two player game where each player has two grids in front of them:
+          <ul>
+            <li>their own board, where their ships varying in sizes on the grid horizontally or vertically are placed and where they mark when they’ve been hit</li>
+            <li>their tracking board, where they mark the coordinates they’ve attacked their opponent</li>
+          </ul>
+        </li>
+        <li>The two players take turn “attacking” each other’s ships by picking coordinates where they think the other player has placed their ships</li>
+        <li>The objective of the game is to sink your opponent’s ships</li>
+        <li>If the ship lies in the cell/coordinate, it is a hit</li>
+        <li>If the ship does not lie in the cell/coordinate, it is a miss</li>
+        <li>A ship is sunk when all cells the ship lies in has been hit</li>
+        <li>Players keep track of the cells that are called on the grid in front of them</li>
+      </ul>
+      <img src="../battle.jpg" alt="Battle Example" class="img-fluid" style="max-width:600px;">
+    </section>
+
+    <!-- My Twist -->
+    <section>
+      <h3>My Twist on Battleship</h3>
+      <p>
+        A two-player Battleship board with LED feedback and sensors! Instead of calling out coordinates to sink a ship, you can physically tap coordinates on your grid. This causes the board to light up red for “hit” or white for “miss” with sound effects.
+      </p>
+      <img src="../ship.jpg" alt="Ship Example" class="img-fluid" style="max-width:600px;">
+    </section>
+
+    <!-- 3D Design -->
+    <section>
+      <h3>3D Design and Fabrication (mold/cast, 3D print, lasercut, etc.)</h3>
+      <ul>
+        <li>Laser cutting: create grid plates with engraved coordinates and frosted tiles for LEDs</li>
+        <li>3D printing: 3D print ships and encasing for board grids</li>
+      </ul>
+    </section>
+
+    <!-- Electronics -->
+    <section>
+      <h3>Electronics (Input and Output)</h3>
+      <h5>Inputs:</h5>
+      <ul>
+        <li>Ship detection:
+          <ul>
+            <li>Magnetic detection: embed magnets in ships and place Hall effect sensors under each tile</li>
+            <li>Conductive detection: embed conductive foil in ships so that capacitive pads under grid tiles can sense when a ship is there</li>
+          </ul>
+        </li>
+        <li>Capacitive touch grid: detects when a cell is tapped so user can attack opponent</li>
+      </ul>
+      <h5>Outputs:</h5>
+      <ul>
+        <li>RGB LEDs placed under each tile
+          <ul>
+            <li>red = hit opponent's ship</li>
+            <li>white = miss opponent's ship</li>
+            <li>green = ship is on grid (on own player's board)</li>
+          </ul>
+        </li>
+        <li>Sound
+          <ul>
+            <li>explosion/boom = hit opponent's ship</li>
+            <li>splash = miss opponent's ship</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Microcontroller -->
+    <section>
+      <h3>Microcontroller Programming</h3>
+      <ul>
+        <li>Will be used to detect when player taps a tile</li>
+        <li>Detects when a ship is present on a tile</li>
+        <li>Turn on and off LEDs</li>
+        <li>Play sound</li>
+      </ul>
+    </section>
   </div>
-</nav>
-
-<!-- Strapdown reads Markdown inside this XMP. Keep it PURE MARKDOWN. -->
-<xmp style="display:none;">
-
-# Final Project Idea: Booming Battle Board 🚢💥
-
-### Traditional Battleship
-
-- A two player game where each player has two grids in front of them:
-  - their own board, where their ships varying in sizes on the grid horizontally or vertically are placed and where they mark when they’ve been hit  
-  - their tracking board, where they mark the coordinates they’ve attacked their opponent  
-- The two players take turn “attacking” each other’s ships by picking coordinates where they think the other player has placed their ships  
-- The objective of the game is to sink your opponent’s ships  
-- If the ship lies in the cell/coordinate, it is a hit  
-- If the ship does not lie in the cell/coordinate, it is a miss  
-- A ship is sunk when all cells the ship lies in has been hit  
-- Players keep track of the cells that are called on the grid in front of them  
-
-<div style="text-align:center;">
-  <img src="../battle.jpg" alt="Battle Example" style="max-width:600px; width:100%; height:auto;">
-</div>
-
-### My Twist on Battleship 
-
-A two-player Battleship board with LED feedback and sensors! Instead of calling out coordinates to sink a ship, you can physically tap coordinates on your grid. This causes the board to light up red for “hit” or white for “miss” with sound effects.
-
-<div style="text-align:center;">
-  <img src="../ship.jpg" alt="Ship Example" style="max-width:600px; width:100%; height:auto;">
-</div>
-
-### 3D design and fabrication (mold/cast, 3D print, lasercut, etc.)
-- Laser cutting: create grid plates with engraved coordinates and frosted tiles for LEDs
-- 3D printing: 3D print ships and encasing for board grids
-
-### Electronics (input and output)
-- Inputs:
-  - Ship detection:
-    - Magnetic detection: embed magnets in ships and place Hall effect sensors under each tile
-    - Conductive detection: embed conductive foil in ships so that capacitive pads under grid tiles can sense when a ship is there
-  - Capacitive touch grid: detects when a cell is tapped so user can attack opponent 
-- Outputs:
-  - RGB LEDs placed under each tile
-    - red = hit opponent's ship
-    - white = miss opponent's ship
-    - green = ship is on grid (on own player's baord)
-  - Sound 
-    - explosion/boom = hit opponent's ship
-    - splash = miss opponent's ship
-
-### Microcontroller programming
-- will be used to detect when player taps a tile
-- detects when a ship is present on a tile 
-- turn on and off LEDs
-- play sound
-
-</xmp>
-
-<script src="../strapdown.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
