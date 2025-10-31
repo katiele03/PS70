@@ -1,41 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<title>PS70: Intro to Digital Fabrication </title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="../style.css" rel="stylesheet">
-
-
-<nav class="navbar navbar-expand-sm navbar-dark" style=" color: #EEE7E8;">
-  <div style="align-items: center; justify-content: center;" class="container-fluid">
-    <div class="flexrow">
-      <h2 class="nav-title">PS70 Fall 2024</h2>
-    </div>
-    <div class="navbar-nav">
-      <h4><a class="nav-link" href="../index.html">Home</a></h4>
-      <h4><a class="nav-link" href="../about.html">About</a></h4>
-    </div>
-  </div>
-</nav>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PS70: Week 7: Electronic Outputs</title>
+  <link href="../style.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: Cambria, Georgia, serif;
+      background: linear-gradient(to bottom, #312e81, #4338ca, #6366f1);
+      color: #f5f3ff;
+      text-align: center;
+    }
+    .navbar {
+      display: flex;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .nav-btn {
+      padding: 0.7rem 1.5rem;
+      border-radius: 9999px;
+      background: white;
+      color: #4338ca;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0 0.5rem;
+      transition: all 0.3s ease;
+    }
+    .nav-btn:hover {
+      background: #c7d2fe;
+      color: #312e81;
+    }
+    h1 {
+      margin: 2rem 0;
+      font-size: 2.2rem;
+    }
+    h2 {
+      margin-top: 2rem;
+      color: #e0e7ff;
+    }
+    .content-section {
+      margin: 2rem auto;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    img {
+      max-width: 600px;
+      width: 100%;
+      border-radius: 10px;
+      margin: 1rem 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+    p {
+      font-size: 1rem;
+      color: #e0e7ff;
+    }
+  </style>
+</head>
 
 <body>
-<xmp style="display:none;">
-<div class="textcontainer">
-<p class="margin">   </p>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../index.html" class="nav-btn">Home</a>
+    <a href="../about.html" class="nav-btn">About Me</a>
+    <a href="../assignments/index.html" class="nav-btn">Assignments</a>
+    <a href="../13_finalproject/index.html" class="nav-btn">Final Project</a>
+  </nav>
 
-<h3>Week 4: Microcontroller Programming</h3>
+  <!-- Page Content -->
+  <div class="container">
+    <h1>Week 7: Electronic Outputs</h1>
+    <h2>Assignment: Kinetic Sculpture – Ballerina Dancing to Beethoven’s Für Elise</h2>
 
-<h4>[Do Something with an arduino]</h4>
+    <div class="content-section">
+      <p>
+        For this week’s assignment, I created a different kinetic sculpture of a ballerina dancing to Beethoven's <em>Für Elise</em>.
+        I first began by creating the ballerina, designing an outline, importing the outline into Fusion 360, and creating a sketch.
+        I laser cut the DXF file and painted the ballerina.
+      </p>
+      <img src="ballerina.jpg" alt="Laser cut and painted ballerina design">
+    </div>
 
+    <div class="content-section">
+      <p>
+        Then, I 3D-printed a connector between the motor, which causes the ballerina to rotate, and the dowel, which the ballerina attaches to.
+        Here is a slice of the connector.
+      </p>
+      <img src="connect.jpg" alt="3D printed connector slice">
+    </div>
 
+    <div class="content-section">
+      <p>
+        Using the same code from last week’s kinetic sculpture assignment, I was able to get the motor to rotate continuously using an ESP32 microcontroller, a motor driver, and a motor.
+        From the ESP32 to the motor driver, I connected GPIO18 to A1-A, GPIO19 to A1-B, 5 V to VCC, and GND to GND.
+        I also connected the motor’s positive and negative wires to the motor driver.
+      </p>
+      <img src="motorcode.jpg" alt="Motor code snippet">
+    </div>
 
+    <div class="content-section">
+      <p>
+        After I got the motor to rotate, I began working on the speaker. I used an ESP32 microcontroller, a MAX98357A amplifier, and a small speaker.
+        From the amplifier to the ESP32, I connected LRC → GPIO25, BCLK → GPIO5, DIN → GPIO26, VCC → 3.3 V, GND → GND, and GAIN → GND.
+        The speaker’s positive and negative leads were connected to the amplifier terminals.
+      </p>
+      <img src="speaker.jpg" alt="Speaker and amplifier setup">
+    </div>
 
+    <div class="content-section">
+      <p>
+        I could only find Beethoven's <em>Für Elise</em> in MP3 format, but I needed it as a .h file.
+        I converted the MP3 to WAV using Audacity, changed the project rate to 48,000 Hz, set the track to Mono, and trimmed the clip to about 12 seconds.
+      </p>
+      <img src="audacity.jpg" alt="WAV file in Audacity">
+    </div>
 
-</div>
-</xmp>
+    <div class="content-section">
+      <p>
+        I then converted the WAV file to a .h file so that it could be played through the ESP32 and MAX98357A amplifier.
+        Below is part of the generated .h file.
+      </p>
+      <img src="H.jpg" alt="Part of generated .h file">
+    </div>
+
+    <div class="content-section">
+      <p>
+        I tested whether the speaker could play <em>Für Elise</em> using the test code modeled after I2S audio examples.
+      </p>
+      <img src="musiccode.jpg" alt="Music playback code snippet">
+    </div>
+
+    <div class="content-section">
+      <p>
+        After hearing the music snippet play, I combined the two code snippets so that the ballerina would rotate to the music.
+        Here is a short video of my ballerina dancing.
+      </p>
+      <video width="400" controls>
+        <source src="ballerina_dance.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <div class="content-section">
+      <h2>Circuit Schematic</h2>
+      <img src="circuit.jpg" alt="Circuit schematic of ESP32, motor driver, amplifier, and speaker">
+    </div>
+
+  </div>
 </body>
-
-<script src="../strapdown.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
-
 </html>
