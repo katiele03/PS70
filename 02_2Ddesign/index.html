@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PS70: Week 2 - 2D Design</title>
-  
+
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
   
   <!-- AOS Animation -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
   <style>
     * {
       box-sizing: border-box;
-    }
-    body {
       margin: 0;
+      padding: 0;
+    }
+
+    body {
       font-family: 'Inter', sans-serif;
       background: linear-gradient(135deg, #052e16, #064e3b, #065f46);
       color: #f0fdf4;
       scroll-behavior: smooth;
+      line-height: 1.6;
     }
 
     /* Navbar */
@@ -30,106 +33,144 @@
       width: 100%;
       display: flex;
       justify-content: center;
-      gap: 0.75rem;
-      padding: 1rem;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
       backdrop-filter: blur(10px);
-      background: rgba(6, 95, 70, 0.6);
+      background: rgba(6, 95, 70, 0.55);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       z-index: 100;
       transition: all 0.3s ease;
     }
+
     .navbar.scrolled {
       background: rgba(6, 95, 70, 0.9);
-      padding: 0.5rem;
+      padding: 0.6rem 1.2rem;
     }
+
     .nav-btn {
-      padding: 0.6rem 1.4rem;
+      padding: 0.55rem 1.2rem;
       border-radius: 9999px;
       background: #f0fdf4;
       color: #065f46;
       text-decoration: none;
       font-weight: 600;
+      letter-spacing: 0.3px;
       transition: all 0.3s ease;
+      font-size: 0.95rem;
     }
+
     .nav-btn:hover {
       background: #a7f3d0;
       color: #064e3b;
-      transform: translateY(-2px);
+      transform: translateY(-1px);
     }
 
     /* Hero */
     .hero {
       background: url('header_image.jpg') center/cover fixed;
-      padding: 8rem 1rem 5rem;
+      padding: 10rem 1rem 6rem;
       text-align: center;
       color: #f0fdf4;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.4);
-    }
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
-      margin: 0;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
-    /* Main Content */
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Main Container */
     .main {
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 20px;
-      padding: 2rem;
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 3rem;
       max-width: 900px;
-      margin: 3rem auto;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      margin: 4rem auto;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
       opacity: 0;
       animation: fadeIn 1.2s ease forwards;
     }
 
     @keyframes fadeIn {
-      to { opacity: 1; transform: none; }
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    section {
+      margin-bottom: 3.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 2rem;
+    }
+
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      color: #bbf7d0;
     }
 
     h2 {
-      font-family: 'Playfair Display', serif;
-      color: #bbf7d0;
-      margin-top: 2rem;
+      margin-bottom: 1.5rem;
+      font-size: 1.6rem;
+      font-weight: 600;
     }
 
     figure {
-      margin: 2rem auto;
       text-align: center;
+      margin: 2rem auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     img {
-      max-width: 600px;
-      width: 100%;
-      border-radius: 10px;
-      margin: 1rem 0;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      display: block;
+      margin: 0 auto;
+      max-width: 80%;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+      transition: all 0.45s ease;
     }
 
     img:hover {
-      transform: scale(1.03) rotate(0.5deg);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      transform: scale(1.025) translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
     }
 
     figcaption {
-      color: #e0f2f1;
+      margin-top: 0.7rem;
+      color: #d1fae5;
       font-size: 1rem;
+      font-style: italic;
+      max-width: 80%;
     }
 
     footer {
-      margin-top: 4rem;
-      padding: 1rem;
+      margin-top: 5rem;
+      padding: 1.5rem;
       font-size: 0.9rem;
-      color: #bbf7d0;
+      color: #a7f3d0;
       text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      letter-spacing: 0.3px;
+    }
+
+    /* Section transitions */
+    [data-aos] {
+      transform: translateY(20px);
+      opacity: 0;
+      transition-property: transform, opacity;
     }
   </style>
 </head>
 
 <body>
-
   <!-- Navbar -->
   <nav class="navbar">
     <a href="../index.html" class="nav-btn">Home</a>
@@ -145,27 +186,26 @@
 
   <!-- Main Content -->
   <div class="main">
-
     <section data-aos="fade-up">
       <h2>CAD Model</h2>
       <figure>
-        <img src="CAD_box.jpg" alt="CAD of box on Fusion">
-        <figcaption>Here is the first CAD model of my box.</figcaption>
+        <img src="CAD_box.jpg" alt="CAD of box on Fusion" />
+        <figcaption>First CAD model of my box.</figcaption>
       </figure>
     </section>
 
     <section data-aos="fade-up">
       <h2>Parameters Used</h2>
       <figure>
-        <img src="parameters.jpg" alt="Parameters in Fusion">
-        <figcaption>Parameters used in my Fusion design.</figcaption>
+        <img src="parameters.jpg" alt="Parameters in Fusion" />
+        <figcaption>Design parameters used in Fusion 360.</figcaption>
       </figure>
     </section>
 
     <section data-aos="fade-up">
       <h2>Measuring Cardboard</h2>
       <figure>
-        <img src="cardboard.jpg" alt="Measuring Cardboard">
+        <img src="cardboard.jpg" alt="Measuring Cardboard" />
         <figcaption>Measuring cardboard thickness with calipers.</figcaption>
       </figure>
     </section>
@@ -173,31 +213,31 @@
     <section data-aos="fade-up">
       <h2>Engraving Initials</h2>
       <figure>
-        <img src="initials.jpg" alt="Engraving Initials">
-        <figcaption>I engraved my initials on the box using Illustrator.</figcaption>
+        <img src="initials.jpg" alt="Engraving Initials" />
+        <figcaption>Initials engraved using Illustrator vector outlines.</figcaption>
       </figure>
     </section>
 
     <section data-aos="fade-up">
       <h2>First Attempt</h2>
       <figure>
-        <img src="learn_laser.jpg" alt="Learning laser cutter">
-        <figcaption>My first time using the laser cutter.</figcaption>
+        <img src="learn_laser.jpg" alt="Learning laser cutter" />
+        <figcaption>First time using the laser cutter.</figcaption>
       </figure>
       <figure>
-        <img src="waiting.jpg" alt="Waiting for cut">
+        <img src="waiting.jpg" alt="Waiting for cut" />
         <figcaption>Waiting for the laser cutter to finish.</figcaption>
       </figure>
       <figure>
-        <img src="boo.jpg" alt="Thumbs down">
-        <figcaption>A misalignment mishap :(</figcaption>
+        <img src="boo.jpg" alt="Thumbs down" />
+        <figcaption>A small misalignment issue :(</figcaption>
       </figure>
     </section>
 
     <section data-aos="fade-up">
       <h2>The Next Day…</h2>
       <figure>
-        <img src="mini_box.jpg" alt="Mini Box">
+        <img src="mini_box.jpg" alt="Mini Box" />
         <figcaption>A scaling issue created this mini box.</figcaption>
       </figure>
     </section>
@@ -205,9 +245,9 @@
     <section data-aos="fade-up">
       <h2>Third Time is the Charm 🍀</h2>
       <figure>
-        <img src="dino_paint.jpg" alt="Painted Dinosaur Box">
+        <img src="dino_paint.jpg" alt="Painted Dinosaur Box" />
         <figcaption>
-          I created a dinosaur box with scales, head, and tail — painted in green, purple, and gold, with toilet paper roll feet and toenails.
+          Final creative variation: a dinosaur box with sculpted scales, painted in green, purple, and gold.
         </figcaption>
       </figure>
     </section>
@@ -215,41 +255,39 @@
     <section data-aos="fade-up">
       <h2>Final Version</h2>
       <figure>
-        <img src="final_dino.jpg" alt="Final Dinosaur Box">
-        <figcaption>Here is my final dinosaur box!</figcaption>
+        <img src="final_dino.jpg" alt="Final Dinosaur Box" />
+        <figcaption>Completed dinosaur box with painted details.</figcaption>
       </figure>
     </section>
 
     <section data-aos="fade-up">
-      <h1 style="font-family:'Playfair Display', serif;">Assignment Part B: Fusion Modeling 🛠️</h1>
+      <h1 style="font-family: 'Playfair Display', serif; font-size: 2rem;">Assignment Part B: Fusion Modeling 🛠️</h1>
       <h2>Object 1: Mallet</h2>
       <figure>
-        <img src="mallet_w2.jpg" alt="3D Model of Mallet">
-        <figcaption>Measurements below:</figcaption>
+        <img src="mallet_w2.jpg" alt="3D Model of Mallet" />
+        <figcaption>3D mallet model and measured sketches below.</figcaption>
       </figure>
-      <img src="mallet1.jpg" alt="Mallet measurement 1">
-      <img src="mallet2.jpg" alt="Mallet measurement 2">
-      <img src="mallet3.jpg" alt="Mallet measurement 3">
-      <img src="mallet4.jpg" alt="Mallet measurement 4">
-      <img src="mallet5.jpg" alt="Mallet measurement 5">
+      <figure><img src="mallet1.jpg" alt="Mallet measurement 1" /></figure>
+      <figure><img src="mallet2.jpg" alt="Mallet measurement 2" /></figure>
+      <figure><img src="mallet3.jpg" alt="Mallet measurement 3" /></figure>
+      <figure><img src="mallet4.jpg" alt="Mallet measurement 4" /></figure>
+      <figure><img src="mallet5.jpg" alt="Mallet measurement 5" /></figure>
     </section>
 
     <section data-aos="fade-up">
       <h2>Object 2: Funnel</h2>
       <figure>
-        <img src="funnel_w2.jpg" alt="3D Model of Funnel">
-        <figcaption>Measurements below:</figcaption>
+        <img src="funnel_w2.jpg" alt="3D Model of Funnel" />
+        <figcaption>3D funnel model and dimensions below.</figcaption>
       </figure>
-      <img src="funnel1.jpg" alt="Funnel measurement 1">
-      <img src="funnel2.jpg" alt="Funnel measurement 2">
-      <img src="funnel3.jpg" alt="Funnel measurement 3">
-      <img src="funnel4.jpg" alt="Funnel measurement 4">
+      <figure><img src="funnel1.jpg" alt="Funnel measurement 1" /></figure>
+      <figure><img src="funnel2.jpg" alt="Funnel measurement 2" /></figure>
+      <figure><img src="funnel3.jpg" alt="Funnel measurement 3" /></figure>
+      <figure><img src="funnel4.jpg" alt="Funnel measurement 4" /></figure>
     </section>
   </div>
 
-  <footer>
-    © 2025 Katie Le | PS70: Intro to Digital Fabrication
-  </footer>
+  <footer>© 2025 Katie Le | PS70: Intro to Digital Fabrication</footer>
 
   <!-- JS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -260,6 +298,5 @@
       nav.classList.toggle('scrolled', window.scrollY > 50);
     });
   </script>
-
 </body>
 </html>
