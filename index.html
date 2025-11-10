@@ -1,46 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Katie Le | PS70 Portfolio</title>
-  <link href="style.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Fonts + Animations -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
   <style>
-    /* Button Styles */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #99f6e4, #5eead4, #2dd4bf);
+      color: #083C4A;
+      text-align: center;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #4FBDBA, #A7E9E2);
+      text-align: center;
+      padding: 120px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.2), transparent 60%);
+      animation: drift 10s infinite alternate ease-in-out;
+    }
+
+    @keyframes drift {
+      0% { transform: translate(0,0); opacity: 0.6; }
+      100% { transform: translate(20px,20px); opacity: 1; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+      color: #083C4A;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: #083C4A;
+      opacity: 0;
+      animation: fadeDown 1s ease forwards;
+    }
+
+    .hero-text {
+      font-size: 1.2rem;
+      margin: 20px auto;
+      max-width: 680px;
+      color: #052e16;
+      opacity: 0;
+      animation: fadeUp 1.2s ease forwards 0.4s;
+    }
+
+    @keyframes fadeDown {
+      from { transform: translateY(-25px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes fadeUp {
+      from { transform: translateY(25px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Button Group */
+    .hero-buttons {
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      opacity: 0;
+      animation: fadeUp 1.3s ease forwards 0.7s;
+    }
+
     .nav-btn {
-      padding: 0.7rem 1.5rem;
+      padding: 0.8rem 1.8rem;
       border-radius: 9999px;
-      background: #e0fdfa;   /* light aqua */
-      color: #065f46;        /* deep teal text */
+      background: rgba(224, 253, 250, 0.8);
+      color: #065f46;
       text-decoration: none;
       font-weight: 600;
+      border: 2px solid #0d9488;
       transition: all 0.3s ease;
-      border: 2px solid #0d9488; /* teal outline */
-      display: inline-block;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      backdrop-filter: blur(8px);
     }
+
     .nav-btn:hover {
-      background: #99f6e4;   /* brighter mint */
+      background: linear-gradient(135deg, #99f6e4, #5eead4);
       color: #083C4A;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    }
+
+    footer {
+      margin-top: 4rem;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      color: #064e3b;
+      letter-spacing: 0.3px;
+      background: linear-gradient(to top, rgba(167, 233, 226, 0.8), transparent);
     }
   </style>
 </head>
 
 <body>
   <!-- Hero Section -->
-  <header class="hero" style="background: linear-gradient(135deg, #4FBDBA, #A7E9E2); text-align:center; padding:100px 20px;">
+  <header class="hero" data-aos="fade-in">
     <div class="hero-content">
-      <h1 class="hero-title" style="font-size:3rem; font-weight:700; color:#083C4A;">Katie Le</h1>
-      <p class="hero-text" style="font-size:1.25rem; margin:20px auto; max-width:700px; color:#083C4A;">
+      <h1 class="hero-title">Katie Le</h1>
+      <p class="hero-text">
         Hi! I’m a senior at Harvard studying bioengineering on the electrical track.  
         I love working on projects involving digital fabrication, prototyping, and medical device design.
       </p>
-      <div class="hero-buttons" style="margin-top:30px; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <div class="hero-buttons">
         <a href="about.html" class="nav-btn">About Me</a>
         <a href="assignments/index.html" class="nav-btn">Assignments</a>
         <a href="13_finalproject/index.html" class="nav-btn">Final Project</a>
       </div>
     </div>
   </header>
+
+  <footer>Katie Le | Harvard University</footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+  </script>
 </body>
 </html>
