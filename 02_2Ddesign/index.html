@@ -82,6 +82,13 @@
       margin-bottom: 0.5rem;
     }
 
+    .hero p {
+      font-size: 1.05rem;
+      color: #d1fae5;
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+
     /* Main Container */
     .main {
       background: rgba(255, 255, 255, 0.06);
@@ -160,13 +167,6 @@
       border-top: 1px solid rgba(255,255,255,0.1);
       letter-spacing: 0.3px;
     }
-
-    /* Section transitions */
-    [data-aos] {
-      transform: translateY(20px);
-      opacity: 0;
-      transition-property: transform, opacity;
-    }
   </style>
 </head>
 
@@ -182,6 +182,15 @@
   <!-- Hero -->
   <header class="hero" data-aos="fade-down">
     <h1>PS70: Week 2 — 2D Design</h1>
+    <p>This song is called <strong>“Walk the Dinosaur”</strong> from one of my favorite childhood movies, <em>Ice Age</em>, which inspired my box design.</p>
+    <div data-aos="fade-up" style="display:flex; justify-content:center; margin-top:1.5rem;">
+      <iframe style="border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.4);" 
+        src="https://open.spotify.com/embed/track/3sF4ayG84hfGW9TbxU0jc7?utm_source=generator" 
+        width="80%" height="152" frameborder="0" 
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" 
+        loading="lazy">
+      </iframe>
+    </div>
   </header>
 
   <!-- Main Content -->
