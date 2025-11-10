@@ -1,66 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PS70: Week 4: Microcontroller</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../style.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PS70: Week 4 — Microcontroller</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      background: linear-gradient(to bottom, #7e244c, #a83b5e, #d16b8a);
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #641c3f, #8b2e52, #c8557a);
       color: #fff5f8;
-      font-family: Cambria, Georgia, serif;
+      scroll-behavior: smooth;
+      line-height: 1.6;
     }
-    h3, h4, p {
-      color: #ffe6ef;
-    }
-    img {
-      max-width: 600px;
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
       width: 100%;
-      border-radius: 10px;
-      margin: 1rem 0;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      backdrop-filter: blur(10px);
+      background: rgba(168, 59, 94, 0.6);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      z-index: 100;
+      transition: all 0.3s ease;
     }
-    video {
-      border-radius: 10px;
-      margin: 1rem 0;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    .navbar.scrolled { background: rgba(168, 59, 94, 0.9); padding: 0.6rem 1.2rem; }
+    .nav-btn {
+      padding: 0.55rem 1.2rem;
+      border-radius: 9999px;
+      background: #fff5f8;
+      color: #8b2e52;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
     }
-    a.nav-link:hover {
-      color: #ffd1dc !important;
+    .nav-btn:hover { background: #fbcfe8; color: #641c3f; transform: translateY(-1px); }
+
+    /* Hero */
+    .hero {
+      background: url('week4_header.jpg') center/cover fixed;
+      padding: 10rem 1rem 6rem;
+      text-align: center;
+      color: #fff0f6;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.65));
+    }
+    .hero h1 {
+      position: relative;
+      z-index: 2;
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      animation: slideIn 1.2s ease forwards;
+      opacity: 0;
+    }
+    @keyframes slideIn {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .hero p {
+      position: relative;
+      z-index: 2;
+      font-size: 1.05rem;
+      color: #ffe6ef;
+      margin-top: 0.5rem;
+      font-style: italic;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Main */
+    .main {
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 3rem;
+      max-width: 900px;
+      margin: 4rem auto;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.35);
+      opacity: 0;
+      animation: fadeIn 1.2s ease forwards;
+    }
+    @keyframes fadeIn { to { opacity: 1; transform: none; } }
+
+    h3, h4 {
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      color: #ffd1dc;
+      margin-top: 1rem;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #ffe6ef;
+      text-align: center;
+      max-width: 800px;
+      margin: 1rem auto;
+    }
+
+    img, video {
+      display: block;
+      margin: 1.5rem auto;
+      max-width: 80%;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+      transition: all 0.45s ease;
+    }
+    img:hover, video:hover {
+      transform: scale(1.02) translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.45);
+    }
+
+    footer {
+      margin-top: 5rem;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+      color: #ffd1dc;
+      text-align: center;
+      background: linear-gradient(to top, rgba(126,36,76,0.9), transparent);
+      border-top: none;
     }
   </style>
 </head>
 
-<nav class="navbar navbar-expand-sm navbar-dark" style="color: #EEE7E8;">
-  <div class="container-fluid" style="align-items: center; justify-content: center;">
-    <div class="flexrow">
-      <h2 class="nav-title">PS70 Fall 2024</h2>
-    </div>
-    <div class="navbar-nav">
-      <h4><a class="nav-link" href="../index.html">Home</a></h4>
-      <h4><a class="nav-link" href="../about.html">About</a></h4>
-    </div>
-  </div>
-</nav>
-
 <body>
-<xmp style="display:none;">
-<div class="textcontainer">
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../index.html" class="nav-btn">Home</a>
+    <a href="../about.html" class="nav-btn">About Me</a>
+    <a href="../assignments/index.html" class="nav-btn">Assignments</a>
+    <a href="../13_finalproject/index.html" class="nav-btn">Final Project</a>
+  </nav>
 
-<h3>Week 4: Microcontroller</h3>
+  <!-- Hero -->
+  <header class="hero" data-aos="fade-down">
+    <h1>PS70: Week 4 — Microcontroller</h1>
+    <p>I chose to use Für Elise by Beethoven because this song was used in a ballerina music box I had growing up.</p>
+    <div data-aos="fade-up" style="display:flex; justify-content:center; margin-top:1.5rem; position:relative; z-index:2;">
+      <iframe style="border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.4);" 
+        src="https://open.spotify.com/embed/track/1DfGPEHxTYeaJpiNA4xUb5?utm_source=generator" 
+        width="80%" height="152" frameborder="0" 
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" 
+        loading="lazy">
+      </iframe>
+    </div>
+  </header>
 
-<h4>Ballerina Dancing to Beethoven’s Für Elise</h4>
+  <!-- Main Content -->
+  <div class="main" data-aos="fade-up">
+    <h3>Week 4: Microcontroller</h3>
 
-<p>
+    <h4>Ballerina Dancing to Beethoven’s Für Elise</h4>
+
+    <p>
 For this week’s assignment, I created a different kinetic sculpture of a ballerina dancing to Beethoven's Für Elise. 
 
 I first began by creating the ballerina, designing an outline, importing the outline into Fusion 360, and creating a sketch. I laser cut the dxf file and painted the ballerina.Here is the ballerina design.
 </p>
 <img src="ballerina.jpg" alt="ballerina sketch">
-
 
 <p>
 Then, I 3D printed a connector between the motor, which will cause the ballerina to rotate, and the dowel, which the ballerina would be attached to. Here is an image of a slice of the connector.
@@ -95,21 +216,23 @@ I then tested if the speaker played Beethoven's Für Elise. Here is the code I u
 <p>
 After I heard the music snippet play, I combined the two snippets of code so that the ballerina would rotate to the music. Here is a video of my ballerina dancing.
 </p>
-
 <video width="400" controls>
-      <source src="dancing.mp4" type="video/mp4">
-    </video>
+  <source src="dancing.mp4" type="video/mp4">
+</video>
 
-<p>
-Here is a circuit schematic 
-</p>
+<p>Here is a circuit schematic </p>
 <img src="circuit.jpg" alt="circuit schematic">
+  </div>
 
-</div>
-</xmp>
+  <footer>Katie Le | Harvard University</footer>
 
-<script src="../strapdown.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.navbar');
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
 </body>
 </html>
