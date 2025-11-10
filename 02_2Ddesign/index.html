@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PS70: Week 2 - 2D Design</title>
+  <title>PS70: Week 3 - Hand Tools and Fabrication</title>
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
@@ -12,16 +12,12 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #052e16, #064e3b, #065f46);
-      color: #f0fdf4;
+      background: linear-gradient(135deg, #1e1b4b, #312e81, #4338ca);
+      color: #f5f3ff;
       scroll-behavior: smooth;
       line-height: 1.6;
     }
@@ -36,77 +32,65 @@
       gap: 1rem;
       padding: 1rem 1.5rem;
       backdrop-filter: blur(10px);
-      background: rgba(6, 95, 70, 0.55);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(67, 56, 202, 0.55);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
       z-index: 100;
       transition: all 0.3s ease;
     }
-
-    .navbar.scrolled {
-      background: rgba(6, 95, 70, 0.9);
-      padding: 0.6rem 1.2rem;
-    }
-
+    .navbar.scrolled { background: rgba(67, 56, 202, 0.85); padding: 0.6rem 1.2rem; }
     .nav-btn {
       padding: 0.55rem 1.2rem;
       border-radius: 9999px;
-      background: #f0fdf4;
-      color: #065f46;
+      background: #f5f3ff;
+      color: #4338ca;
       text-decoration: none;
       font-weight: 600;
       letter-spacing: 0.3px;
       transition: all 0.3s ease;
       font-size: 0.95rem;
     }
-
-    .nav-btn:hover {
-      background: #a7f3d0;
-      color: #064e3b;
-      transform: translateY(-1px);
-    }
+    .nav-btn:hover { background: #c7d2fe; color: #312e81; transform: translateY(-1px); }
 
     /* Hero */
     .hero {
-      background: url('header_image.jpg') center/cover fixed;
+      background: url('week3_header.jpg') center/cover fixed;
       padding: 10rem 1rem 6rem;
       text-align: center;
-      color: #f0fdf4;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+      color: #f5f3ff;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.4);
       border-bottom: 1px solid rgba(255,255,255,0.08);
       position: relative;
       overflow: hidden;
     }
-
     .hero::after {
       content: "";
       position: absolute;
       inset: 0;
       background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.65));
     }
-
     .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      letter-spacing: 0.5px;
-      margin-bottom: 0.5rem;
       position: relative;
       z-index: 2;
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
       animation: slideIn 1.2s ease forwards;
       opacity: 0;
     }
-
     @keyframes slideIn {
       from { transform: translateY(30px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
     }
 
     .hero p {
-      font-size: 1.05rem;
-      color: #d1fae5;
-      margin-top: 0.5rem;
-      font-style: italic;
       position: relative;
       z-index: 2;
+      font-size: 1.05rem;
+      color: #e0e7ff;
+      margin-top: 0.5rem;
+      font-style: italic;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     /* Main Container */
@@ -122,10 +106,7 @@
       opacity: 0;
       animation: fadeIn 1.2s ease forwards;
     }
-
-    @keyframes fadeIn {
-      to { opacity: 1; transform: none; }
-    }
+    @keyframes fadeIn { to { opacity: 1; transform: none; } }
 
     section {
       margin-bottom: 3.5rem;
@@ -134,7 +115,6 @@
       position: relative;
       padding-left: 1.5rem;
     }
-
     section::before {
       content: "";
       position: absolute;
@@ -148,22 +128,12 @@
     h1, h2 {
       font-family: 'Playfair Display', serif;
       text-align: center;
-      color: #bbf7d0;
+      color: #c7d2fe;
     }
+    h2 { margin-bottom: 1.5rem; font-size: 1.6rem; font-weight: 600; transition: 0.3s ease; }
+    h2:hover { color: #e0e7ff; letter-spacing: 0.5px; }
 
-    h2 {
-      margin-bottom: 1.5rem;
-      font-size: 1.6rem;
-      font-weight: 600;
-      transition: 0.3s ease;
-    }
-
-    h2:hover {
-      color: #a7f3d0;
-      letter-spacing: 0.5px;
-    }
-
-    figure {
+    .content-section {
       text-align: center;
       margin: 2rem auto;
       display: flex;
@@ -173,34 +143,31 @@
 
     img {
       display: block;
-      margin: 0 auto;
+      margin: 1.5rem auto;
       max-width: 80%;
       border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
       transition: all 0.45s ease;
     }
+    img:hover { transform: scale(1.02) translateY(-2px); box-shadow: 0 10px 25px rgba(0,0,0,0.45); }
 
-    img:hover {
-      transform: scale(1.025) translateY(-2px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+    video {
+      display: block;
+      margin: 1rem auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
     }
 
-    figcaption {
-      margin-top: 0.7rem;
-      color: #d1fae5;
-      font-size: 1rem;
-      font-style: italic;
-      max-width: 80%;
-    }
+    p { font-size: 1rem; color: #e0e7ff; text-align: center; max-width: 800px; margin: 0 auto; }
 
     footer {
       margin-top: 5rem;
       padding: 1.5rem;
       font-size: 0.9rem;
       letter-spacing: 0.3px;
-      color: #a7f3d0;
+      color: #c7d2fe;
       text-align: center;
-      background: linear-gradient(to top, rgba(6,95,70,0.9), transparent);
+      background: linear-gradient(to top, rgba(49,46,129,0.9), transparent);
       border-top: none;
     }
   </style>
@@ -217,11 +184,11 @@
 
   <!-- Hero -->
   <header class="hero" data-aos="fade-down">
-    <h1>PS70: Week 2 — 2D Design</h1>
-    <p>This song is called <strong>“Walk the Dinosaur”</strong> from one of my favorite childhood movies, <em>Ice Age</em>, which inspired my box design.</p>
+    <h1>PS70: Week 3 — Hand Tools and Fabrication</h1>
+    <p>When I was making a cut out of myself to be used at the center, it reminded me of Sharpay in High School Musical, another one of my favorite movies as a child. Sharpay knew she was the centered of the universe, so I chose this song by her.</p>
     <div data-aos="fade-up" style="display:flex; justify-content:center; margin-top:1.5rem; position:relative; z-index:2;">
       <iframe style="border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.4);" 
-        src="https://open.spotify.com/embed/track/3sF4ayG84hfGW9TbxU0jc7?utm_source=generator" 
+        src="https://open.spotify.com/embed/track/5sTC1imYc0QzNe3i5snLy7?utm_source=generator" 
         width="80%" height="152" frameborder="0" 
         allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" 
         loading="lazy">
@@ -231,103 +198,46 @@
 
   <!-- Main Content -->
   <div class="main">
-    <section data-aos="fade-up">
-      <h2>CAD Model</h2>
-      <figure>
-        <img src="CAD_box.jpg" alt="CAD of box on Fusion" />
-        <figcaption>First CAD model of my box.</figcaption>
-      </figure>
-    </section>
+    <h1>Creating Kinetic Sculpture</h1>
+    <div class="content-section">
+      <p>
+        For my kinetic sculpture, I wanted to create a planetary gear system with myself at the center. This idea came about during an interaction with my mom who I want to thank for providing the inspiration for my project. One Monday, I was calling my mom (as a good daughter does) and she did not answer my call. This got me thinking what could she possibly be doing. Her only occupation is being my mom (besides her actual job). She responds a few minutes later. I obviously give her a difficult time for not responding immediately. She basically said that the world does not revolve around me. Her claim got me thinking. Are you sure it doesn’t? This project is evidence that it actually does. 
+      </p>
+    </div>
 
-    <section data-aos="fade-up">
-      <h2>Parameters Used</h2>
-      <figure>
-        <img src="parameters.jpg" alt="Parameters in Fusion" />
-        <figcaption>Design parameters used in Fusion 360.</figcaption>
-      </figure>
-    </section>
+    <div class="content-section">
+      <h2>CAD Model of Sun and Planet Gears</h2>
+      <img src="sun_gear_system.jpg" alt="CAD Model of Sun and Planet Gears">
+      <p>Here is the first CAD model of my sun and planet gears with its ring. The planet gears have 32 teeth and the sun gear has 16 teeth. I projected these gears to create a sketch and export as a DXF to laser cut.</p>
+    </div>
 
-    <section data-aos="fade-up">
-      <h2>Measuring Cardboard</h2>
-      <figure>
-        <img src="cardboard.jpg" alt="Measuring Cardboard" />
-        <figcaption>Measuring cardboard thickness with calipers.</figcaption>
-      </figure>
-    </section>
+    <div class="content-section">
+      <h2>Laser Cut Sun and Planet Gears</h2>
+      <img src="week3_gears.jpg" alt="Laser Cut Sun and Planet Gears">
+      <p>Then, I laser cut each component using cardboard (imported DXF file, measured the width of the cardboard, aligned the z-axis, etc.) Unfortunately, there was friction caused by the cardboard ring which caused the gears to move in a choppy manner. However, this was enough proof of concept that I was able to re-laser cut the components out of wood. This allowed for a seamless gear system.  </p>
+    </div>
 
-    <section data-aos="fade-up">
-      <h2>Engraving Initials</h2>
-      <figure>
-        <img src="initials.jpg" alt="Engraving Initials" />
-        <figcaption>Initials engraved using Illustrator vector outlines.</figcaption>
-      </figure>
-    </section>
+    <div class="content-section">
+      <h2>Drilling Larger Holes in Center of Gears</h2>
+      <img src="week3_drill.jpg" alt="Drilling Larger Holes in Center of Gears">
+      <p>I must have measured the dowel diameter incorrectly as they did not fit in the middle of my gears. Instead of wasting wood by reprinting perfectly functioning gears, I decided to drill a hole with a slightly larger drill bit to expand the holes.   </p>
+    </div>
 
-    <section data-aos="fade-up">
-      <h2>First Attempt</h2>
-      <figure>
-        <img src="learn_laser.jpg" alt="Learning laser cutter" />
-        <figcaption>First time using the laser cutter.</figcaption>
-      </figure>
-      <figure>
-        <img src="waiting.jpg" alt="Waiting for cut" />
-        <figcaption>Waiting for the laser cutter to finish.</figcaption>
-      </figure>
-      <figure>
-        <img src="boo.jpg" alt="Thumbs down" />
-        <figcaption>A small misalignment issue :(</figcaption>
-      </figure>
-    </section>
+    <div class="content-section">
+      <h2>Painting Gears</h2>
+      <img src="week3_paint.jpg" alt="Drilling Larger Holes in Center of Gears">
+      <img src="week3_me.jpg" alt="painted components on gear">
+      <p>Then, I painted all the gears and the outer ring to add a nice pop of color. I laser cut and painted an engraved image of me which will be placed at the center (obviously) on the sun gear. I also laser cut and painted the other components that would be revolving around me on the planet gears which are the earth, saturn, and the sun.  </p>
+    </div>
 
-    <section data-aos="fade-up">
-      <h2>The Next Day…</h2>
-      <figure>
-        <img src="mini_box.jpg" alt="Mini Box" />
-        <figcaption>A scaling issue created this mini box.</figcaption>
-      </figure>
-    </section>
-
-    <section data-aos="fade-up">
-      <h2>Third Time is the Charm 🍀</h2>
-      <figure>
-        <img src="dino_paint.jpg" alt="Painted Dinosaur Box" />
-        <figcaption>Final creative variation: a dinosaur box with sculpted scales, painted in green, purple, and gold.</figcaption>
-      </figure>
-    </section>
-
-    <section data-aos="fade-up">
-      <h2>Final Version</h2>
-      <figure>
-        <img src="final_dino.jpg" alt="Final Dinosaur Box" />
-        <figcaption>Completed dinosaur box with painted details.</figcaption>
-      </figure>
-    </section>
-
-    <section data-aos="fade-up">
-      <h1 style="font-family: 'Playfair Display', serif; font-size: 2rem;">Assignment Part B: Fusion Modeling 🛠️</h1>
-      <h2>Object 1: Mallet</h2>
-      <figure>
-        <img src="mallet_w2.jpg" alt="3D Model of Mallet" />
-        <figcaption>3D mallet model and measured sketches below.</figcaption>
-      </figure>
-      <figure><img src="mallet1.jpg" alt="Mallet measurement 1" /></figure>
-      <figure><img src="mallet2.jpg" alt="Mallet measurement 2" /></figure>
-      <figure><img src="mallet3.jpg" alt="Mallet measurement 3" /></figure>
-      <figure><img src="mallet4.jpg" alt="Mallet measurement 4" /></figure>
-      <figure><img src="mallet5.jpg" alt="Mallet measurement 5" /></figure>
-    </section>
-
-    <section data-aos="fade-up">
-      <h2>Object 2: Funnel</h2>
-      <figure>
-        <img src="funnel_w2.jpg" alt="3D Model of Funnel" />
-        <figcaption>3D funnel model and dimensions below.</figcaption>
-      </figure>
-      <figure><img src="funnel1.jpg" alt="Funnel measurement 1" /></figure>
-      <figure><img src="funnel2.jpg" alt="Funnel measurement 2" /></figure>
-      <figure><img src="funnel3.jpg" alt="Funnel measurement 3" /></figure>
-      <figure><img src="funnel4.jpg" alt="Funnel measurement 4" /></figure>
-    </section>
+    <div class="content-section">
+      <h2>Gear System in Action</h2>
+      <img src="week3_final.jpg" alt="image of final product">
+      <video width="300" controls>
+        <source src="gear_system.mp4" type="video/mp4">
+      </video>
+      <p>Here is a video of my gear system with the earth, sun, and saturn revolving around me.</p>
+    </div>
   </div>
 
   <footer>Katie Le | Harvard University</footer>
