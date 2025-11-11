@@ -14,9 +14,9 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(120deg, #f0f4ff, #e0f2fe, #fdf2f8);
+      background: linear-gradient(120deg, #f9fafb, #f3f4f6, #e5e7eb);
       background-size: 400% 400%;
-      animation: gradientShift 20s ease infinite;
+      animation: subtleGradient 24s ease infinite;
       color: #1f2937;
       text-align: center;
       line-height: 1.6;
@@ -24,27 +24,28 @@
       scroll-behavior: smooth;
     }
 
-    @keyframes gradientShift {
+    @keyframes subtleGradient {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
-    /* Floating colored circles for depth */
+    /* Floating light accents */
     .bg-circle {
       position: absolute;
       border-radius: 50%;
       z-index: 0;
-      animation: drift 12s ease-in-out infinite alternate;
-      filter: blur(10px);
+      background: radial-gradient(circle, rgba(255,255,255,0.25), transparent 70%);
+      animation: floatLight 14s ease-in-out infinite alternate;
+      filter: blur(25px);
     }
-    .bg-circle.one { width: 350px; height: 350px; top: 10%; left: -100px; background: radial-gradient(circle, rgba(147,197,253,0.35), transparent 70%); }
-    .bg-circle.two { width: 250px; height: 250px; bottom: 15%; right: -60px; background: radial-gradient(circle, rgba(196,181,253,0.3), transparent 70%); animation-delay: 4s; }
-    .bg-circle.three { width: 450px; height: 450px; bottom: 45%; right: 20%; background: radial-gradient(circle, rgba(254,202,202,0.25), transparent 70%); animation-delay: 2s; }
+    .bg-circle.one { width: 400px; height: 400px; top: 5%; left: -120px; }
+    .bg-circle.two { width: 250px; height: 250px; bottom: 15%; right: -60px; animation-delay: 5s; }
+    .bg-circle.three { width: 300px; height: 300px; bottom: 40%; right: 15%; animation-delay: 2s; }
 
-    @keyframes drift {
-      0% { transform: translateY(0) scale(1); opacity: 0.5; }
-      100% { transform: translateY(25px) scale(1.05); opacity: 0.7; }
+    @keyframes floatLight {
+      0% { transform: translateY(0) scale(1); opacity: 0.4; }
+      100% { transform: translateY(25px) scale(1.05); opacity: 0.6; }
     }
 
     /* Hero Section */
@@ -62,13 +63,13 @@
     .hero-content {
       position: relative;
       z-index: 2;
-      background: rgba(255, 255, 255, 0.55);
+      background: rgba(255, 255, 255, 0.65);
       backdrop-filter: blur(20px);
       border-radius: 24px;
       padding: 3rem 2rem;
       max-width: 780px;
-      border: 1.5px solid rgba(255,255,255,0.4);
-      box-shadow: 0 12px 40px rgba(99,102,241,0.25);
+      border: 1px solid rgba(0,0,0,0.05);
+      box-shadow: 0 10px 35px rgba(0,0,0,0.1);
       animation: fadeInUp 1.2s ease-out forwards;
       opacity: 0;
     }
@@ -84,16 +85,16 @@
       inset: 0;
       border-radius: 24px;
       padding: 1px;
-      background: linear-gradient(135deg, #a5b4fc, #60a5fa, #93c5fd);
-      background-size: 200% 200%;
-      animation: borderFlow 10s linear infinite;
+      background: linear-gradient(120deg, #d1d5db, #f9fafb, #e5e7eb);
+      background-size: 300% 300%;
+      animation: shimmer 12s linear infinite;
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
       mask-composite: exclude;
       z-index: -1;
     }
 
-    @keyframes borderFlow {
+    @keyframes shimmer {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
@@ -106,13 +107,13 @@
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 1.5rem;
-      border: 3px solid #cbd5e1;
-      box-shadow: 0 6px 22px rgba(0,0,0,0.25);
-      animation: float 6s ease-in-out infinite;
+      border: 3px solid #d1d5db;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
-    @keyframes float {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
+    .profile-img:hover {
+      transform: rotate(-1.5deg) scale(1.02);
+      box-shadow: 0 8px 26px rgba(0,0,0,0.3);
     }
 
     /* Text */
@@ -120,19 +121,28 @@
       font-family: 'Playfair Display', serif;
       font-size: 3rem;
       font-weight: 700;
-      background: linear-gradient(90deg, #6366f1, #3b82f6, #0ea5e9);
+      color: #111827;
+      position: relative;
+      background: linear-gradient(90deg, #111827, #6b7280, #111827);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      position: relative;
+      background-size: 200% 200%;
+      animation: lightSweep 6s ease-in-out infinite;
+    }
+
+    @keyframes lightSweep {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .hero-title::after {
       content: "";
       display: block;
       width: 60px;
-      height: 3px;
+      height: 2.5px;
       margin: 12px auto 0;
-      background: linear-gradient(90deg, #60a5fa, #a78bfa);
+      background: linear-gradient(90deg, #9ca3af, #d1d5db);
       border-radius: 2px;
       animation: underlineGrow 1.2s ease-out forwards 0.4s;
       transform-origin: center;
@@ -170,17 +180,17 @@
       color: #1f2937;
       text-decoration: none;
       font-weight: 600;
-      border: 1.5px solid #9ca3af;
+      border: 1px solid #d1d5db;
       transition: all 0.3s ease;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
     }
 
     .nav-btn:hover {
-      background: linear-gradient(135deg, #93c5fd, #c7d2fe);
-      color: #111827;
-      border-color: transparent;
-      transform: translateY(-3px);
-      box-shadow: 0 8px 22px rgba(99,102,241,0.25);
+      background: linear-gradient(135deg, #f9fafb, #f3f4f6);
+      color: #000;
+      border-color: #9ca3af;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
     }
 
     /* Signature */
@@ -197,9 +207,9 @@
       margin-top: 2rem;
       padding: 1.5rem;
       font-size: 0.9rem;
-      color: #374151;
+      color: #6b7280;
       letter-spacing: 0.3px;
-      background: linear-gradient(to top, rgba(229,231,235,0.7), transparent);
+      background: linear-gradient(to top, rgba(243,244,246,0.8), transparent);
     }
 
     /* Mobile responsiveness */
@@ -213,7 +223,6 @@
 
 <body>
   <header class="hero" data-aos="fade-in">
-    <!-- Soft background accents -->
     <div class="bg-circle one"></div>
     <div class="bg-circle two"></div>
     <div class="bg-circle three"></div>
