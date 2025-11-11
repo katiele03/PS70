@@ -12,88 +12,92 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #052e16, #064e3b, #065f46);
-      color: #f0fdf4;
-      scroll-behavior: smooth;
-      line-height: 1.6;
-    }
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #014d4e, #027368, #00a896);
+  color: #e0fdf6;
+  scroll-behavior: smooth;
+  line-height: 1.6;
+}
 
-    /* Navbar */
-    .navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      padding: 1rem 1.5rem;
-      backdrop-filter: blur(10px);
-      background: rgba(6, 95, 70, 0.55);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      z-index: 100;
-      transition: all 0.3s ease;
-    }
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  backdrop-filter: blur(10px);
+  background: rgba(1, 115, 104, 0.55);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 100;
+  transition: all 0.3s ease;
+}
 
-    .navbar.scrolled {
-      background: rgba(6, 95, 70, 0.9);
-      padding: 0.6rem 1.2rem;
-    }
+.navbar.scrolled {
+  background: rgba(1, 115, 104, 0.9);
+  padding: 0.6rem 1.2rem;
+}
 
-    .nav-btn {
-      padding: 0.55rem 1.2rem;
-      border-radius: 9999px;
-      background: #f0fdf4;
-      color: #065f46;
-      text-decoration: none;
-      font-weight: 600;
-      letter-spacing: 0.3px;
-      transition: all 0.3s ease;
-      font-size: 0.95rem;
-    }
+.nav-btn {
+  padding: 0.55rem 1.2rem;
+  border-radius: 9999px;
+  background: #e0fdf6;
+  color: #014d4e;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
 
-    .nav-btn:hover {
-      background: #a7f3d0;
-      color: #064e3b;
-      transform: translateY(-1px);
-    }
+.nav-btn:hover {
+  background: #6fffe9;
+  color: #014d4e;
+  transform: translateY(-1px);
+}
 
-    /* Hero */
-    .hero {
-      background: url('header_image.jpg') center/cover fixed;
-      padding: 10rem 1rem 6rem;
-      text-align: center;
-      color: #f0fdf4;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      position: relative;
-      overflow: hidden;
-    }
+/* Hero */
+.hero {
+  background: url('header_image.jpg') center/cover fixed;
+  padding: 10rem 1rem 6rem;
+  text-align: center;
+  color: #e0fdf6;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  position: relative;
+  overflow: hidden;
+}
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.65));
-    }
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+}
 
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      letter-spacing: 0.5px;
-      margin-bottom: 0.5rem;
-      position: relative;
-      z-index: 2;
-      animation: slideIn 1.2s ease forwards;
-      opacity: 0;
-    }
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  color: #a7fdf2;
+}
+
+h2:hover {
+  color: #6fffe9;
+}
+
+/* Footer */
+footer {
+  margin-top: 5rem;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
+  color: #a7fdf2;
+  text-align: center;
+  background: linear-gradient(to top, rgba(1,77,78,0.9), transparent);
+}
 
     @keyframes slideIn {
       from { transform: translateY(30px); opacity: 0; }
@@ -329,7 +333,7 @@
       <figure><img src="funnel4.jpg" alt="Funnel measurement 4" /></figure>
     </section>
   </div>
-  
+
     <img src="../signature.png" 
        alt="Katie Le signature" 
        style="
