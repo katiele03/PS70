@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About Me | Katie Le</title>
+  <title>Assignments | Katie Le</title>
 
   <!-- Fonts + Animations -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -30,16 +30,16 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* Floating background glow */
+    /* Floating light accents */
     .bg-circle {
       position: absolute;
       border-radius: 50%;
       z-index: 0;
       background: radial-gradient(circle, rgba(255,255,255,0.25), transparent 70%);
       animation: floatLight 16s ease-in-out infinite alternate;
-      filter: blur(25px);
+      filter: blur(30px);
     }
-    .bg-circle.one { width: 400px; height: 400px; top: 5%; left: -120px; }
+    .bg-circle.one { width: 350px; height: 350px; top: 10%; left: -120px; }
     .bg-circle.two { width: 250px; height: 250px; bottom: 10%; right: -80px; animation-delay: 4s; }
     .bg-circle.three { width: 300px; height: 300px; top: 40%; right: 20%; animation-delay: 2s; }
 
@@ -64,6 +64,7 @@
     }
     .navbar.scrolled { background: rgba(255,255,255,0.8); padding: 0.7rem 1.2rem; }
 
+    /* Buttons */
     .hero-buttons {
       display: flex;
       justify-content: center;
@@ -89,30 +90,12 @@
       box-shadow: 0 6px 18px rgba(0,0,0,0.12);
     }
 
-    /* Main container */
-    .about-container {
-      position: relative;
-      z-index: 1;
-      max-width: 900px;
-      margin: 9rem auto 4rem;
-      padding: 3rem 2rem;
-      background: rgba(255,255,255,0.65);
-      backdrop-filter: blur(18px);
-      border-radius: 24px;
-      border: 1px solid rgba(0,0,0,0.05);
-      box-shadow: 0 10px 35px rgba(0,0,0,0.1);
-      animation: fadeInUp 1.2s ease-out forwards;
-      opacity: 0;
-    }
-
-    @keyframes fadeInUp {
-      from { transform: translateY(20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
+    /* Header */
     h1 {
       font-family: 'Playfair Display', serif;
+      margin-top: 8rem;
       font-size: 2.8rem;
+      color: #111827;
       background: linear-gradient(90deg, #111827, #6b7280, #111827);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -143,31 +126,59 @@
       to { transform: scaleX(1); }
     }
 
-    h2 {
-      font-family: 'Playfair Display', serif;
-      margin-top: 2.5rem;
-      margin-bottom: 0.75rem;
-      font-size: 1.6rem;
+    /* Grid Layout */
+    .assignment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      padding: 3rem 2rem 6rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      opacity: 0;
+      animation: fadeUp 1.3s ease forwards 0.6s;
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Cards */
+    .project-card {
+      background: rgba(255,255,255,0.7);
+      border-radius: 20px;
+      padding: 2rem 1.2rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      cursor: pointer;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      font-weight: 600;
+      letter-spacing: 0.3px;
       color: #111827;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.05);
+      backdrop-filter: blur(8px);
     }
 
-    p {
-      max-width: 700px;
-      margin: 0.6rem auto;
-      color: #374151;
-      font-size: 1rem;
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+      background: linear-gradient(135deg, rgba(255,255,255,0.85), rgba(243,244,246,0.9));
     }
 
-    em { color: #4b5563; }
-
-    .about-img, .about-video {
-      max-width: 650px;
-      width: 100%;
-      border-radius: 16px;
-      margin: 1rem 0;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    .project-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(17,24,39,0.05), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
+    .project-card:hover::before { opacity: 1; }
 
+    /* Footer */
     footer {
       padding: 1.5rem;
       font-size: 0.9rem;
@@ -178,14 +189,16 @@
       z-index: 2;
     }
 
+    /* Mobile */
     @media (max-width: 600px) {
-      h1 { font-size: 2.2rem; }
-      .about-container { padding: 2rem 1.2rem; }
+      h1 { font-size: 2.2rem; margin-top: 7rem; }
+      .assignment-grid { padding: 2rem 1rem 5rem; }
     }
   </style>
 </head>
 
 <body>
+  <!-- Floating Background Elements -->
   <div class="bg-circle one"></div>
   <div class="bg-circle two"></div>
   <div class="bg-circle three"></div>
@@ -193,53 +206,36 @@
   <!-- Navbar -->
   <nav class="navbar">
     <div class="hero-buttons">
-      <a href="index.html" class="nav-btn">Home</a>
-      <a href="assignments/index.html" class="nav-btn">Assignments</a>
-      <a href="13_finalproject/index.html" class="nav-btn">Final Project</a>
+      <a href="../index.html" class="nav-btn">Home</a>
+      <a href="../about.html" class="nav-btn">About Me</a>
+      <a href="../13_finalproject/index.html" class="nav-btn">Final Project</a>
     </div>
   </nav>
 
-  <!-- About Section -->
-  <main class="about-container" data-aos="zoom-in">
-    <h1>About Me ✨</h1>
+  <!-- Main Content -->
+  <main>
+    <h1>Assignments</h1>
 
-    <div data-aos="fade-up">
-      <img src="FDOC.jpg" alt="Friends on Widener steps" class="about-img" />
-      <p><em>Here is a picture of my friends and I (in the middle) on Widener steps celebrating our last first day of classes.</em></p>
-    </div>
-
-    <p>
-      Hi! Thanks for visiting my website. My name is <strong>Katie Le</strong> and I am a senior at Harvard studying
-      <strong>Bioengineering (Electrical track)</strong>.  
-      <br>- Interested in medical devices + biotech  
-      <br>- From Columbus, Ohio → huge OSU fan (Go Bucks!) 🏈  
-      <br>- Love traveling (20+ countries), hanging with friends, and walking my dog Lucky (aka the Luckster) 🐶  
-    </p>
-
-    <div data-aos="fade-up">
-      <h2>The Luckster 🍀</h2>
-      <img src="dog.jpg" alt="Katie's dog Lucky" class="about-img" />
-      <p>Lucky is a Cavachon (Cavalier + Bichon Frise). He’s super loyal and follows anyone with food.</p>
-    </div>
-
-    <div data-aos="fade-up">
-      <h2>Travel ✈️</h2>
-      <img src="uae.jpg" alt="Abu Dhabi mosque" class="about-img" />
-      <p>One of my favorite activities this summer was exploring mosques in Abu Dhabi — breathtakingly beautiful.</p>
-
-      <img src="greece.jpg" alt="Greece research" class="about-img" />
-      <p>I had the amazing opportunity to conduct research in Greece during my junior year. This is me at the Acropolis.</p>
-
-      <video class="about-video" controls>
-        <source src="viet.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <p>One of my favorite countries to visit is Vietnam 🇻🇳. Here is the Golden Hand Bridge in Bà Nà Hills.</p>
+    <div class="assignment-grid">
+      <div class="project-card" onclick="location.href='../01_intro/index.html'">Week 1: Intro</div>
+      <div class="project-card" onclick="location.href='../02_2Ddesign/index.html'">Week 2: 2D Design</div>
+      <div class="project-card" onclick="location.href='../03_fabrication/index.html'">Week 3: Fabrication</div>
+      <div class="project-card" onclick="location.href='../04_microcontroller/index.html'">Week 4: Microcontrollers</div>
+      <div class="project-card" onclick="location.href='../05_3Ddesign/index.html'">Week 5: 3D Design</div>
+      <div class="project-card" onclick="location.href='../06_inputs/index.html'">Week 6: Inputs</div>
+      <div class="project-card" onclick="location.href='../07_outputs/index.html'">Week 7: Outputs</div>
+      <div class="project-card" onclick="location.href='../08_cnc/index.html'">Week 8: CNC</div>
+      <div class="project-card" onclick="location.href='../09_networking/index.html'">Week 9: Networking</div>
+      <div class="project-card" onclick="location.href='../10_machine/index.html'">Week 10: Machine Building</div>
+      <div class="project-card" onclick="location.href='../11_unknown/index.html'">Week 11</div>
+      <div class="project-card" onclick="location.href='../12_unknown/index.html'">Week 12</div>
+      <div class="project-card" onclick="location.href='../13_finalproject/index.html'">Final Project</div>
     </div>
   </main>
 
   <footer>Katie Le | Harvard University</footer>
 
+  <!-- Animation Script -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 800, once: true });
