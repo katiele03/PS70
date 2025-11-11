@@ -7,10 +7,16 @@
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  
+  <!-- AOS Animation -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -35,7 +41,12 @@
       z-index: 100;
       transition: all 0.3s ease;
     }
-    .navbar.scrolled { background: rgba(6, 95, 70, 0.9); padding: 0.6rem 1.2rem; }
+
+    .navbar.scrolled {
+      background: rgba(6, 95, 70, 0.9);
+      padding: 0.6rem 1.2rem;
+    }
+
     .nav-btn {
       padding: 0.55rem 1.2rem;
       border-radius: 9999px;
@@ -47,7 +58,12 @@
       transition: all 0.3s ease;
       font-size: 0.95rem;
     }
-    .nav-btn:hover { background: #a7f3d0; color: #064e3b; transform: translateY(-1px); }
+
+    .nav-btn:hover {
+      background: #a7f3d0;
+      color: #064e3b;
+      transform: translateY(-1px);
+    }
 
     /* Hero */
     .hero {
@@ -58,13 +74,16 @@
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
       border-bottom: 1px solid rgba(255,255,255,0.08);
       position: relative;
+      overflow: hidden;
     }
+
     .hero::after {
       content: "";
       position: absolute;
       inset: 0;
       background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.65));
     }
+
     .hero h1 {
       font-family: 'Playfair Display', serif;
       font-size: 3rem;
@@ -75,6 +94,12 @@
       animation: slideIn 1.2s ease forwards;
       opacity: 0;
     }
+
+    @keyframes slideIn {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
     .hero p {
       font-size: 1.05rem;
       color: #d1fae5;
@@ -83,12 +108,12 @@
       position: relative;
       z-index: 2;
     }
-    @keyframes slideIn { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
     /* Main Container */
     .main {
       background: rgba(255, 255, 255, 0.06);
       backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 16px;
       padding: 3rem;
       max-width: 900px;
@@ -97,7 +122,10 @@
       opacity: 0;
       animation: fadeIn 1.2s ease forwards;
     }
-    @keyframes fadeIn { to { opacity: 1; transform: none; } }
+
+    @keyframes fadeIn {
+      to { opacity: 1; transform: none; }
+    }
 
     section {
       margin-bottom: 3.5rem;
@@ -107,9 +135,33 @@
       padding-left: 1.5rem;
     }
 
-    h1, h2 { font-family: 'Playfair Display', serif; text-align: center; color: #bbf7d0; }
-    h2 { margin-bottom: 1.5rem; font-size: 1.6rem; font-weight: 600; transition: 0.3s ease; }
-    h2:hover { color: #a7f3d0; letter-spacing: 0.5px; }
+    section::before {
+      content: "";
+      position: absolute;
+      left: 0.5rem;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: rgba(255,255,255,0.15);
+    }
+
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      color: #bbf7d0;
+    }
+
+    h2 {
+      margin-bottom: 1.5rem;
+      font-size: 1.6rem;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    h2:hover {
+      color: #a7f3d0;
+      letter-spacing: 0.5px;
+    }
 
     figure {
       text-align: center;
@@ -119,82 +171,43 @@
       align-items: center;
     }
 
-    /* === SIZE ADJUSTMENTS ONLY === */
     img {
       display: block;
       margin: 0 auto;
-      max-width: 90%;
+      max-width: 80%;
       border-radius: 12px;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
       transition: all 0.45s ease;
     }
-    img:hover { transform: scale(1.025) translateY(-2px); }
 
-    /* slightly smaller individual photos */
-    img[alt*="Measuring Cardboard"],
-    img[alt*="Engraving Initials"] {
-      max-width: 75%;
+    img:hover {
+      transform: scale(1.025) translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
     }
 
-    /* misalignment image smaller and centered */
-    img[alt*="Thumbs down"] {
-      max-width: 45%;
-      margin-top: 1rem;
-    }
-
-    /* third time charm smaller */
-    img[alt*="Painted Dinosaur Box"] {
-      max-width: 75%;
-    }
-
-    /* mallet + funnel hero images smaller */
-    img[alt*="3D Model of Mallet"],
-    img[alt*="3D Model of Funnel"] {
+    figcaption {
+      margin-top: 0.7rem;
+      color: #d1fae5;
+      font-size: 1rem;
+      font-style: italic;
       max-width: 80%;
     }
 
-    /* make measurement photos uniform rows */
-    img[alt*="Mallet measurement"],
-    img[alt*="Funnel measurement"] {
-      max-width: 20%;
-      margin: 0.5rem;
-      display: inline-block;
-      vertical-align: middle;
-    }
-
-    figcaption { margin-top: 0.7rem; color: #d1fae5; font-size: 1rem; font-style: italic; max-width: 80%; }
-
-    /* Image Grid */
-    .image-grid {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-    .image-grid img { max-width: 100%; border-radius: 10px; }
-
-    /* Signature */
-    .signature {
-      display: block;
-      margin: 3rem auto 1rem;
-      max-width: 260px;
-      opacity: 0.95;
-      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
-    }
-
     footer {
-      margin-top: 2rem;
+      margin-top: 5rem;
       padding: 1.5rem;
       font-size: 0.9rem;
+      letter-spacing: 0.3px;
       color: #a7f3d0;
       text-align: center;
       background: linear-gradient(to top, rgba(6,95,70,0.9), transparent);
+      border-top: none;
     }
   </style>
 </head>
 
 <body>
+  <!-- Navbar -->
   <nav class="navbar">
     <a href="../index.html" class="nav-btn">Home</a>
     <a href="../about.html" class="nav-btn">About Me</a>
@@ -202,6 +215,7 @@
     <a href="../13_finalproject/index.html" class="nav-btn">Final Project</a>
   </nav>
 
+  <!-- Hero -->
   <header class="hero" data-aos="fade-down">
     <h1>PS70: Week 2 — 2D Design</h1>
     <p>This song is called <strong>“Walk the Dinosaur”</strong> from one of my favorite childhood movies, <em>Ice Age</em>, which inspired my box design.</p>
@@ -210,29 +224,115 @@
         src="https://open.spotify.com/embed/track/3sF4ayG84hfGW9TbxU0jc7?utm_source=generator" 
         width="80%" height="152" frameborder="0" 
         allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" 
-        loading="lazy"></iframe>
+        loading="lazy">
+      </iframe>
     </div>
   </header>
 
+  <!-- Main Content -->
   <div class="main">
-    <!-- everything else stays exactly as-is -->
+    <section data-aos="fade-up">
+      <h2>CAD Model</h2>
+      <figure>
+        <img src="CAD_box.jpg" alt="CAD of box on Fusion" />
+        <figcaption>First CAD model of my box.</figcaption>
+      </figure>
+    </section>
+
+    <section data-aos="fade-up">
+      <h2>Parameters Used</h2>
+      <figure>
+        <img src="parameters.jpg" alt="Parameters in Fusion" />
+        <figcaption>Design parameters used in Fusion 360.</figcaption>
+      </figure>
+    </section>
+
+    <section data-aos="fade-up">
+      <h2>Measuring Cardboard</h2>
+      <figure>
+        <img src="cardboard.jpg" alt="Measuring Cardboard" />
+        <figcaption>Measuring cardboard thickness with calipers.</figcaption>
+      </figure>
+    </section>
+
+    <section data-aos="fade-up">
+      <h2>Engraving Initials</h2>
+      <figure>
+        <img src="initials.jpg" alt="Engraving Initials" />
+        <figcaption>Initials engraved using Illustrator vector outlines.</figcaption>
+      </figure>
+    </section>
+
     <section data-aos="fade-up">
       <h2>First Attempt</h2>
-      <div class="image-grid">
-        <figure><img src="learn_laser.jpg" alt="Learning laser cutter" /><figcaption>First time using the laser cutter.</figcaption></figure>
-        <figure><img src="waiting.jpg" alt="Waiting for cut" /><figcaption>Waiting for the laser cutter to finish.</figcaption></figure>
-      </div>
+      <figure>
+        <img src="learn_laser.jpg" alt="Learning laser cutter" />
+        <figcaption>First time using the laser cutter.</figcaption>
+      </figure>
+      <figure>
+        <img src="waiting.jpg" alt="Waiting for cut" />
+        <figcaption>Waiting for the laser cutter to finish.</figcaption>
+      </figure>
       <figure>
         <img src="boo.jpg" alt="Thumbs down" />
         <figcaption>A small misalignment issue :(</figcaption>
       </figure>
     </section>
 
-    <img src="signature.png" alt="Katie Le signature" class="signature" />
+    <section data-aos="fade-up">
+      <h2>The Next Day…</h2>
+      <figure>
+        <img src="mini_box.jpg" alt="Mini Box" />
+        <figcaption>A scaling issue created this mini box.</figcaption>
+      </figure>
+    </section>
+
+    <section data-aos="fade-up">
+      <h2>Third Time is the Charm 🍀</h2>
+      <figure>
+        <img src="dino_paint.jpg" alt="Painted Dinosaur Box" />
+        <figcaption>Final creative variation: a dinosaur box with sculpted scales, painted in green, purple, and gold.</figcaption>
+      </figure>
+    </section>
+
+    <section data-aos="fade-up">
+      <h2>Final Version</h2>
+      <figure>
+        <img src="final_dino.jpg" alt="Final Dinosaur Box" />
+        <figcaption>Completed dinosaur box with painted details.</figcaption>
+      </figure>
+    </section>
+
+    <section data-aos="fade-up">
+      <h1 style="font-family: 'Playfair Display', serif; font-size: 2rem;">Assignment Part B: Fusion Modeling 🛠️</h1>
+      <h2>Object 1: Mallet</h2>
+      <figure>
+        <img src="mallet_w2.jpg" alt="3D Model of Mallet" />
+        <figcaption>3D mallet model and measured sketches below.</figcaption>
+      </figure>
+      <figure><img src="mallet1.jpg" alt="Mallet measurement 1" /></figure>
+      <figure><img src="mallet2.jpg" alt="Mallet measurement 2" /></figure>
+      <figure><img src="mallet3.jpg" alt="Mallet measurement 3" /></figure>
+      <figure><img src="mallet4.jpg" alt="Mallet measurement 4" /></figure>
+      <figure><img src="mallet5.jpg" alt="Mallet measurement 5" /></figure>
+    </section>
+
+    <section data-aos="fade-up">
+      <h2>Object 2: Funnel</h2>
+      <figure>
+        <img src="funnel_w2.jpg" alt="3D Model of Funnel" />
+        <figcaption>3D funnel model and dimensions below.</figcaption>
+      </figure>
+      <figure><img src="funnel1.jpg" alt="Funnel measurement 1" /></figure>
+      <figure><img src="funnel2.jpg" alt="Funnel measurement 2" /></figure>
+      <figure><img src="funnel3.jpg" alt="Funnel measurement 3" /></figure>
+      <figure><img src="funnel4.jpg" alt="Funnel measurement 4" /></figure>
+    </section>
   </div>
 
   <footer>Katie Le | Harvard University</footer>
 
+  <!-- JS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 800, once: true });
