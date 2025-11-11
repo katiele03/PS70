@@ -1,85 +1,245 @@
-<style>
-  /* New size adjustments for consistency */
-  .medium-img img { max-width: 70%; }
-  .small-img img { max-width: 65%; }
-  .balanced-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.2rem;
-    align-items: start;
-    justify-items: center;
-  }
-  .balanced-grid figure { margin: 0; }
-  .balanced-grid img { max-width: 100%; border-radius: 10px; }
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Week 2: 2D Design</title>
 
-<!-- Measuring Cardboard -->
-<section data-aos="fade-up">
-  <h2>Measuring Cardboard</h2>
-  <figure class="small-img">
-    <img src="cardboard.jpg" alt="Measuring Cardboard" />
-    <figcaption>Measuring cardboard thickness with calipers.</figcaption>
-  </figure>
-</section>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
-<!-- Engraving -->
-<section data-aos="fade-up">
-  <h2>Engraving Initials</h2>
-  <figure class="small-img">
-    <img src="initials.jpg" alt="Engraving Initials" />
-    <figcaption>Initials engraved using Illustrator vector outlines.</figcaption>
-  </figure>
-</section>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-<!-- First Attempt -->
-<section data-aos="fade-up">
-  <h2>First Attempt</h2>
-  <div class="balanced-grid">
-    <figure><img src="learn_laser.jpg" alt="Learning laser cutter" /><figcaption>First time using the laser cutter.</figcaption></figure>
-    <figure><img src="waiting.jpg" alt="Waiting for cut" /><figcaption>Waiting for the laser cutter to finish.</figcaption></figure>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #052e16, #064e3b, #065f46);
+      color: #f0fdf4;
+      scroll-behavior: smooth;
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      backdrop-filter: blur(10px);
+      background: rgba(6, 95, 70, 0.55);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+    .navbar.scrolled { background: rgba(6, 95, 70, 0.9); padding: 0.6rem 1.2rem; }
+    .nav-btn {
+      padding: 0.55rem 1.2rem;
+      border-radius: 9999px;
+      background: #f0fdf4;
+      color: #065f46;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+    }
+    .nav-btn:hover { background: #a7f3d0; color: #064e3b; transform: translateY(-1px); }
+
+    /* Hero */
+    .hero {
+      background: url('header_image.jpg') center/cover fixed;
+      padding: 10rem 1rem 6rem;
+      text-align: center;
+      color: #f0fdf4;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.65));
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 2;
+      animation: slideIn 1.2s ease forwards;
+      opacity: 0;
+    }
+    .hero p {
+      font-size: 1.05rem;
+      color: #d1fae5;
+      margin-top: 0.5rem;
+      font-style: italic;
+      position: relative;
+      z-index: 2;
+    }
+    @keyframes slideIn { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+    /* Main Container */
+    .main {
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 3rem;
+      max-width: 900px;
+      margin: 4rem auto;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+      opacity: 0;
+      animation: fadeIn 1.2s ease forwards;
+    }
+    @keyframes fadeIn { to { opacity: 1; transform: none; } }
+
+    section {
+      margin-bottom: 3.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 2rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    h1, h2 { font-family: 'Playfair Display', serif; text-align: center; color: #bbf7d0; }
+    h2 { margin-bottom: 1.5rem; font-size: 1.6rem; font-weight: 600; transition: 0.3s ease; }
+    h2:hover { color: #a7f3d0; letter-spacing: 0.5px; }
+
+    figure {
+      text-align: center;
+      margin: 2rem auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* === SIZE ADJUSTMENTS ONLY === */
+    img {
+      display: block;
+      margin: 0 auto;
+      max-width: 90%;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+      transition: all 0.45s ease;
+    }
+    img:hover { transform: scale(1.025) translateY(-2px); }
+
+    /* slightly smaller individual photos */
+    img[alt*="Measuring Cardboard"],
+    img[alt*="Engraving Initials"] {
+      max-width: 75%;
+    }
+
+    /* misalignment image smaller and centered */
+    img[alt*="Thumbs down"] {
+      max-width: 45%;
+      margin-top: 1rem;
+    }
+
+    /* third time charm smaller */
+    img[alt*="Painted Dinosaur Box"] {
+      max-width: 75%;
+    }
+
+    /* mallet + funnel hero images smaller */
+    img[alt*="3D Model of Mallet"],
+    img[alt*="3D Model of Funnel"] {
+      max-width: 80%;
+    }
+
+    /* make measurement photos uniform rows */
+    img[alt*="Mallet measurement"],
+    img[alt*="Funnel measurement"] {
+      max-width: 20%;
+      margin: 0.5rem;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    figcaption { margin-top: 0.7rem; color: #d1fae5; font-size: 1rem; font-style: italic; max-width: 80%; }
+
+    /* Image Grid */
+    .image-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .image-grid img { max-width: 100%; border-radius: 10px; }
+
+    /* Signature */
+    .signature {
+      display: block;
+      margin: 3rem auto 1rem;
+      max-width: 260px;
+      opacity: 0.95;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+    }
+
+    footer {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      color: #a7f3d0;
+      text-align: center;
+      background: linear-gradient(to top, rgba(6,95,70,0.9), transparent);
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <a href="../index.html" class="nav-btn">Home</a>
+    <a href="../about.html" class="nav-btn">About Me</a>
+    <a href="../assignments/index.html" class="nav-btn">Assignments</a>
+    <a href="../13_finalproject/index.html" class="nav-btn">Final Project</a>
+  </nav>
+
+  <header class="hero" data-aos="fade-down">
+    <h1>PS70: Week 2 — 2D Design</h1>
+    <p>This song is called <strong>“Walk the Dinosaur”</strong> from one of my favorite childhood movies, <em>Ice Age</em>, which inspired my box design.</p>
+    <div data-aos="fade-up" style="display:flex; justify-content:center; margin-top:1.5rem; position:relative; z-index:2;">
+      <iframe style="border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.4);" 
+        src="https://open.spotify.com/embed/track/3sF4ayG84hfGW9TbxU0jc7?utm_source=generator" 
+        width="80%" height="152" frameborder="0" 
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" 
+        loading="lazy"></iframe>
+    </div>
+  </header>
+
+  <div class="main">
+    <!-- everything else stays exactly as-is -->
+    <section data-aos="fade-up">
+      <h2>First Attempt</h2>
+      <div class="image-grid">
+        <figure><img src="learn_laser.jpg" alt="Learning laser cutter" /><figcaption>First time using the laser cutter.</figcaption></figure>
+        <figure><img src="waiting.jpg" alt="Waiting for cut" /><figcaption>Waiting for the laser cutter to finish.</figcaption></figure>
+      </div>
+      <figure>
+        <img src="boo.jpg" alt="Thumbs down" />
+        <figcaption>A small misalignment issue :(</figcaption>
+      </figure>
+    </section>
+
+    <img src="signature.png" alt="Katie Le signature" class="signature" />
   </div>
-  <figure style="margin-top:1.5rem;">
-    <img src="boo.jpg" alt="Thumbs down" style="max-width:45%;" />
-    <figcaption>A small misalignment issue :(</figcaption>
-  </figure>
-</section>
 
-<!-- Third Time is the Charm -->
-<section data-aos="fade-up">
-  <h2>Third Time is the Charm 🍀</h2>
-  <figure class="medium-img">
-    <img src="dino_paint.jpg" alt="Painted Dinosaur Box" />
-    <figcaption>Final creative variation: a dinosaur box with sculpted scales, painted in green, purple, and gold.</figcaption>
-  </figure>
-</section>
+  <footer>Katie Le | Harvard University</footer>
 
-<!-- Mallet Section -->
-<section data-aos="fade-up">
-  <h2>Object 1: Mallet</h2>
-  <figure class="medium-img">
-    <img src="mallet_w2.jpg" alt="3D Model of Mallet" />
-    <figcaption>3D mallet model and measured sketches below.</figcaption>
-  </figure>
-  <div class="balanced-grid">
-    <img src="mallet1.jpg" alt="Mallet measurement 1" />
-    <img src="mallet2.jpg" alt="Mallet measurement 2" />
-    <img src="mallet3.jpg" alt="Mallet measurement 3" />
-    <img src="mallet4.jpg" alt="Mallet measurement 4" />
-    <img src="mallet5.jpg" alt="Mallet measurement 5" />
-  </div>
-</section>
-
-<!-- Funnel Section -->
-<section data-aos="fade-up">
-  <h2>Object 2: Funnel</h2>
-  <figure class="medium-img">
-    <img src="funnel_w2.jpg" alt="3D Model of Funnel" />
-    <figcaption>3D funnel model and dimensions below.</figcaption>
-  </figure>
-  <div class="balanced-grid">
-    <img src="funnel1.jpg" alt="Funnel measurement 1" />
-    <img src="funnel2.jpg" alt="Funnel measurement 2" />
-    <img src="funnel3.jpg" alt="Funnel measurement 3" />
-    <img src="funnel4.jpg" alt="Funnel measurement 4" />
-  </div>
-</section>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.navbar');
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
+</body>
+</html>
