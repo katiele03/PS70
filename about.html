@@ -4,66 +4,197 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Me | Katie Le</title>
+
   <link href="style.css" rel="stylesheet">
+  <!-- Fonts + AOS to match other pages -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      margin: 0;
-      font-family: Cambria, Georgia, serif;
-      background: linear-gradient(to bottom, #f3e8ff, #e9d5ff, #d8b4fe); /* purple gradient */
-      color: #6b21a8; /* deep purple text */
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #b3e5f0, #d6eef5, #f5fbfd);
+      background-size: 400% 400%;
+      animation: subtleGradient 24s ease infinite;
+      color: #1f2937;
       text-align: center;
+      line-height: 1.6;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
     }
 
-    h1, h2, h3, p {
-      color: #6b21a8; /* make all headers + text purple */
+    @keyframes subtleGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
+    /* Floating light accents (match assignments vibe) */
+    .bg-circle {
+      position: absolute;
+      border-radius: 50%;
+      z-index: 0;
+      background: radial-gradient(circle, rgba(255,255,255,0.25), transparent 70%);
+      animation: floatLight 16s ease-in-out infinite alternate;
+      filter: blur(30px);
+    }
+    .bg-circle.one { width: 350px; height: 350px; top: 8%; left: -120px; }
+    .bg-circle.two { width: 260px; height: 260px; bottom: 12%; right: -80px; animation-delay: 4s; }
+    .bg-circle.three { width: 300px; height: 300px; top: 40%; right: 18%; animation-delay: 2s; }
+
+    @keyframes floatLight {
+      0% { transform: translateY(0) scale(1); opacity: 0.4; }
+      100% { transform: translateY(25px) scale(1.05); opacity: 0.6; }
+    }
+
+    /* Navbar buttons (match assignments) */
     .hero-buttons {
+      position: fixed;
+      top: 0;
+      width: 100%;
       display: flex;
       justify-content: center;
       gap: 1rem;
       flex-wrap: wrap;
-      margin: 1.5rem 0;
+      padding: 1rem 1.5rem;
+      background: rgba(44, 95, 119, 0.55);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+
+    .hero-buttons.scrolled {
+      background: rgba(44, 95, 119, 0.85);
+      padding: 0.7rem 1.2rem;
     }
 
     .nav-btn {
       padding: 0.7rem 1.5rem;
       border-radius: 9999px;
-      background: linear-gradient(135deg, #a855f7, #9333ea); /* purple buttons */
-      color: white;
+      background: #e6f4fa;
+      color: #1e4960;
       text-decoration: none;
       font-weight: 600;
+      border: 1.5px solid #b3d8e6;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.05);
       transition: all 0.3s ease;
+      font-size: 0.95rem;
     }
 
     .nav-btn:hover {
-      background: linear-gradient(135deg, #7e22ce, #6b21a8);
+      background: linear-gradient(135deg, #d9f0f8, #b8e2f2);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+    }
+
+    /* About container as a glassy card */
+    .about-outer {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 7rem 1.5rem 3rem;
+      position: relative;
+      z-index: 1;
     }
 
     .about-container {
-      max-width: 800px;
+      max-width: 900px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(18px);
+      border-radius: 24px;
+      padding: 2.5rem 2rem 3rem;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+      border: 1px solid rgba(44,95,119,0.12);
       margin: 0 auto;
-      padding: 2rem;
+    }
+
+    h1, h2, h3, p {
+      color: #1f2937;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(90deg, #2c5f77, #5e8da7, #2c5f77);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% 200%;
+      animation: lightSweep 10s ease-in-out infinite;
+    }
+
+    @keyframes lightSweep {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 2.5px;
+      margin: 10px auto 0;
+      background: linear-gradient(90deg, #99c4d6, #b8e2f2);
+      border-radius: 2px;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+      font-size: 1.6rem;
+      color: #26465b;
     }
 
     .about-img {
-      max-width: 600px;
+      max-width: 650px;
       width: 100%;
-      border-radius: 12px;
+      border-radius: 16px;
       margin: 1rem 0;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
     }
 
     .about-video {
-      max-width: 600px;
+      max-width: 650px;
       width: 100%;
       margin: 1rem 0;
-      border-radius: 12px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    }
+
+    p {
+      font-size: 1rem;
+      margin: 0.5rem 0 0.5rem;
+    }
+
+    em {
+      color: #4b5563;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 600px) {
+      .about-container {
+        padding: 2rem 1.4rem 2.5rem;
+      }
+      h1 { font-size: 2.1rem; }
+      h2 { font-size: 1.4rem; }
     }
   </style>
 </head>
 
 <body>
-  <!-- Pretty buttons navbar -->
+  <!-- Floating background circles -->
+  <div class="bg-circle one"></div>
+  <div class="bg-circle two"></div>
+  <div class="bg-circle three"></div>
+
+  <!-- Navbar buttons -->
   <div class="hero-buttons">
     <a href="index.html" class="nav-btn">Home</a>
     <a href="assignments/index.html" class="nav-btn">Assignments</a>
@@ -71,46 +202,57 @@
   </div>
 
   <!-- About Content -->
-  <main class="about-container">
-    <h1>About Me ✨</h1>
+  <div class="about-outer">
+    <main class="about-container" data-aos="zoom-in">
+      <h1>About Me ✨</h1>
 
-    <!-- Friends -->
-    <div>
-      <img src="FDOC.jpg" alt="Friends on Widener steps" class="about-img">
-      <p><em>Here is a picture of my friends and I (in the middle) on Widener steps celebrating our last first day of classes.</em></p>
-    </div>
+      <!-- Friends -->
+      <div data-aos="fade-up">
+        <img src="FDOC.jpg" alt="Friends on Widener steps" class="about-img">
+        <p><em>Here is a picture of my friends and I (in the middle) on Widener steps celebrating our last first day of classes.</em></p>
+      </div>
 
-    <!-- Bio -->
-    <p>
-      Hi! Thanks for visiting my website. My name is <strong>Katie Le</strong> and I am a senior at Harvard studying
-      <strong>Bioengineering (Electrical track)</strong>.  
-      <br>- Interested in medical devices + biotech  
-      <br>- From Columbus, Ohio → huge OSU fan (Go Bucks!) 🏈  
-      <br>- Love traveling (20+ countries), hanging with friends, and walking my dog Lucky (aka the Luckster) 🐶  
-    </p>
+      <!-- Bio -->
+      <p>
+        Hi! Thanks for visiting my website. My name is <strong>Katie Le</strong> and I am a senior at Harvard studying
+        <strong>Bioengineering (Electrical track)</strong>.  
+        <br>- Interested in medical devices + biotech  
+        <br>- From Columbus, Ohio → huge OSU fan (Go Bucks!) 🏈  
+        <br>- Love traveling (20+ countries), hanging with friends, and walking my dog Lucky (aka the Luckster) 🐶  
+      </p>
 
-    <!-- Dog -->
-    <div>
-      <h2>The Luckster 🍀</h2>
-      <img src="dog.jpg" alt="Katie's dog Lucky" class="about-img">
-      <p>Lucky is a Cavachon (Cavalier + Bichon Frise). He’s super loyal and follows anyone with food.</p>
-    </div>
+      <!-- Dog -->
+      <div data-aos="fade-up">
+        <h2>The Luckster 🍀</h2>
+        <img src="dog.jpg" alt="Katie's dog Lucky" class="about-img">
+        <p>Lucky is a Cavachon (Cavalier + Bichon Frise). He’s super loyal and follows anyone with food.</p>
+      </div>
 
-    <!-- Travel -->
-    <div>
-      <h2>Travel ✈️</h2>
-      <img src="uae.jpg" alt="Abu Dhabi mosque" class="about-img">
-      <p>One of my favorite activities this summer was exploring mosques in Abu Dhabi — breathtakingly beautiful.</p>
+      <!-- Travel -->
+      <div data-aos="fade-up">
+        <h2>Travel ✈️</h2>
+        <img src="uae.jpg" alt="Abu Dhabi mosque" class="about-img">
+        <p>One of my favorite activities this summer was exploring mosques in Abu Dhabi — breathtakingly beautiful.</p>
 
-      <img src="greece.jpg" alt="Greece research" class="about-img">
-      <p>I had the amazing opportunity to conduct research in Greece during my junior year. This is me at the Acropolis.</p>
+        <img src="greece.jpg" alt="Greece research" class="about-img">
+        <p>I had the amazing opportunity to conduct research in Greece during my junior year. This is me at the Acropolis.</p>
 
-      <video class="about-video" controls>
-        <source src="viet.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <p>One of my favorite countries to visit is Vietnam 🇻🇳. Here is the Golden Hand Bridge in Bà Nà Hills.</p>
-    </div>
-  </main>
+        <video class="about-video" controls>
+          <source src="viet.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p>One of my favorite countries to visit is Vietnam 🇻🇳. Here is the Golden Hand Bridge in Bà Nà Hills.</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.hero-buttons');
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
 </body>
 </html>
