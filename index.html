@@ -5,21 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Katie Le | PS70 Portfolio</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
-
-  <!-- AOS -->
+  <!-- Fonts + Animations -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-  <!-- Particles -->
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
-
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -27,6 +18,8 @@
       background-size: 400% 400%;
       animation: subtleGradient 24s ease infinite;
       color: #1f2937;
+      text-align: center;
+      line-height: 1.6;
       overflow-x: hidden;
       scroll-behavior: smooth;
     }
@@ -37,49 +30,104 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* Hero */
-    #hero {
-      height: 100vh;
-      position: relative;
+    /* Floating light accents */
+    .bg-circle {
+      position: absolute;
+      border-radius: 50%;
+      z-index: 0;
+      background: radial-gradient(circle, rgba(255,255,255,0.25), transparent 70%);
+      animation: floatLight 14s ease-in-out infinite alternate;
+      filter: blur(25px);
+    }
+    .bg-circle.one { width: 400px; height: 400px; top: 5%; left: -120px; }
+    .bg-circle.two { width: 250px; height: 250px; bottom: 15%; right: -60px; animation-delay: 5s; }
+    .bg-circle.three { width: 300px; height: 300px; bottom: 40%; right: 15%; animation-delay: 2s; }
+
+    @keyframes floatLight {
+      0% { transform: translateY(0) scale(1); opacity: 0.4; }
+      100% { transform: translateY(25px) scale(1.05); opacity: 0.6; }
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
+      padding: 120px 20px 60px;
+      position: relative;
       overflow: hidden;
     }
 
-    #particles {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    .hero-inner {
+    .hero-content {
       position: relative;
       z-index: 2;
-      text-align: center;
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 3rem 2rem;
+      max-width: 780px;
+      border: 1px solid rgba(0,0,0,0.05);
+      box-shadow: 0 10px 35px rgba(0,0,0,0.1);
+      animation: fadeInUp 1.2s ease-out forwards;
       opacity: 0;
-      transform: translateY(40px);
     }
 
-    .hero-img {
+    @keyframes fadeInUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .hero-content::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 24px;
+      padding: 1px;
+      background: linear-gradient(120deg, #d1d5db, #f9fafb, #e5e7eb);
+      background-size: 300% 300%;
+      animation: shimmer 12s linear infinite;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      z-index: -1;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Profile Image */
+    .profile-img {
       width: 220px;
       height: 220px;
       border-radius: 50%;
       object-fit: cover;
+      margin-bottom: 1.5rem;
       border: 3px solid #d1d5db;
       box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .profile-img:hover {
+      transform: rotate(-1.5deg) scale(1.02);
+      box-shadow: 0 8px 26px rgba(0,0,0,0.3);
     }
 
+    /* Text */
     .hero-title {
       font-family: 'Playfair Display', serif;
-      font-size: 3.5rem;
-      margin-top: 1rem;
+      font-size: 3rem;
+      font-weight: 700;
+      color: #111827;
+      position: relative;
       background: linear-gradient(90deg, #111827, #6b7280, #111827);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: lightSweep 6s ease-in-out infinite;
       background-size: 200% 200%;
+      animation: lightSweep 6s ease-in-out infinite;
     }
 
     @keyframes lightSweep {
@@ -88,44 +136,61 @@
       100% { background-position: 0% 50%; }
     }
 
-    .hero-sub {
-      margin-top: 0.4rem;
-      font-size: 1.2rem;
-      color: #4b5563;
+    .hero-title::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 2.5px;
+      margin: 12px auto 0;
+      background: linear-gradient(90deg, #9ca3af, #d1d5db);
+      border-radius: 2px;
+      animation: underlineGrow 1.2s ease-out forwards 0.4s;
+      transform-origin: center;
+      transform: scaleX(0);
     }
 
+    @keyframes underlineGrow {
+      to { transform: scaleX(1); }
+    }
+
+    .hero-text {
+      font-size: 1.2rem;
+      margin: 1.2rem auto 2rem;
+      max-width: 680px;
+      color: #374151;
+      animation: fadeInUp 1.4s ease forwards 0.5s;
+      opacity: 0;
+    }
+
+    /* Buttons */
     .hero-buttons {
-      margin-top: 2rem;
+      margin-top: 1.8rem;
       display: flex;
       justify-content: center;
-      gap: 1.2rem;
       flex-wrap: wrap;
+      gap: 1.2rem;
+      animation: fadeInUp 1.6s ease forwards 0.7s;
+      opacity: 0;
     }
 
     .nav-btn {
       padding: 0.8rem 1.8rem;
       border-radius: 9999px;
       background: #ffffff;
-      border: 1px solid #d1d5db;
+      color: #1f2937;
       text-decoration: none;
       font-weight: 600;
-      color: #1f2937;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      border: 1px solid #d1d5db;
       transition: all 0.3s ease;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
     }
 
     .nav-btn:hover {
       background: linear-gradient(135deg, #f9fafb, #f3f4f6);
+      color: #000;
+      border-color: #9ca3af;
       transform: translateY(-2px);
       box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-    }
-
-    .scroll-indicator {
-      position: absolute;
-      bottom: 40px;
-      font-size: 1rem;
-      color: #6b7280;
-      opacity: 0;
     }
 
     /* Signature */
@@ -134,102 +199,56 @@
       margin: 4rem auto 2rem;
       max-width: 280px;
       opacity: 0.9;
+      animation: fadeInUp 1.2s ease forwards 1s;
       filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
     }
 
     footer {
-      text-align: center;
+      margin-top: 2rem;
       padding: 1.5rem;
       font-size: 0.9rem;
       color: #6b7280;
+      letter-spacing: 0.3px;
+      background: linear-gradient(to top, rgba(243,244,246,0.8), transparent);
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 600px) {
+      .hero-title { font-size: 2.2rem; }
+      .hero-content { padding: 2rem 1.2rem; }
+      .profile-img { width: 160px; height: 160px; }
     }
   </style>
 </head>
 
 <body>
+  <header class="hero" data-aos="fade-in">
+    <div class="bg-circle one"></div>
+    <div class="bg-circle two"></div>
+    <div class="bg-circle three"></div>
 
-  <!-- ===== HERO ===== -->
-  <header id="hero">
-    <canvas id="particles"></canvas>
-
-    <div class="hero-inner">
-      <img src="profile.png" class="hero-img" />
+    <div class="hero-content" data-aos="zoom-in">
+      <img src="profile.png" alt="Katie Le headshot" class="profile-img" />
       <h1 class="hero-title">Katie Le</h1>
-      <p class="hero-sub">Bioengineer • Designer • Builder</p>
-
+      <p class="hero-text">
+        Hi! I’m a senior at Harvard studying bioengineering on the electrical track.  
+        I love building things that blend engineering, design, and health—especially projects in digital fabrication, prototyping, and medical device design.
+      </p>
       <div class="hero-buttons">
         <a href="about.html" class="nav-btn">About Me</a>
         <a href="assignments/index.html" class="nav-btn">Assignments</a>
         <a href="13_finalproject/index.html" class="nav-btn">Final Project</a>
       </div>
     </div>
-
-    <div class="scroll-indicator">scroll ↓</div>
   </header>
 
-  <!-- Signature -->
-  <img src="signature.png" class="signature-large" />
+  <img src="signature.png" alt="Katie Le signature" class="signature-large" />
 
-  <!-- Footer -->
   <footer>Katie Le | Harvard University</footer>
 
-  <!-- AOS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
   <script>
     AOS.init({ duration: 800, once: true });
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Fade-in on load
-    gsap.to(".hero-inner", {
-      opacity: 1,
-      y: 0,
-      duration: 1.2,
-      ease: "power3.out"
-    });
-
-    gsap.to(".scroll-indicator", {
-      opacity: 1,
-      delay: 1,
-      duration: 1.5
-    });
-
-    // Parallax fade-out on scroll
-    gsap.to(".hero-inner", {
-      scrollTrigger: {
-        trigger: "#hero",
-        start: "top top",
-        end: "bottom top",
-        scrub: true
-      },
-      y: -80,
-      opacity: 0
-    });
-
-    // Profile image parallax scaling
-    gsap.to(".hero-img", {
-      scrollTrigger: {
-        trigger: "#hero",
-        start: "top top",
-        end: "bottom top",
-        scrub: true
-      },
-      scale: 1.15,
-      y: 60
-    });
-
-    // Particles
-    tsParticles.load("particles", {
-      particles: {
-        number: { value: 35 },
-        size: { value: 3 },
-        opacity: { value: 0.35 },
-        move: { speed: 0.6 },
-        color: { value: "#ffffff" }
-      }
-    });
   </script>
-
 </body>
 </html>
