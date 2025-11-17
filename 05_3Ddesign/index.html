@@ -14,8 +14,8 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #fbe4f0, #f7d0e5, #f3bddb);
-      color: #4a3240;
+      background: linear-gradient(135deg, #f7c6dd, #f3aacb, #ee8db9); /* darker pink gradient */
+      color: #4a2638;
       scroll-behavior: smooth;
       line-height: 1.6;
     }
@@ -30,22 +30,22 @@
       gap: 1rem;
       padding: 1rem 1.5rem;
       backdrop-filter: blur(10px);
-      background: rgba(250, 225, 235, 0.6);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      background: rgba(255, 200, 220, 0.55);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       z-index: 100;
       transition: all 0.3s ease;
     }
 
     .navbar.scrolled {
-      background: rgba(250, 215, 230, 0.92);
+      background: rgba(255, 180, 205, 0.9);
       padding: 0.6rem 1.2rem;
     }
 
     .nav-btn {
       padding: 0.55rem 1.2rem;
       border-radius: 9999px;
-      background: white;
-      color: #b14575;
+      background: #fff0f5;
+      color: #8d2d5b;
       text-decoration: none;
       font-weight: 600;
       letter-spacing: 0.3px;
@@ -55,8 +55,8 @@
     }
 
     .nav-btn:hover {
-      background: #ffe3ef;
-      color: #8c2c59;
+      background: #ffd9e8;
+      color: #6e1f44;
       transform: translateY(-1px);
     }
 
@@ -65,9 +65,9 @@
       background: url('header_image.jpg') center/cover fixed;
       padding: 10rem 1rem 6rem;
       text-align: center;
-      color: #4a3240;
+      color: #4a2638;
       text-shadow: 0 2px 10px rgba(255, 255, 255, 0.25);
-      border-bottom: 1px solid rgba(255,255,255,0.2);
+      border-bottom: 1px solid rgba(255,255,255,0.25);
       position: relative;
       overflow: hidden;
     }
@@ -76,25 +76,25 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(255,200,220,0.3), rgba(255,180,210,0.55));
+      background: linear-gradient(to bottom, rgba(255,170,200,0.25), rgba(255,150,190,0.5));
     }
 
     h1, h2 {
       font-family: 'Playfair Display', serif;
       text-align: center;
-      color: #b14575;
+      color: #8d2d5b;
     }
 
     /* Main Box */
     .main {
-      background: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 240, 245, 0.5);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.5);
       border-radius: 16px;
       padding: 3rem;
       max-width: 900px;
       margin: 4rem auto;
-      box-shadow: 0 8px 40px rgba(200, 100, 150, 0.25);
+      box-shadow: 0 8px 40px rgba(180, 60, 110, 0.25);
       opacity: 0;
       animation: fadeIn 1.2s ease forwards;
     }
@@ -105,7 +105,7 @@
 
     section {
       margin-bottom: 3.5rem;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
       padding-bottom: 2rem;
       position: relative;
       padding-left: 1.5rem;
@@ -118,7 +118,7 @@
       top: 0;
       bottom: 0;
       width: 2px;
-      background: rgba(177, 69, 117, 0.25);
+      background: rgba(177, 50, 100, 0.25);
     }
 
     figure {
@@ -145,7 +145,7 @@
 
     figcaption {
       margin-top: 0.7rem;
-      color: #6b3a55;
+      color: #5a3147;
       font-size: 1rem;
       font-style: italic;
       max-width: 80%;
@@ -155,11 +155,11 @@
       margin-top: 5rem;
       padding: 1.5rem;
       font-size: 0.9rem;
-      letter-spacing: 0.3px;
-      color: #b14575;
+      color: #8d2d5b;
       text-align: center;
-      background: linear-gradient(to top, rgba(255,180,210,0.7), transparent);
+      background: linear-gradient(to top, rgba(255,150,190,0.7), transparent);
       border-top: none;
+      letter-spacing: 0.3px;
     }
   </style>
 </head>
@@ -229,8 +229,13 @@
 
       <p>Because my watch was unable to be scanned, I decided to use a fidget toy in the lost and found bin in the lab. I was able to scan a great image of the figdet toy in color. Here are some videos of the scan I was able to get. </p>
 
-      <video src="figdet1.mp4" controls></video>
-      <video src="figdet2.mp4" controls></video>
+      <figure>
+        <video src="fidget1.mp4" controls></video>
+      </figure>
+
+      <figure>
+        <video src="fidget2.mp4" controls></video>
+      </figure>
     </section>
 
     <img src="../signature.png" 
