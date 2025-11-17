@@ -5,12 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Katie Le | PS70 Portfolio</title>
 
-  <!-- Fonts + Animations -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Particles -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
+
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -18,8 +27,6 @@
       background-size: 400% 400%;
       animation: subtleGradient 24s ease infinite;
       color: #1f2937;
-      text-align: center;
-      line-height: 1.6;
       overflow-x: hidden;
       scroll-behavior: smooth;
     }
@@ -30,128 +37,95 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* Floating Background Accents */
-    .bg-circle {
-      position: absolute;
-      border-radius: 50%;
-      z-index: 0;
-      background: radial-gradient(circle, rgba(255,255,255,0.25), transparent 70%);
-      animation: floatLight 14s ease-in-out infinite alternate;
-      filter: blur(25px);
-    }
-    .bg-circle.one { width: 400px; height: 400px; top: 5%; left: -120px; }
-    .bg-circle.two { width: 250px; height: 250px; bottom: 15%; right: -60px; animation-delay: 5s; }
-    .bg-circle.three { width: 320px; height: 320px; bottom: 45%; right: 15%; animation-delay: 2s; }
-
-    @keyframes floatLight {
-      0% { transform: translateY(0) scale(1); opacity: 0.45; }
-      100% { transform: translateY(25px) scale(1.05); opacity: 0.7; }
-    }
-
-    /* Hero Section */
-    .hero {
-      min-height: 100vh;
+    /* Hero */
+    #hero {
+      height: 100vh;
+      position: relative;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 120px 20px 60px;
-      position: relative;
       overflow: hidden;
     }
 
-    .hero-content {
+    #particles {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero-inner {
       position: relative;
       z-index: 2;
-      background: rgba(255, 255, 255, 0.65);
-      backdrop-filter: blur(20px);
-      border-radius: 28px;
-      padding: 3.2rem 2.4rem;
-      max-width: 780px;
-      border: 1px solid rgba(0,0,0,0.06);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+      text-align: center;
       opacity: 0;
-      animation: fadeInUp 1.2s ease-out forwards;
+      transform: translateY(40px);
     }
 
-    @keyframes fadeInUp {
-      from { transform: translateY(25px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    /* Profile Image */
-    .profile-img {
-      width: 230px;
-      height: 230px;
+    .hero-img {
+      width: 220px;
+      height: 220px;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 1.5rem;
       border: 3px solid #d1d5db;
-      box-shadow: 0 8px 26px rgba(0,0,0,0.25);
-      transition: transform 0.45s ease, box-shadow 0.45s ease;
-    }
-    .profile-img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.28);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
     }
 
-    /* Masked Text Reveal */
     .hero-title {
       font-family: 'Playfair Display', serif;
-      font-size: 3.1rem;
-      font-weight: 700;
-      overflow: hidden;
-      display: inline-block;
-      position: relative;
+      font-size: 3.5rem;
+      margin-top: 1rem;
+      background: linear-gradient(90deg, #111827, #6b7280, #111827);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: lightSweep 6s ease-in-out infinite;
+      background-size: 200% 200%;
     }
 
-    .hero-title span {
-      display: inline-block;
-      transform: translateY(110%);
-      animation: titleReveal 1s cubic-bezier(0.25, 0.6, 0.3, 1) forwards;
+    @keyframes lightSweep {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
-    @keyframes titleReveal {
-      to { transform: translateY(0); }
-    }
-
-    .hero-text {
+    .hero-sub {
+      margin-top: 0.4rem;
       font-size: 1.2rem;
-      margin: 1.4rem auto 2.2rem;
-      max-width: 680px;
-      color: #374151;
-      opacity: 0;
-      animation: fadeInUp 1s ease forwards 0.4s;
+      color: #4b5563;
     }
 
-    /* Buttons */
     .hero-buttons {
-      margin-top: 1.8rem;
+      margin-top: 2rem;
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
       gap: 1.2rem;
-      opacity: 0;
-      animation: fadeInUp 1s ease forwards 0.7s;
+      flex-wrap: wrap;
     }
 
     .nav-btn {
-      padding: 0.8rem 1.9rem;
+      padding: 0.8rem 1.8rem;
       border-radius: 9999px;
       background: #ffffff;
-      color: #1f2937;
+      border: 1px solid #d1d5db;
       text-decoration: none;
       font-weight: 600;
-      border: 1px solid #d1d5db;
-      transition: all 0.3s ease;
+      color: #1f2937;
       box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
     }
 
     .nav-btn:hover {
       background: linear-gradient(135deg, #f9fafb, #f3f4f6);
-      border-color: #9ca3af;
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      font-size: 1rem;
+      color: #6b7280;
+      opacity: 0;
     }
 
     /* Signature */
@@ -159,45 +133,29 @@
       display: block;
       margin: 4rem auto 2rem;
       max-width: 280px;
-      opacity: 0;
-      animation: fadeInUp 1s ease forwards 1.1s;
+      opacity: 0.9;
       filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
     }
 
     footer {
-      margin-top: 1rem;
+      text-align: center;
       padding: 1.5rem;
       font-size: 0.9rem;
       color: #6b7280;
-      letter-spacing: 0.3px;
-      background: linear-gradient(to top, rgba(243,244,246,0.8), transparent);
-    }
-
-    @media (max-width: 600px) {
-      .hero-title { font-size: 2.2rem; }
-      .hero-content { padding: 2rem 1.2rem; }
-      .profile-img { width: 160px; height: 160px; }
     }
   </style>
 </head>
 
 <body>
-  <header class="hero">
-    <div class="bg-circle one"></div>
-    <div class="bg-circle two"></div>
-    <div class="bg-circle three"></div>
 
-    <div class="hero-content">
-      <img src="profile.png" alt="Katie Le headshot" class="profile-img" />
+  <!-- ===== HERO ===== -->
+  <header id="hero">
+    <canvas id="particles"></canvas>
 
-      <h1 class="hero-title">
-        <span>Katie Le</span>
-      </h1>
-
-      <p class="hero-text">
-        Hi! I’m a senior at Harvard studying bioengineering on the electrical track.  
-        I love building things that blend engineering, design, and health—especially projects in digital fabrication, prototyping, and medical device design.
-      </p>
+    <div class="hero-inner">
+      <img src="profile.png" class="hero-img" />
+      <h1 class="hero-title">Katie Le</h1>
+      <p class="hero-sub">Bioengineer • Designer • Builder</p>
 
       <div class="hero-buttons">
         <a href="about.html" class="nav-btn">About Me</a>
@@ -205,11 +163,73 @@
         <a href="13_finalproject/index.html" class="nav-btn">Final Project</a>
       </div>
     </div>
+
+    <div class="scroll-indicator">scroll ↓</div>
   </header>
 
-  <img src="signature.png" alt="Katie Le signature" class="signature-large" />
+  <!-- Signature -->
+  <img src="signature.png" class="signature-large" />
 
+  <!-- Footer -->
   <footer>Katie Le | Harvard University</footer>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+    AOS.init({ duration: 800, once: true });
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Fade-in on load
+    gsap.to(".hero-inner", {
+      opacity: 1,
+      y: 0,
+      duration: 1.2,
+      ease: "power3.out"
+    });
+
+    gsap.to(".scroll-indicator", {
+      opacity: 1,
+      delay: 1,
+      duration: 1.5
+    });
+
+    // Parallax fade-out on scroll
+    gsap.to(".hero-inner", {
+      scrollTrigger: {
+        trigger: "#hero",
+        start: "top top",
+        end: "bottom top",
+        scrub: true
+      },
+      y: -80,
+      opacity: 0
+    });
+
+    // Profile image parallax scaling
+    gsap.to(".hero-img", {
+      scrollTrigger: {
+        trigger: "#hero",
+        start: "top top",
+        end: "bottom top",
+        scrub: true
+      },
+      scale: 1.15,
+      y: 60
+    });
+
+    // Particles
+    tsParticles.load("particles", {
+      particles: {
+        number: { value: 35 },
+        size: { value: 3 },
+        opacity: { value: 0.35 },
+        move: { speed: 0.6 },
+        color: { value: "#ffffff" }
+      }
+    });
+  </script>
 
 </body>
 </html>
