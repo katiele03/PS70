@@ -14,8 +14,8 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #641c3f, #8b2e52, #c8557a);
-      color: #fff5f8;
+      background: linear-gradient(135deg, #8a3f0e, #c76a1d, #f29f32); /* sunset orange gradient */
+      color: #fff7ef;
       scroll-behavior: smooth;
       line-height: 1.6;
     }
@@ -30,31 +30,32 @@
       gap: 1rem;
       padding: 1rem 1.5rem;
       backdrop-filter: blur(10px);
-      background: rgba(168, 59, 94, 0.6);
+      background: rgba(199, 106, 29, 0.55); 
       border-bottom: 1px solid rgba(255, 255, 255, 0.15);
       z-index: 100;
       transition: all 0.3s ease;
     }
-    .navbar.scrolled { background: rgba(168, 59, 94, 0.9); padding: 0.6rem 1.2rem; }
+    .navbar.scrolled { background: rgba(199, 106, 29, 0.9); padding: 0.6rem 1.2rem; }
+
     .nav-btn {
       padding: 0.55rem 1.2rem;
       border-radius: 9999px;
-      background: #fff5f8;
-      color: #8b2e52;
+      background: #fff3e6;
+      color: #c76a1d;
       text-decoration: none;
       font-weight: 600;
       letter-spacing: 0.3px;
       transition: all 0.3s ease;
       font-size: 0.95rem;
     }
-    .nav-btn:hover { background: #fbcfe8; color: #641c3f; transform: translateY(-1px); }
+    .nav-btn:hover { background: #ffd8b4; color: #8a3f0e; transform: translateY(-1px); }
 
     /* Hero */
     .hero {
       background: url('week4_header.jpg') center/cover fixed;
       padding: 10rem 1rem 6rem;
       text-align: center;
-      color: #fff0f6;
+      color: #fff4e8;
       text-shadow: 0 2px 10px rgba(0,0,0,0.4);
       border-bottom: 1px solid rgba(255,255,255,0.08);
       position: relative;
@@ -64,8 +65,9 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.65));
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
     }
+
     .hero h1 {
       position: relative;
       z-index: 2;
@@ -74,6 +76,7 @@
       animation: slideIn 1.2s ease forwards;
       opacity: 0;
     }
+
     @keyframes slideIn {
       from { transform: translateY(30px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
@@ -83,7 +86,7 @@
       position: relative;
       z-index: 2;
       font-size: 1.05rem;
-      color: #ffe6ef;
+      color: #ffe7d6;
       margin-top: 0.5rem;
       font-style: italic;
       max-width: 800px;
@@ -93,9 +96,9 @@
 
     /* Main */
     .main {
-      background: rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.07);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
       border-radius: 16px;
       padding: 3rem;
       max-width: 900px;
@@ -109,13 +112,13 @@
     h3, h4 {
       font-family: 'Playfair Display', serif;
       text-align: center;
-      color: #ffd1dc;
+      color: #ffe0c2;
       margin-top: 1rem;
     }
 
     p {
       font-size: 1rem;
-      color: #ffe6ef;
+      color: #ffe7d6;
       text-align: center;
       max-width: 800px;
       margin: 1rem auto;
@@ -129,6 +132,7 @@
       box-shadow: 0 6px 18px rgba(0,0,0,0.35);
       transition: all 0.45s ease;
     }
+
     img:hover, video:hover {
       transform: scale(1.02) translateY(-2px);
       box-shadow: 0 10px 25px rgba(0,0,0,0.45);
@@ -139,9 +143,9 @@
       padding: 1.5rem;
       font-size: 0.9rem;
       letter-spacing: 0.3px;
-      color: #ffd1dc;
+      color: #ffe0c2;
       text-align: center;
-      background: linear-gradient(to top, rgba(126,36,76,0.9), transparent);
+      background: linear-gradient(to top, rgba(138,63,14,0.9), transparent);
       border-top: none;
     }
   </style>
