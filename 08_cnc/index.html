@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Week 8: CNC Milling</title>
 
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #1b1b1e, #25252a, #303036);
+      background: linear-gradient(135deg, #1b1b1e, #26262b, #323238);
       color: #e6e6e6;
       line-height: 1.6;
     }
@@ -83,6 +84,7 @@
 </head>
 
 <body>
+  <!-- Navbar -->
   <nav class="navbar">
     <a href="../index.html" class="nav-btn">Home</a>
     <a href="../about.html" class="nav-btn">About Me</a>
@@ -90,20 +92,105 @@
     <a href="../13_finalproject/index.html" class="nav-btn">Final Project</a>
   </nav>
 
+  <!-- Hero -->
   <header class="hero">
     <h1>PS70: Week 8 — CNC Milling</h1>
 
     <p><em>
-      The song of the week is <strong>Daisies</strong> by Justin Bieber because my friend’s favorite flowers are daisies, which inspired this project.
+      The song of the week is <strong>Daisies</strong> by Justin Bieber because my friend’s favorite flowers are daisies, which inspired the design of this project.
     </em></p>
 
     <iframe style="border-radius:12px; margin-top:1.5rem;"
-      src="https://open.spotify.com/embed/track/5BZsQlgw21vDOAjoqkNgKb"
-      width="80%" height="352" allow="encrypted-media"></iframe>
+      src="https://open.spotify.com/embed/track/5BZsQlgw21vDOAjoqkNgKb?utm_source=generator"
+      width="80%" height="352"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy"></iframe>
   </header>
 
+  <!-- Main Content -->
   <div class="main">
-    <!-- your CNC text + figures go here exactly as written -->
+
+    <section>
+      <p>
+        For this week’s assignment, I wanted to create a gift for my friend’s birthday. For the first part of the assignment and for my friend’s gift, I decided to gift her a picture frame with an image of us. Since her favorite flowers are tulips and daises, I wanted to create a 4x6 picture frame with a tulip and daisy design on the border of the frame.
+      </p>
+    </section>
+
+    <section>
+      <p>
+        I first sketched the picture frame on Fusion 360. The outside border of the frame is 6x8 and it fits a 4x6 picture. Then, I sketched tulips and daisies on the border. Here is the final sketch of the dxf I used and a video of a model of the frame.
+      </p>
+
+      <figure>
+        <img src="frame.jpg" alt="DXF sketch of picture frame">
+      </figure>
+
+      <figure>
+        <video src="frame.mp4" controls></video>
+      </figure>
+    </section>
+
+    <section>
+      <p>
+        I then picked two pieces of wood, one for the actual frame and the other to be the sacrificial piece. I measured the thickness of the frame wood piece. Then, I used a nail gun to insure the wood pieces do not move during CNCing. Here is a video of me using a nail gun for the first time.
+      </p>
+
+      <figure>
+        <video src="nail.mp4" controls></video>
+      </figure>
+    </section>
+
+    <section>
+      <p>
+        I imported my file into the CNC software and defined the toolpaths, including which areas needed to be removed, the cut depths, and the XYZ origin. I then applied the appropriate feed and speed rates. Because the tulip and daisy designs were very thin, I chose to use the smallest end mill available. Here is a video of that setup process.
+      </p>
+
+      <figure>
+        <video src="process.mp4" controls></video>
+      </figure>
+
+      <p>
+        After generating the toolpaths, I performed an air cut to confirm that the milling stayed within the boundaries of the wood. Once I saw the air cut stayed within bounds, I re-zeroed all axes and began the actual cut on the wood piece. Here are videos of zeroing the machine and the milling process.
+      </p>
+
+      <figure>
+        <video src="zero.mp4" controls></video>
+      </figure>
+
+      <figure>
+        <video src="cut.mp4" controls></video>
+      </figure>
+    </section>
+
+    <section>
+      <p>
+        After the frame was cut out, I cleaned the wooden debris using the vacuum and sanded down my wooden frame. Here are videos of this process.
+      </p>
+
+      <figure>
+        <video src="chip.mp4" controls></video>
+      </figure>
+
+      <figure>
+        <video src="sand.mp4" controls></video>
+      </figure>
+
+      <p>Here is an image of the sanded down frame.</p>
+
+      <figure>
+        <img src="result.jpg" alt="Final sanded CNC frame">
+      </figure>
+    </section>
+
+    <section>
+      <p>
+        For the second part of the assignment regarding molding and casting, I collaborated with Kieran McDaniel. Please refer to his documentation page at this link:
+        <a href="https://ksmcdaniel.github.io/PS70_documentation/index.html/" target="_blank">
+          https://ksmcdaniel.github.io/PS70_documentation/index.html
+        </a>
+      </p>
+    </section>
+
   </div>
 
   <footer>Katie Le | Harvard University</footer>
