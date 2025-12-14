@@ -1,153 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PS70: Week 8 – CNC Milling</title>
+<p>
+For this week’s assignment, I wanted to create a gift for my friend’s birthday. For the first part of the assignment and for my friend’s gift, I decided to gift her a picture frame with an image of us. Since her favorite flowers are tulips and daises, I wanted to create a 4x6 picture frame with a tulip and daisy design on the border of the frame.
+</p>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<p>
+I first sketched the picture frame on Fusion 360. The outside border of the frame is 6x8 and it fits a 4x6 picture. Then, I sketched tulips and daisies on the border. Here is the final sketch of the dxf I used and a video of a model of the frame.
+</p>
 
-  <!-- Spotify -->
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #151516, #1f1f22, #2b2b30);
-      color: #e6e6e6;
-      line-height: 1.7;
-      margin: 0;
-    }
+<figure>
+  <img src="frame.jpg" alt="DXF sketch of picture frame">
+</figure>
 
-    .navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      padding: 1rem;
-      background: rgba(20, 20, 22, 0.85);
-      backdrop-filter: blur(10px);
-      z-index: 100;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
+<figure>
+  <video src="frame.mp4" controls></video>
+</figure>
 
-    .nav-btn {
-      color: #f2f2f2;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 0.4rem 1rem;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.08);
-      transition: all 0.25s ease;
-    }
+<p>
+I then picked two pieces of wood, one for the actual frame and the other to be the sacrificial piece. I measured the thickness of the frame wood piece. Then, I used a nail gun to insure the wood pieces do not move during CNCing. Here is a video of me using a nail gun for the first time.
+</p>
 
-    .nav-btn:hover {
-      background: rgba(255,255,255,0.16);
-    }
+<figure>
+  <video src="nail.mp4" controls></video>
+</figure>
 
-    header {
-      padding: 9rem 1rem 4rem;
-      text-align: center;
-    }
+<p>
+I imported my file into the CNC software and defined the toolpaths, including which areas needed to be removed, the cut depths, and the XYZ origin. I then applied the appropriate feed and speed rates. Because the tulip and daisy designs were very thin, I chose to use the smallest end mill available. Here is a video of that setup process.
+</p>
 
-    h1, h2 {
-      font-family: 'Playfair Display', serif;
-      color: #f3f3f3;
-    }
+<figure>
+  <video src="process.mp4" controls></video>
+</figure>
 
-    .main {
-      max-width: 900px;
-      margin: 0 auto 4rem;
-      background: rgba(255,255,255,0.06);
-      backdrop-filter: blur(12px);
-      border-radius: 18px;
-      padding: 3rem;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-    }
+<p>
+After generating the toolpaths, I performed an air cut to confirm that the milling stayed within the boundaries of the wood. Once I saw the air cut stayed within bounds, I re-zeroed all axes and began the actual cut on the wood piece. Here are videos of zeroing the machine and the milling process.
+</p>
 
-    p {
-      margin-bottom: 1.4rem;
-    }
+<figure>
+  <video src="zero.mp4" controls></video>
+</figure>
 
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #bdbdbd;
-    }
-  </style>
-</head>
+<figure>
+  <video src="cut.mp4" controls></video>
+</figure>
 
-<body>
+<p>
+After the frame was cut out, I cleaned the wooden debris using the vacuum and sanded down my wooden frame. Here are videos of this process.
+</p>
 
-  <!-- Navbar -->
-  <nav class="navbar">
-    <a href="../index.html" class="nav-btn">Home</a>
-    <a href="../about.html" class="nav-btn">About Me</a>
-    <a href="../assignments/index.html" class="nav-btn">Assignments</a>
-    <a href="../13_finalproject/index.html" class="nav-btn">Final Project</a>
-  </nav>
+<figure>
+  <video src="chip.mp4" controls></video>
+</figure>
 
-  <!-- Hero -->
-  <header>
-    <h1>PS70: Week 8 — CNC Milling</h1>
+<figure>
+  <video src="sand.mp4" controls></video>
+</figure>
 
-    <p><em>
-      The song of the week is <strong>Daisies</strong> by Justin Bieber. I chose this song because my friend’s favorite flowers are daisies, which directly inspired the design of this project.
-    </em></p>
+<p>
+Here is an image of the sanded down frame.
+</p>
 
-    <div style="margin-top:2rem; display:flex; justify-content:center;">
-      <iframe style="border-radius:12px"
-        src="https://open.spotify.com/embed/track/5BZsQlgw21vDOAjoqkNgKb?utm_source=generator"
-        width="80%" height="352"
-        frameborder="0"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy"></iframe>
-    </div>
-  </header>
+<figure>
+  <img src="result.jpg" alt="Final sanded CNC picture frame">
+</figure>
 
-  <!-- Main Content -->
-  <div class="main">
-
-    <p>
-      For this week’s assignment, I wanted to create a gift for my friend’s birthday. For the first part of the assignment and for my friend’s gift, I decided to gift her a picture frame with an image of us. Since her favorite flowers are tulips and daisies, I wanted to create a 4x6 picture frame with a tulip and daisy design on the border of the frame.
-    </p>
-
-    <p>
-      I first sketched the picture frame on Fusion 360. The outside border of the frame is 6x8 and it fits a 4x6 picture. Then, I sketched tulips and daisies on the border. Here is the final sketch of the dxf I used and a video of a model of the frame. [insert frame.jpg and frame.mp4]
-    </p>
-
-    <p>
-      I then picked two pieces of wood, one for the actual frame and the other to be the sacrificial piece. I measured the thickness of the frame wood piece. Then, I used a nail gun to insure the wood pieces do not move during CNCing. Here is a video of me using a nail gun for the first time. [insert nail.mp4]
-    </p>
-
-    <p>
-      I imported my file into the CNC software and defined the toolpaths, including which areas needed to be removed, the cut depths, and the XYZ origin. I then applied the appropriate feed and speed rates. Because the tulip and daisy designs were very thin, I chose to use the smallest end mill available. Here is a video of that setup process. [insert process.mp4]
-    </p>
-
-    <p>
-      After generating the toolpaths, I performed an air cut to confirm that the milling stayed within the boundaries of the wood. Once I saw the air cut stayed within bounds, I re-zeroed all axes and began the actual cut on the wood piece. Here are videos of zeroing the machine and the milling process. [insert zero.mp4 and cut.mp4]
-    </p>
-
-    <p>
-      After the frame was cut out, I cleaned the wooden debris using the vacuum and sanded down my wooden frame. Here are videos of this process. [insert chip.mp4 and sand.mp4]
-    </p>
-
-    <p>
-      Here is an image of the sanded down frame. [result.jpg]
-    </p>
-
-    <p>
-      For the second part of the assignment regarding molding and casting, I collaborated with Kieran McDaniel. Please refer to his documentation page at this link:
-      <a href="https://ksmcdaniel.github.io/PS70_documentation/index.html" target="_blank">
-        https://ksmcdaniel.github.io/PS70_documentation/index.html
-      </a>
-    </p>
-
-  </div>
-
-  <footer>Katie Le | Harvard University</footer>
-
-</body>
-</html>
+<p>
+For the second part of the assignment regarding molding and casting, I collaborated with Kieran McDaniel. Please refer to his documentation page at this link:
+<a href="https://ksmcdaniel.github.io/PS70_documentation/index.html" target="_blank">
+https://ksmcdaniel.github.io/PS70_documentation/index.html
+</a>
+</p>
