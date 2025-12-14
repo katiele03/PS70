@@ -34,6 +34,11 @@
       border-radius: 999px;
       background: rgba(255,255,255,0.6);
       font-weight: 600;
+      transition: background 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      background: rgba(255,255,255,0.85);
     }
 
     .hero {
@@ -64,11 +69,15 @@
 </head>
 
 <body>
+  <!-- Navbar -->
   <nav class="navbar">
     <a href="../index.html" class="nav-btn">Home</a>
-    <a href="../about.html" class="nav-btn">About</a>
+    <a href="../about.html" class="nav-btn">About Me</a>
+    <a href="../assignments/index.html" class="nav-btn">Assignments</a>
+    <a href="../13_finalproject/index.html" class="nav-btn">Final Project</a>
   </nav>
 
+  <!-- Hero -->
   <header class="hero">
     <h1>PS70: Week 9 — Radio, WiFi, Bluetooth (IoT)</h1>
 
@@ -76,13 +85,20 @@
       The song for this week is <strong>Satellite</strong> by Harry Styles. I enjoy this song, and it relates to this assignment through its theme of remote connection and constant communication.
     </em></p>
 
-    <iframe style="border-radius:12px; margin-top:1.5rem;"
+    <iframe
+      style="border-radius:12px; margin-top:1.5rem;"
       src="https://open.spotify.com/embed/track/0rzaRSujxA0bKyjJl6vHYq"
-      width="80%" height="352" allow="encrypted-media"></iframe>
+      width="80%" height="352"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy">
+    </iframe>
   </header>
 
+  <!-- Main Content -->
   <div class="main">
-    <!-- your Week 9 text ONLY -->
+    <p>
+      For this week’s networking assignment, I collaborated with Nate Marinaccio to explore WiFi-based control and web service integration for Nate's final project. We implemented a system that allows Nate to control opening/closing his door with his phone.
+    </p>
   </div>
 
   <footer>Katie Le | Harvard University</footer>
