@@ -3,12 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta-name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PS70: Final Project — Dynamic Grip Strengthener</title>
+  <title>PS70: Final Project</title>
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
-  
-  <!-- AOS Animation -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
   <style>
@@ -16,13 +14,12 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #3d148c, #501daf, #6a35c9);
-      color: #f4edff;
+      background: linear-gradient(135deg, #501DAF, #6a3bd1, #8b6be8);
+      color: #f5f3ff;
       scroll-behavior: smooth;
       line-height: 1.6;
     }
 
-    /* Navbar */
     .navbar {
       position: fixed;
       top: 0;
@@ -32,44 +29,52 @@
       gap: 1rem;
       padding: 1rem 1.5rem;
       backdrop-filter: blur(10px);
-      background: rgba(80, 29, 175, 0.55);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(80, 29, 175, 0.6);
+      border-bottom: 1px solid rgba(255,255,255,0.15);
       z-index: 100;
       transition: all 0.3s ease;
     }
+
     .navbar.scrolled {
-      background: rgba(80, 29, 175, 0.85);
+      background: rgba(80, 29, 175, 0.9);
       padding: 0.6rem 1.2rem;
     }
 
     .nav-btn {
       padding: 0.55rem 1.2rem;
       border-radius: 9999px;
-      background: #f6efff;
-      color: #501daf;
+      background: #f5f3ff;
+      color: #501DAF;
       text-decoration: none;
       font-weight: 600;
-      letter-spacing: 0.3px;
       transition: all 0.3s ease;
-      font-size: 0.95rem;
     }
+
     .nav-btn:hover {
-      background: #e4d9ff;
+      background: #e9e5ff;
       transform: translateY(-1px);
     }
 
-    /* Hero */
     .hero {
       padding: 10rem 1rem 6rem;
       text-align: center;
       position: relative;
     }
 
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.65));
+    }
+
     .hero h1 {
+      position: relative;
+      z-index: 2;
       font-family: 'Playfair Display', serif;
       font-size: 3rem;
-      animation: slideIn 1.2s ease forwards;
       opacity: 0;
+      animation: slideIn 1.2s ease forwards;
     }
 
     @keyframes slideIn {
@@ -78,75 +83,56 @@
     }
 
     .hero p {
-      font-size: 1.05rem;
-      margin-top: 0.5rem;
+      position: relative;
+      z-index: 2;
       font-style: italic;
-      max-width: 850px;
-      margin-left: auto;
-      margin-right: auto;
-      color: #e7dcff;
+      max-width: 800px;
+      margin: 0.5rem auto 0;
     }
 
-    /* Main Container */
     .main {
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255,255,255,0.08);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255,255,255,0.15);
       border-radius: 16px;
       padding: 3rem;
-      max-width: 950px;
+      max-width: 900px;
       margin: 4rem auto;
-      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.35);
       opacity: 0;
       animation: fadeIn 1.2s ease forwards;
     }
 
     @keyframes fadeIn { to { opacity: 1; } }
 
-    .content-section {
-      text-align: center;
-      margin: 3rem auto;
-    }
-
     h1, h2 {
       font-family: 'Playfair Display', serif;
       text-align: center;
-      color: #f6efff;
+      color: #ede9fe;
     }
 
-    h2 {
-      margin-bottom: 1.5rem;
-      font-size: 1.7rem;
+    .content-section {
+      text-align: center;
+      margin: 2rem auto;
     }
 
-    img {
-      display: block;
+    p {
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+    }
+
+    img, video {
       margin: 1.5rem auto;
       max-width: 80%;
       border-radius: 12px;
       box-shadow: 0 6px 18px rgba(0,0,0,0.35);
-    }
-
-    video {
       display: block;
-      margin: 1.5rem auto;
-      border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
-    }
-
-    p {
-      font-size: 1rem;
-      max-width: 850px;
-      margin: 0 auto;
-      color: #f4edff;
     }
 
     footer {
       margin-top: 5rem;
       padding: 1.5rem;
       font-size: 0.9rem;
-      letter-spacing: 0.3px;
-      color: #e7dcff;
       text-align: center;
     }
   </style>
@@ -154,91 +140,51 @@
 
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar">
-    <a href="../index.html" class="nav-btn">Home</a>
-    <a href="../about.html" class="nav-btn">About Me</a>
-    <a href="../assignments/index.html" class="nav-btn">Assignments</a>
-  </nav>
+<nav class="navbar">
+  <a href="../index.html" class="nav-btn">Home</a>
+  <a href="../about.html" class="nav-btn">About Me</a>
+  <a href="../assignments/index.html" class="nav-btn">Assignments</a>
+</nav>
 
-  <!-- Hero -->
-  <header class="hero" data-aos="fade-down">
-    <h1>PS70: Final Project — Dynamic Grip Strengthener</h1>
+<header class="hero" data-aos="fade-down">
+  <h1>PS70: Final Project</h1>
+  <p>I chose this song as it represents the goal of my final project: improving grip strength in those whose adherence to physical therapy is low due to the fluctuating pain they experience day to day.</p>
+  <div data-aos="fade-up" style="display:flex; justify-content:center; margin-top:1.5rem; position:relative; z-index:2;">
+    <iframe style="border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.4);"
+      src="https://open.spotify.com/embed/track/0j2T0R9dR9qdJYsB7ciXhf?utm_source=generator"
+      width="80%" height="152" frameborder="0"
+      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
+      loading="lazy">
+    </iframe>
+  </div>
+</header>
+
+<div class="main">
+  <h1>Dynamic Grip Strengthener</h1>
+
+  <div class="content-section">
     <p>
-      I chose this song because it represents the goal of my final project: improving grip strength
-      in individuals whose adherence to physical therapy is low due to fluctuating pain day to day.
+For Week 11, my goal was to miniaturize my MVP. Since my device is supposed to be a portable grip strengthener, it must be portable. My current system right now is massive, so I cut down the aluminum rods and lead screws. I also reprinted my parts and incorporated another handle. Additionally, I integrated the ultrasonic sensor in the gripping plate. This will lead to more accurate compression readings. I also converted my circuit onto a perf board for a more organized look. My system is significantly smaller than my MVP. Here is an image of my progress. [final.png]
     </p>
-
-    <div data-aos="fade-up" style="display:flex; justify-content:center; margin-top:1.5rem;">
-      <iframe
-        style="border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.4);"
-        src="https://open.spotify.com/embed/track/0j2T0R9dR9qdJYsB7ciXhf?utm_source=generator"
-        width="80%"
-        height="152"
-        frameborder="0"
-        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
-        loading="lazy">
-      </iframe>
-    </div>
-  </header>
-
-  <!-- Main Content -->
-  <div class="main">
-    <h1>Project Overview</h1>
-
-    <div class="content-section">
-      <p>
-        For my final project, I designed and built a <strong>dynamic grip strengthener</strong>
-        that automatically adjusts resistance based on the user’s input. Because hand dysfunction
-        is strongly correlated with reduced quality of life, maintaining grip strength is especially
-        important for individuals with arthritis, Parkinson’s disease, or those recovering from
-        hand surgery.
-      </p>
-    </div>
-
-    <div class="content-section">
-      <h2>System Concept</h2>
-      <p>
-        The device estimates grip force using spring compression measured by an ultrasonic sensor.
-        Using Hooke’s Law, the system converts displacement into force and dynamically adjusts spring
-        preload using stepper motors and lead screws. This allows the device to personalize resistance
-        based on each user’s maximum comfortable force (MCF).
-      </p>
-    </div>
-
-    <div class="content-section">
-      <h2>Miniaturization and Integration</h2>
-      <p>
-        Over the course of the project, I significantly reduced the size of the system by shortening
-        aluminum guide rods and lead screws, reprinting structural components, and integrating the
-        ultrasonic sensor directly into the gripping plate. These changes resulted in a more compact,
-        portable device without sacrificing functionality.
-      </p>
-      <img src="V2.png" alt="Miniaturized grip strengthener prototype">
-    </div>
-
-    <div class="content-section">
-      <h2>Control Logic and Closed-Loop Behavior</h2>
-      <p>
-        The system operates in two stages: calibration and exercise. During calibration, the user
-        performs several grips and the system records the maximum comfortable force. During exercise,
-        the stepper motors adjust spring preload to maintain resistance at a fixed percentage of the
-        user’s MCF while the user performs repeated grips.
-      </p>
-    </div>
   </div>
 
-  <footer>Katie Le | Harvard University</footer>
+  <div class="content-section">
+    <p>
+For Week 12, I focused on the logic of the code. I implemented a closed loop system. First, the user grips the device when there is no preload on the grip plates. As the user compresses the two handles, an ultrasonic sensor measures the distance between them. Since the ultrasonic sensor measures time, the speed of sound ≈ 343 m/s, I calculated distance by multiplying the measured time by 343 as distance = time x speed. Then divided that value by 2 because the pulse travels the same distance twice. This measured distance represents displacement (x) in Hooke’s Law (F = kx). Using a placeholder for the spring constant (k) and knowing the distance from the ultrasonic sensor, the code was able to calculate the force the user was gripping at and store this value as maximum grip force (MCF). After the initial calibration stage, the device transitions to the exercise stage, during which the spring is preloaded so that the resistance corresponds to 50% of the user’s (MCF). First, the device calculates 50% of MCF and converts this force into a spring compression using the spring constant (k). The device moves the preload at the correlated spring compression by using microstepping (1/16) and characteristics of the lead screws and motors. The lead screws have a pitch of 1 mm per revolution and the motors take 200 steps. This corresponds to a linear displacement of 1 mm / 3,200 ≈ 0.00031 mm per microstep. The user then preforms 10 reps at this force before the device returns to zero compression. Here is a video summing up my project. For timing purposes, I cut down the exercise stage for 1 grip instead of 10. [final.mp4]
+    </p>
+  </div>
+</div>
 
-  <!-- JS -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 800, once: true });
-    window.addEventListener('scroll', () => {
-      const nav = document.querySelector('.navbar');
-      nav.classList.toggle('scrolled', window.scrollY > 50);
-    });
-  </script>
+<footer>Katie Le | Harvard University</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 800, once: true });
+  window.addEventListener('scroll', () => {
+    document.querySelector('.navbar')
+      .classList.toggle('scrolled', window.scrollY > 50);
+  });
+</script>
 
 </body>
 </html>
