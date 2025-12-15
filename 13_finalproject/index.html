@@ -1,163 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>PS70: Final Project | Katie Le</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="../style.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta-name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PS70: Final Project</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      margin: 0;
-      font-family: Cambria, Georgia, serif;
-      background: linear-gradient(to bottom, #ecfccb, #bef264, #84cc16); /* soft lime gradient */
-      color: #1a2e05; /* dark green text for readability */
-      text-align: center;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #501DAF, #6a3bd1, #8b6be8);
+      color: #f5f3ff;
+      scroll-behavior: smooth;
+      line-height: 1.6;
     }
+
     .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
       display: flex;
       justify-content: center;
-      padding: 1.5rem;
-    }
-    .nav-links {
-      display: flex;
       gap: 1rem;
-      flex-wrap: wrap;
+      padding: 1rem 1.5rem;
+      backdrop-filter: blur(10px);
+      background: rgba(80, 29, 175, 0.6);
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      z-index: 100;
+      transition: all 0.3s ease;
     }
+
+    .navbar.scrolled {
+      background: rgba(80, 29, 175, 0.9);
+      padding: 0.6rem 1.2rem;
+    }
+
     .nav-btn {
-      padding: 0.7rem 1.5rem;
+      padding: 0.55rem 1.2rem;
       border-radius: 9999px;
-      background: white;
-      color: #3f6212;
+      background: #f5f3ff;
+      color: #501DAF;
       text-decoration: none;
       font-weight: 600;
       transition: all 0.3s ease;
     }
+
     .nav-btn:hover {
-      background: #d9f99d;
-      color: #365314;
+      background: #e9e5ff;
+      transform: translateY(-1px);
     }
-    .hero-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin: 2rem 0;
-      color: #365314; /* dark olive green */
+
+    .hero {
+      padding: 10rem 1rem 6rem;
+      text-align: center;
+      position: relative;
     }
-    h3 {
-      color: #3f6212;
-      margin-top: 2rem;
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.65));
     }
-    ul {
-      text-align: left;
+
+    .hero h1 {
+      position: relative;
+      z-index: 2;
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      opacity: 0;
+      animation: slideIn 1.2s ease forwards;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .hero p {
+      position: relative;
+      z-index: 2;
+      font-style: italic;
       max-width: 800px;
-      margin: 0 auto 1.5rem;
+      margin: 0.5rem auto 0;
     }
+
+    .main {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 3rem;
+      max-width: 900px;
+      margin: 4rem auto;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.35);
+      opacity: 0;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      color: #ede9fe;
+    }
+
+    .content-section {
+      text-align: center;
+      margin: 2rem auto;
+    }
+
     p {
       max-width: 800px;
       margin: 0 auto 1.5rem;
-      text-align: left;
     }
-    .container img {
+
+    img, video {
       margin: 1.5rem auto;
+      max-width: 80%;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
       display: block;
+    }
+
+    footer {
+      margin-top: 5rem;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      text-align: center;
     }
   </style>
 </head>
 
 <body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="nav-links">
-      <a class="nav-btn" href="../index.html">Home</a>
-      <a class="nav-btn" href="../about.html">About Me</a>
-      <a class="nav-btn" href="../assignments/index.html">Assignments</a>
-    </div>
-  </nav>
 
-  <!-- Main Content -->
-  <div class="container my-5">
-    <h1 class="hero-title">Final Project Idea: Booming Battle Board 🚢💥</h1>
+<nav class="navbar">
+  <a href="../index.html" class="nav-btn">Home</a>
+  <a href="../about.html" class="nav-btn">About Me</a>
+  <a href="../assignments/index.html" class="nav-btn">Assignments</a>
+</nav>
 
-    <!-- Traditional Battleship -->
-    <section>
-      <h3>Traditional Battleship</h3>
-      <ul>
-        <li>A two player game where each player has two grids in front of them:
-          <ul>
-            <li>their own board, where their ships varying in sizes on the grid horizontally or vertically are placed and where they mark when they’ve been hit</li>
-            <li>their tracking board, where they mark the coordinates they’ve attacked their opponent</li>
-          </ul>
-        </li>
-        <li>The two players take turn “attacking” each other’s ships by picking coordinates where they think the other player has placed their ships</li>
-        <li>The objective of the game is to sink your opponent’s ships</li>
-        <li>If the ship lies in the cell/coordinate, it is a hit</li>
-        <li>If the ship does not lie in the cell/coordinate, it is a miss</li>
-        <li>A ship is sunk when all cells the ship lies in has been hit</li>
-        <li>Players keep track of the cells that are called on the grid in front of them</li>
-      </ul>
-      <img src="../battle.jpg" alt="Battle Example" class="img-fluid" style="max-width:600px;">
-    </section>
-
-    <!-- My Twist -->
-    <section>
-      <h3>My Twist on Battleship</h3>
-      <p>
-        A two-player Battleship board with LED feedback and sensors! Instead of calling out coordinates to sink a ship, you can physically tap coordinates on your grid. This causes the board to light up red for “hit” or white for “miss” with sound effects.
-      </p>
-      <img src="../ship.jpg" alt="Ship Example" class="img-fluid" style="max-width:600px;">
-    </section>
-
-    <!-- 3D Design -->
-    <section>
-      <h3>3D Design and Fabrication (mold/cast, 3D print, lasercut, etc.)</h3>
-      <ul>
-        <li>Laser cutting: create grid plates with engraved coordinates and frosted tiles for LEDs</li>
-        <li>3D printing: 3D print ships and encasing for board grids</li>
-      </ul>
-    </section>
-
-    <!-- Electronics -->
-    <section>
-      <h3>Electronics (Input and Output)</h3>
-      <h5>Inputs:</h5>
-      <ul>
-        <li>Ship detection:
-          <ul>
-            <li>Magnetic detection: embed magnets in ships and place Hall effect sensors under each tile</li>
-            <li>Conductive detection: embed conductive foil in ships so that capacitive pads under grid tiles can sense when a ship is there</li>
-          </ul>
-        </li>
-        <li>Capacitive touch grid: detects when a cell is tapped so user can attack opponent</li>
-      </ul>
-      <h5>Outputs:</h5>
-      <ul>
-        <li>RGB LEDs placed under each tile
-          <ul>
-            <li>red = hit opponent's ship</li>
-            <li>white = miss opponent's ship</li>
-            <li>green = ship is on grid (on own player's board)</li>
-          </ul>
-        </li>
-        <li>Sound
-          <ul>
-            <li>explosion/boom = hit opponent's ship</li>
-            <li>splash = miss opponent's ship</li>
-          </ul>
-        </li>
-      </ul>
-    </section>
-
-    <!-- Microcontroller -->
-    <section>
-      <h3>Microcontroller Programming</h3>
-      <ul>
-        <li>Will be used to detect when player taps a tile</li>
-        <li>Detects when a ship is present on a tile</li>
-        <li>Turn on and off LEDs</li>
-        <li>Play sound</li>
-      </ul>
-    </section>
+<header class="hero" data-aos="fade-down">
+  <h1>PS70: Final Project</h1>
+  <p>I chose this song as it represents the goal of my final project: improving grip strength in those whose adherence to physical therapy is low due to the fluctuating pain they experience day to day.</p>
+  <div data-aos="fade-up" style="display:flex; justify-content:center; margin-top:1.5rem; position:relative; z-index:2;">
+    <iframe style="border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.4);"
+      src="https://open.spotify.com/embed/track/0j2T0R9dR9qdJYsB7ciXhf?utm_source=generator"
+      width="80%" height="152" frameborder="0"
+      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
+      loading="lazy">
+    </iframe>
   </div>
+</header>
+
+<div class="main">
+  <h1>Dynamic Grip Strengthener</h1>
+
+  <div class="content-section">
+    <p>
+For Week 11, my goal was to miniaturize my MVP. Since my device is supposed to be a portable grip strengthener, it must be portable. My current system right now is massive, so I cut down the aluminum rods and lead screws. I also reprinted my parts and incorporated another handle. Additionally, I integrated the ultrasonic sensor in the gripping plate. This will lead to more accurate compression readings. I also converted my circuit onto a perf board for a more organized look. My system is significantly smaller than my MVP. Here is an image of my progress.
+<img src="final.jpg" alt="Final miniaturized prototype">
+    </p>
+  </div>
+
+  <div class="content-section">
+    <p>
+For Week 12, I focused on the logic of the code. I implemented a closed loop system. First, the user grips the device when there is no preload on the grip plates. As the user compresses the two handles, an ultrasonic sensor measures the distance between them. Since the ultrasonic sensor measures time, the speed of sound ≈ 343 m/s, I calculated distance by multiplying the measured time by 343 as distance = time x speed. Then divided that value by 2 because the pulse travels the same distance twice. This measured distance represents displacement (x) in Hooke’s Law (F = kx). Using a placeholder for the spring constant (k) and knowing the distance from the ultrasonic sensor, the code was able to calculate the force the user was gripping at and store this value as maximum grip force (MCF). After the initial calibration stage, the device transitions to the exercise stage, during which the spring is preloaded so that the resistance corresponds to 50% of the user’s (MCF). First, the device calculates 50% of MCF and converts this force into a spring compression using the spring constant (k). The device moves the preload at the correlated spring compression by using microstepping (1/16) and characteristics of the lead screws and motors. The lead screws have a pitch of 1 mm per revolution and the motors take 200 steps. This corresponds to a linear displacement of 1 mm / 3,200 ≈ 0.00031 mm per microstep. The user then preforms 10 reps at this force before the device returns to zero compression. 
+
+<div class="content-section">
+  <p>Here is a video summing up my project. For timing purposes, I cut down the exercise stage for 1 grip instead of 10.</p>
+  <iframe
+    src="https://drive.google.com/file/d/1gxelIHU0hpu_g8N5k7NXzSqHnbSwNWiw/preview"
+    width="640"
+    height="360"
+    allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+    style="border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.35);"
+    frameborder="0"
+    loading="lazy">
+  </iframe>
+</div>
+
+
+<footer>Katie Le | Harvard University</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 800, once: true });
+  window.addEventListener('scroll', () => {
+    document.querySelector('.navbar')
+      .classList.toggle('scrolled', window.scrollY > 50);
+  });
+</script>
+
 </body>
 </html>
