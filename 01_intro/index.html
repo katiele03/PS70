@@ -171,13 +171,21 @@ For Week 11, my goal was to miniaturize my MVP. Since my device is supposed to b
 
   <div class="content-section">
     <p>
-For Week 12, I focused on the logic of the code. I implemented a closed loop system. First, the user grips the device when there is no preload on the grip plates. As the user compresses the two handles, an ultrasonic sensor measures the distance between them. Since the ultrasonic sensor measures time, the speed of sound ≈ 343 m/s, I calculated distance by multiplying the measured time by 343 as distance = time x speed. Then divided that value by 2 because the pulse travels the same distance twice. This measured distance represents displacement (x) in Hooke’s Law (F = kx). Using a placeholder for the spring constant (k) and knowing the distance from the ultrasonic sensor, the code was able to calculate the force the user was gripping at and store this value as maximum grip force (MCF). After the initial calibration stage, the device transitions to the exercise stage, during which the spring is preloaded so that the resistance corresponds to 50% of the user’s (MCF). First, the device calculates 50% of MCF and converts this force into a spring compression using the spring constant (k). The device moves the preload at the correlated spring compression by using microstepping (1/16) and characteristics of the lead screws and motors. The lead screws have a pitch of 1 mm per revolution and the motors take 200 steps. This corresponds to a linear displacement of 1 mm / 3,200 ≈ 0.00031 mm per microstep. The user then preforms 10 reps at this force before the device returns to zero compression. Here is a video summing up my project. For timing purposes, I cut down the exercise stage for 1 grip instead of 10.
-<video controls width="400">
-  <source src="final.mp4" type="video/mp4">
-</video>
-    </p>
-  </div>
+For Week 12, I focused on the logic of the code. I implemented a closed loop system. First, the user grips the device when there is no preload on the grip plates. As the user compresses the two handles, an ultrasonic sensor measures the distance between them. Since the ultrasonic sensor measures time, the speed of sound ≈ 343 m/s, I calculated distance by multiplying the measured time by 343 as distance = time x speed. Then divided that value by 2 because the pulse travels the same distance twice. This measured distance represents displacement (x) in Hooke’s Law (F = kx). Using a placeholder for the spring constant (k) and knowing the distance from the ultrasonic sensor, the code was able to calculate the force the user was gripping at and store this value as maximum grip force (MCF). After the initial calibration stage, the device transitions to the exercise stage, during which the spring is preloaded so that the resistance corresponds to 50% of the user’s (MCF). First, the device calculates 50% of MCF and converts this force into a spring compression using the spring constant (k). The device moves the preload at the correlated spring compression by using microstepping (1/16) and characteristics of the lead screws and motors. The lead screws have a pitch of 1 mm per revolution and the motors take 200 steps. This corresponds to a linear displacement of 1 mm / 3,200 ≈ 0.00031 mm per microstep. The user then preforms 10 reps at this force before the device returns to zero compression. 
+
+<div class="content-section">
+  <p>Here is a video summing up my project. For timing purposes, I cut down the exercise stage for 1 grip instead of 10.</p>
+  <iframe
+    src="https://drive.google.com/file/d/1gxelIHU0hpu_g8N5k7NXzSqHnbSwNWiw/preview"
+    width="640"
+    height="360"
+    allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+    style="border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.35);"
+    frameborder="0"
+    loading="lazy">
+  </iframe>
 </div>
+
 
 <footer>Katie Le | Harvard University</footer>
 
