@@ -1,163 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>PS70: Final Project | Katie Le</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="../style.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta-name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PS70: Final Project — Dynamic Grip Strengthener</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      margin: 0;
-      font-family: Cambria, Georgia, serif;
-      background: linear-gradient(to bottom, #ecfccb, #bef264, #84cc16); /* soft lime gradient */
-      color: #1a2e05; /* dark green text for readability */
-      text-align: center;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #3d148c, #501daf, #6a35c9);
+      color: #f4edff;
+      scroll-behavior: smooth;
+      line-height: 1.6;
     }
+
+    /* Navbar */
     .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
       display: flex;
       justify-content: center;
-      padding: 1.5rem;
-    }
-    .nav-links {
-      display: flex;
       gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .nav-btn {
-      padding: 0.7rem 1.5rem;
-      border-radius: 9999px;
-      background: white;
-      color: #3f6212;
-      text-decoration: none;
-      font-weight: 600;
+      padding: 1rem 1.5rem;
+      backdrop-filter: blur(10px);
+      background: rgba(80, 29, 175, 0.55);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      z-index: 100;
       transition: all 0.3s ease;
     }
+    .navbar.scrolled {
+      background: rgba(80, 29, 175, 0.85);
+      padding: 0.6rem 1.2rem;
+    }
+
+    .nav-btn {
+      padding: 0.55rem 1.2rem;
+      border-radius: 9999px;
+      background: #f6efff;
+      color: #501daf;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+    }
     .nav-btn:hover {
-      background: #d9f99d;
-      color: #365314;
+      background: #e4d9ff;
+      transform: translateY(-1px);
     }
-    .hero-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin: 2rem 0;
-      color: #365314; /* dark olive green */
+
+    /* Hero */
+    .hero {
+      padding: 10rem 1rem 6rem;
+      text-align: center;
+      position: relative;
     }
-    h3 {
-      color: #3f6212;
-      margin-top: 2rem;
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      animation: slideIn 1.2s ease forwards;
+      opacity: 0;
     }
-    ul {
-      text-align: left;
-      max-width: 800px;
-      margin: 0 auto 1.5rem;
+
+    @keyframes slideIn {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
-    p {
-      max-width: 800px;
-      margin: 0 auto 1.5rem;
-      text-align: left;
+
+    .hero p {
+      font-size: 1.05rem;
+      margin-top: 0.5rem;
+      font-style: italic;
+      max-width: 850px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #e7dcff;
     }
-    .container img {
+
+    /* Main Container */
+    .main {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      padding: 3rem;
+      max-width: 950px;
+      margin: 4rem auto;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+      opacity: 0;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    .content-section {
+      text-align: center;
+      margin: 3rem auto;
+    }
+
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      color: #f6efff;
+    }
+
+    h2 {
+      margin-bottom: 1.5rem;
+      font-size: 1.7rem;
+    }
+
+    img {
+      display: block;
+      margin: 1.5rem auto;
+      max-width: 80%;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    }
+
+    video {
+      display: block;
       margin: 1.5rem auto;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      display: block;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    }
+
+    p {
+      font-size: 1rem;
+      max-width: 850px;
+      margin: 0 auto;
+      color: #f4edff;
+    }
+
+    footer {
+      margin-top: 5rem;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+      color: #e7dcff;
+      text-align: center;
     }
   </style>
 </head>
 
 <body>
+
   <!-- Navbar -->
   <nav class="navbar">
-    <div class="nav-links">
-      <a class="nav-btn" href="../index.html">Home</a>
-      <a class="nav-btn" href="../about.html">About Me</a>
-      <a class="nav-btn" href="../assignments/index.html">Assignments</a>
-    </div>
+    <a href="../index.html" class="nav-btn">Home</a>
+    <a href="../about.html" class="nav-btn">About Me</a>
+    <a href="../assignments/index.html" class="nav-btn">Assignments</a>
   </nav>
 
+  <!-- Hero -->
+  <header class="hero" data-aos="fade-down">
+    <h1>PS70: Final Project — Dynamic Grip Strengthener</h1>
+    <p>
+      I chose this song because it represents the goal of my final project: improving grip strength
+      in individuals whose adherence to physical therapy is low due to fluctuating pain day to day.
+    </p>
+
+    <div data-aos="fade-up" style="display:flex; justify-content:center; margin-top:1.5rem;">
+      <iframe
+        style="border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.4);"
+        src="https://open.spotify.com/embed/track/0j2T0R9dR9qdJYsB7ciXhf?utm_source=generator"
+        width="80%"
+        height="152"
+        frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
+        loading="lazy">
+      </iframe>
+    </div>
+  </header>
+
   <!-- Main Content -->
-  <div class="container my-5">
-    <h1 class="hero-title">Final Project Idea: Booming Battle Board 🚢💥</h1>
+  <div class="main">
+    <h1>Project Overview</h1>
 
-    <!-- Traditional Battleship -->
-    <section>
-      <h3>Traditional Battleship</h3>
-      <ul>
-        <li>A two player game where each player has two grids in front of them:
-          <ul>
-            <li>their own board, where their ships varying in sizes on the grid horizontally or vertically are placed and where they mark when they’ve been hit</li>
-            <li>their tracking board, where they mark the coordinates they’ve attacked their opponent</li>
-          </ul>
-        </li>
-        <li>The two players take turn “attacking” each other’s ships by picking coordinates where they think the other player has placed their ships</li>
-        <li>The objective of the game is to sink your opponent’s ships</li>
-        <li>If the ship lies in the cell/coordinate, it is a hit</li>
-        <li>If the ship does not lie in the cell/coordinate, it is a miss</li>
-        <li>A ship is sunk when all cells the ship lies in has been hit</li>
-        <li>Players keep track of the cells that are called on the grid in front of them</li>
-      </ul>
-      <img src="../battle.jpg" alt="Battle Example" class="img-fluid" style="max-width:600px;">
-    </section>
-
-    <!-- My Twist -->
-    <section>
-      <h3>My Twist on Battleship</h3>
+    <div class="content-section">
       <p>
-        A two-player Battleship board with LED feedback and sensors! Instead of calling out coordinates to sink a ship, you can physically tap coordinates on your grid. This causes the board to light up red for “hit” or white for “miss” with sound effects.
+        For my final project, I designed and built a <strong>dynamic grip strengthener</strong>
+        that automatically adjusts resistance based on the user’s input. Because hand dysfunction
+        is strongly correlated with reduced quality of life, maintaining grip strength is especially
+        important for individuals with arthritis, Parkinson’s disease, or those recovering from
+        hand surgery.
       </p>
-      <img src="../ship.jpg" alt="Ship Example" class="img-fluid" style="max-width:600px;">
-    </section>
+    </div>
 
-    <!-- 3D Design -->
-    <section>
-      <h3>3D Design and Fabrication (mold/cast, 3D print, lasercut, etc.)</h3>
-      <ul>
-        <li>Laser cutting: create grid plates with engraved coordinates and frosted tiles for LEDs</li>
-        <li>3D printing: 3D print ships and encasing for board grids</li>
-      </ul>
-    </section>
+    <div class="content-section">
+      <h2>System Concept</h2>
+      <p>
+        The device estimates grip force using spring compression measured by an ultrasonic sensor.
+        Using Hooke’s Law, the system converts displacement into force and dynamically adjusts spring
+        preload using stepper motors and lead screws. This allows the device to personalize resistance
+        based on each user’s maximum comfortable force (MCF).
+      </p>
+    </div>
 
-    <!-- Electronics -->
-    <section>
-      <h3>Electronics (Input and Output)</h3>
-      <h5>Inputs:</h5>
-      <ul>
-        <li>Ship detection:
-          <ul>
-            <li>Magnetic detection: embed magnets in ships and place Hall effect sensors under each tile</li>
-            <li>Conductive detection: embed conductive foil in ships so that capacitive pads under grid tiles can sense when a ship is there</li>
-          </ul>
-        </li>
-        <li>Capacitive touch grid: detects when a cell is tapped so user can attack opponent</li>
-      </ul>
-      <h5>Outputs:</h5>
-      <ul>
-        <li>RGB LEDs placed under each tile
-          <ul>
-            <li>red = hit opponent's ship</li>
-            <li>white = miss opponent's ship</li>
-            <li>green = ship is on grid (on own player's board)</li>
-          </ul>
-        </li>
-        <li>Sound
-          <ul>
-            <li>explosion/boom = hit opponent's ship</li>
-            <li>splash = miss opponent's ship</li>
-          </ul>
-        </li>
-      </ul>
-    </section>
+    <div class="content-section">
+      <h2>Miniaturization and Integration</h2>
+      <p>
+        Over the course of the project, I significantly reduced the size of the system by shortening
+        aluminum guide rods and lead screws, reprinting structural components, and integrating the
+        ultrasonic sensor directly into the gripping plate. These changes resulted in a more compact,
+        portable device without sacrificing functionality.
+      </p>
+      <img src="V2.png" alt="Miniaturized grip strengthener prototype">
+    </div>
 
-    <!-- Microcontroller -->
-    <section>
-      <h3>Microcontroller Programming</h3>
-      <ul>
-        <li>Will be used to detect when player taps a tile</li>
-        <li>Detects when a ship is present on a tile</li>
-        <li>Turn on and off LEDs</li>
-        <li>Play sound</li>
-      </ul>
-    </section>
+    <div class="content-section">
+      <h2>Control Logic and Closed-Loop Behavior</h2>
+      <p>
+        The system operates in two stages: calibration and exercise. During calibration, the user
+        performs several grips and the system records the maximum comfortable force. During exercise,
+        the stepper motors adjust spring preload to maintain resistance at a fixed percentage of the
+        user’s MCF while the user performs repeated grips.
+      </p>
+    </div>
   </div>
+
+  <footer>Katie Le | Harvard University</footer>
+
+  <!-- JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.navbar');
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
+
 </body>
 </html>
