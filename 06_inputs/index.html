@@ -3,263 +3,102 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Week 8: 3D Design & Printing</title>
+  <title>Week 6: Electronic Inputs</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
-  
-  <!-- AOS Animation -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(
-        135deg,
-        #1c1c1e,
-        #2a2a2d,
-        #3a3a3f
-      );
-      color: #e6e6e6;
-      scroll-behavior: smooth;
-      line-height: 1.6;
-    }
-
-    /* Navbar */
-    .navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      padding: 1rem 1.5rem;
-      backdrop-filter: blur(10px);
-      background: rgba(30, 30, 32, 0.7);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      z-index: 100;
-      transition: all 0.3s ease;
-    }
-
-    .navbar.scrolled {
-      background: rgba(20, 20, 22, 0.9);
-      padding: 0.6rem 1.2rem;
-    }
-
-    .nav-btn {
-      padding: 0.55rem 1.2rem;
-      border-radius: 9999px;
-      background: rgba(255,255,255,0.08);
-      color: #f2f2f2;
-      text-decoration: none;
-      font-weight: 600;
-      letter-spacing: 0.3px;
-      transition: all 0.3s ease;
-      font-size: 0.95rem;
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-
-    .nav-btn:hover {
-      background: rgba(255,255,255,0.16);
-      transform: translateY(-1px);
-    }
-
-    /* Hero */
-    .hero {
-      background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.55),
-        rgba(0,0,0,0.85)
-      );
-      padding: 10rem 1rem 6rem;
-      text-align: center;
-      color: #f5f5f5;
-      border-bottom: 1px solid rgba(255,255,255,0.12);
-      position: relative;
-      overflow: hidden;
-    }
-
-    h1, h2 {
-      font-family: 'Playfair Display', serif;
-      text-align: center;
-      color: #f1f1f1;
-    }
-
-    /* Main Box */
-    .main {
-      background: rgba(255,255,255,0.06);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 16px;
-      padding: 3rem;
-      max-width: 900px;
-      margin: 4rem auto;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.6);
-      opacity: 0;
-      animation: fadeIn 1.2s ease forwards;
-    }
-
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-
-    section {
-      margin-bottom: 3.5rem;
-      border-bottom: 1px solid rgba(255,255,255,0.12);
-      padding-bottom: 2rem;
-      position: relative;
-      padding-left: 1.5rem;
-    }
-
-    section::before {
-      content: "";
-      position: absolute;
-      left: 0.5rem;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: rgba(255,255,255,0.2);
-    }
-
-    figure {
-      text-align: center;
-      margin: 2rem auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    img, video {
-      display: block;
-      margin: 0 auto;
-      max-width: 80%;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-      transition: all 0.45s ease;
-    }
-
-    img:hover, video:hover {
-      transform: scale(1.025) translateY(-2px);
-    }
-
-    figcaption {
-      margin-top: 0.7rem;
-      color: #cfcfcf;
-      font-size: 1rem;
-      font-style: italic;
-      max-width: 80%;
-    }
-
-    footer {
-      margin-top: 5rem;
-      padding: 1.5rem;
-      font-size: 0.9rem;
-      color: #bdbdbd;
-      text-align: center;
-      background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
-      letter-spacing: 0.3px;
-    }
-  </style>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../style.css" rel="stylesheet">
 </head>
 
-<body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <a href="../index.html" class="nav-btn">Home</a>
-    <a href="../about.html" class="nav-btn">About Me</a>
-    <a href="../assignments/index.html" class="nav-btn">Assignments</a>
-    <a href="../13_finalproject/index.html" class="nav-btn">Final Project</a>
-  </nav>
-
-  <!-- Hero -->
-  <header class="hero" data-aos="fade-down">
-    <h1>PS70: Week 8 — 3D Design & Printing</h1>
-
-    <p><em>This song is from the movie Legally Blonde, about a woman who gets into Harvard Law after being underestimated, and told she does not belong. This movie inspired me to trust my abilities as I pursue engineering.</em></p>
-
-    <div data-aos="fade-up" style="display:flex; justify-content:center; margin-top:1.5rem;">
-      <iframe data-testid="embed-iframe"
-        style="border-radius:12px"
-        src="https://open.spotify.com/embed/track/5BZsQlgw21vDOAjoqkNgKb?utm_source=generator"
-        width="80%" height="352"
-        frameBorder="0"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy"></iframe>
+<nav class="navbar navbar-expand-sm navbar-dark" style="color:#EEE7E8;">
+  <div class="container-fluid" style="align-items:center; justify-content:center;">
+    <div class="flexrow">
+      <h2 class="nav-title">PS70 Fall 2024</h2>
     </div>
-  </header>
-
-  <!-- Main Content -->
-  <div class="main">
-
-    <section data-aos="fade-up">
-      <h2>Overview</h2>
-      <p>For this week’s assignment, I created a Harvard ring, scanned a fidget toy, and updated my final project site with 2 feasible strategies for my final project as well as a 3D model of the project, a bill of materials, and a timeline. </p>
-    </section>
-
-    <section data-aos="fade-up">
-      <h2>Harvard Ring</h2>
-
-      <p>For my ring, I first created sketches for each of the letters. I spaced the letters 5 mm from each other with duplicate letters being copied and pasted. Here is the sketch of the letters that spell out ‘Harvard’. </p>
-
-      <figure>
-        <img src="harv.png" alt="Harvard sketch">
-      </figure>
-
-      <p>Then, I measured the diameter of my middle finger, created the base of the ring, and projected the letters onto the surface of the base of the ring. I then went to the 3D printer to print out my ring. Unfortunately, I entered the diameter as the radius causing my ring to be humongous on my finger. Here is a video of my 3D printed ring that is double the size of my finger. </p>
-
-      <figure>
-        <video src="greyring.mp4" controls></video>
-      </figure>
-
-      <p>I reprinted my ring with the correct dimensions and waited for the printer with red PLA to be free because I wanted the ring to be crimson. Here is the image of my 3D printed ring on my finger. </p>
-
-      <figure>
-        <img src="ring2.png" alt="Final crimson ring">
-      </figure>
-    </section>
-
-    <section data-aos="fade-up">
-      <h2>Photogrammetry Scan</h2>
-
-      <p>Then, I continued onto the second part of the assignment to scan something using a photogrammetry. I originally tried to scan my watch. Unfortunately, the scanner was having difficulty picking up my watch. I assume this was because of how reflective my watch was. Here is a video of the scanner struggling to scan my watch band. </p>
-
-      <figure>
-        <video src="struggle.mp4" controls></video>
-      </figure>
-
-      <p>Because my watch was unable to be scanned, I decided to use a fidget toy in the lost and found bin in the lab. I was able to scan a great image of the figdet toy in color. Here are some videos of the scan I was able to get. </p>
-
-      <figure>
-        <video src="fidget1.mp4" controls></video>
-      </figure>
-
-      <figure>
-        <video src="fidget2.mp4" controls></video>
-      </figure>
-    </section>
-
-    <img src="../signature.png"
-      alt="Katie Le signature"
-      style="
-        display:block;
-        margin: 3rem auto 1.5rem;
-        max-width: 260px;
-        opacity: 0.9;
-        filter: drop-shadow(0 6px 12px rgba(0,0,0,0.6));
-      " />
-
+    <div class="navbar-nav">
+      <h4><a class="nav-link" href="../index.html">Home</a></h4>
+      <h4><a class="nav-link" href="../about.html">About</a></h4>
+    </div>
   </div>
+</nav>
 
-  <footer>Katie Le | Harvard University</footer>
+<body>
+<xmp style="display:none;">
+<div class="textcontainer">
 
-  <!-- JS -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 800, once: true });
-    window.addEventListener('scroll', () => {
-      const nav = document.querySelector('.navbar');
-      nav.classList.toggle('scrolled', window.scrollY > 50);
-    });
-  </script>
+<p class="margin"></p>
+
+<h3>Week 6: Electronic Inputs</h3>
+
+<h4>Assignment: Sensors and Calibration</h4>
+
+<p>
+For this week’s assignment, I worked with electronic input devices by building and calibrating two different sensors: a capacitive touch sensor and an ultrasonic distance sensor. The goal of this week was to understand how raw sensor signals behave, how they vary with user interaction or distance, and how to calibrate these signals for meaningful interpretation.
+</p>
+
+<h4>Capacitive Sensor</h4>
+<p>
+I first built a capacitive sensor designed to measure changes in capacitance at a sensing electrode. The sensor outputs raw ADC values that vary depending on the amount of conductive material in proximity to the electrode. An image of my capacitive sensor setup and the corresponding sensor schematic are shown below.
+</p>
+
+<p>
+[cap.jpg]  
+[cap2.jpg]
+</p>
+
+<p>
+To calibrate the capacitive sensor, I recorded ADC values over time while interacting with the sensing surface using different levels of contact. The five calibration stages were no contact, hovering my finger over the sensor, lightly pressing on the sensor, firmly pressing on the sensor, and full palm contact.
+</p>
+
+<p>
+Looking at the plotted data below, the baseline readings with no contact ranged from approximately 840–850. As contact with the sensor increased, the ADC values decreased monotonically, eventually reaching values in the range of 0–20 during full palm contact. Some variation is present in the data, which is expected since the applied pressure and contact area are subjective and not perfectly repeatable.
+</p>
+
+<p>
+[cg.png]
+</p>
+
+<h4>Ultrasonic Distance Sensor</h4>
+<p>
+For my second sensor, I used an ultrasonic distance sensor to measure the separation between the sensor and a piece of cardboard. An image of the ultrasonic sensor setup and its schematic are shown below.
+</p>
+
+<p>
+[US.jpg]  
+[US2.jpg]
+</p>
+
+<p>
+I calibrated the ultrasonic sensor by recording distance values over time at known separations between the sensor and the cardboard. The five calibration distances were 2, 4, 6, 8, and 10 mm. These measurements were taken by positioning the cardboard at specific ruler ticks in front of the sensor.
+</p>
+
+<p>
+The plot below shows that the measured distance values cluster around the expected distances. As the separation between the sensor and the cardboard decreases, the reported ultrasonic distance correspondingly decreases. Some variation is present in the data due to manual movement of the cardboard along the ruler ticks and slight alignment changes during measurement.
+</p>
+
+<p>
+[ug.png]
+</p>
+
+<h4>Additional Work</h4>
+<p>
+In addition to sensor calibration, I also prepared a CAD file for next week’s assignment. I plan to fabricate a frame for my friend’s birthday gift. The design and fabrication process will be documented on the following week’s page.
+</p>
+
+<h4>Song Choice</h4>
+<p>
+I chose this song because light is a type of sensor, and I enjoy Ellie Goulding’s music.
+</p>
+
+<p>
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/11ozIUBoXAgRTVWelDn4pL?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+</p>
+
+</div>
+</xmp>
 </body>
+
+<script src="../strapdown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </html>
