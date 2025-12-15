@@ -6,6 +6,7 @@
   <title>Week 9: Radio, WiFi, Bluetooth (IoT)</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
   <style>
     body {
@@ -78,7 +79,7 @@
   </nav>
 
   <!-- Hero -->
-  <header class="hero">
+  <header class="hero" data-aos="fade-down">
     <h1>PS70: Week 9 — Radio, WiFi, Bluetooth (IoT)</h1>
 
     <p><em>
@@ -95,7 +96,7 @@
   </header>
 
   <!-- Main Content -->
-  <div class="main">
+  <div class="main" data-aos="fade-up">
     <p>
       For this week’s networking assignment, I collaborated with Nate Marinaccio to explore WiFi-based control and web service integration for Nate's final project. We implemented a system that allows Nate to control opening/closing his door with his phone. Please refer to this link for documentation on Nate's page: 
       <a href="https://ksmcdaniel.github.io/PS70_documentation/index.html/" target="_blank">
@@ -105,5 +106,11 @@
   </div>
 
   <footer>Katie Le | Harvard University</footer>
+
+  <!-- JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+  </script>
 </body>
 </html>
