@@ -5,100 +5,227 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Week 6: Electronic Inputs</title>
 
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../style.css" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f7f6f3, #f1efe9, #eae7df); /* eggshell */
+      color: #3a2f2f;
+      scroll-behavior: smooth;
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      backdrop-filter: blur(10px);
+      background: rgba(240, 236, 228, 0.75);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+    .navbar.scrolled {
+      background: rgba(240, 236, 228, 0.95);
+      padding: 0.6rem 1.2rem;
+    }
+
+    .nav-btn {
+      padding: 0.55rem 1.2rem;
+      border-radius: 9999px;
+      background: #ffffff;
+      color: #3a2f2f;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+    .nav-btn:hover { background: #f3f1ec; transform: translateY(-1px); }
+
+    /* Hero */
+    .hero {
+      background: url('week6_header.jpg') center/cover fixed;
+      padding: 10rem 1rem 6rem;
+      text-align: center;
+      color: #2e2626;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.55), rgba(255,255,255,0.85));
+    }
+    .hero h1 {
+      position: relative;
+      z-index: 2;
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      animation: slideIn 1.2s ease forwards;
+      opacity: 0;
+    }
+    @keyframes slideIn {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .hero p {
+      position: relative;
+      z-index: 2;
+      font-size: 1.05rem;
+      color: #4a3f3f;
+      margin-top: 0.5rem;
+      font-style: italic;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Main Container */
+    .main {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 16px;
+      padding: 3rem;
+      max-width: 900px;
+      margin: 4rem auto;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      opacity: 0;
+      animation: fadeIn 1.2s ease forwards;
+    }
+    @keyframes fadeIn { to { opacity: 1; transform: none; } }
+
+    .content-section {
+      text-align: center;
+      margin: 2.5rem auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      color: #3a2f2f;
+    }
+    h2 { margin-bottom: 1.5rem; font-size: 1.6rem; }
+
+    img {
+      display: block;
+      margin: 1.5rem auto;
+      max-width: 80%;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    }
+
+    p {
+      font-size: 1rem;
+      color: #3a2f2f;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    footer {
+      margin-top: 5rem;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      color: #3a2f2f;
+      text-align: center;
+      background: linear-gradient(to top, rgba(234,231,223,0.9), transparent);
+    }
+  </style>
 </head>
 
-<nav class="navbar navbar-expand-sm navbar-dark" style="color:#EEE7E8;">
-  <div class="container-fluid" style="align-items:center; justify-content:center;">
-    <div class="flexrow">
-      <h2 class="nav-title">PS70 Fall 2024</h2>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../index.html" class="nav-btn">Home</a>
+    <a href="../about.html" class="nav-btn">About Me</a>
+    <a href="../assignments/index.html" class="nav-btn">Assignments</a>
+    <a href="../13_finalproject/index.html" class="nav-btn">Final Project</a>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero" data-aos="fade-down">
+    <h1>PS70: Week 6 — Electronic Inputs</h1>
+    <p>I chose this song because light is a type of sensor, and I enjoy Ellie Goulding’s music.</p>
+    <div data-aos="fade-up" style="display:flex; justify-content:center; margin-top:1.5rem; position:relative; z-index:2;">
+      <iframe style="border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.25);" 
+        src="https://open.spotify.com/embed/track/11ozIUBoXAgRTVWelDn4pL?utm_source=generator" 
+        width="80%" height="152" frameborder="0" 
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" 
+        loading="lazy">
+      </iframe>
     </div>
-    <div class="navbar-nav">
-      <h4><a class="nav-link" href="../index.html">Home</a></h4>
-      <h4><a class="nav-link" href="../about.html">About</a></h4>
+  </header>
+
+  <!-- Main Content -->
+  <div class="main">
+    <h1>Sensors and Calibration</h1>
+
+    <div class="content-section">
+      <p>
+        For this week’s assignment, I worked with electronic input devices by building and calibrating two sensors: a capacitive touch sensor and an ultrasonic distance sensor. The goal was to understand how raw sensor readings change with user interaction or distance and how these readings can be calibrated for meaningful interpretation.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Capacitive Sensor</h2>
+      <img src="cap.jpg" alt="capacitive sensor setup">
+      <img src="cap2.jpg" alt="capacitive sensor schematic">
+      <p>
+        I calibrated the capacitive sensor by recording ADC values over time while interacting with the sensing surface at different levels of contact. The five calibration stages were no contact, hovering a finger, light press, firm press, and full palm contact. Baseline readings with no contact ranged from approximately 840–850. As contact increased, the sensor values decreased, reaching values near 0–20 during full palm contact. Some variability is present due to the subjective nature of manual pressing.
+      </p>
+      <img src="cg.png" alt="capacitive sensor calibration plot">
+    </div>
+
+    <div class="content-section">
+      <h2>Ultrasonic Distance Sensor</h2>
+      <img src="US.jpg" alt="ultrasonic sensor setup">
+      <img src="US2.jpg" alt="ultrasonic sensor schematic">
+      <p>
+        I also built and calibrated an ultrasonic sensor to measure distance to a cardboard target. Measurements were taken at known separations of 2, 4, 6, 8, and 10 mm while recording distance values over time. The data show clear clustering around each distance, with measured values decreasing as the separation decreases. Small variations are present due to manual positioning of the cardboard along ruler ticks.
+      </p>
+      <img src="ug.png" alt="ultrasonic sensor calibration plot">
+    </div>
+
+    <div class="content-section">
+      <h2>Additional Work</h2>
+      <p>
+        In preparation for the following week, I also created a CAD file for a frame that I plan to fabricate as a birthday gift for a friend. The fabrication process will be documented in the next assignment.
+      </p>
     </div>
   </div>
-</nav>
 
-<body>
-<xmp style="display:none;">
-<div class="textcontainer">
+  <footer>Katie Le | Harvard University</footer>
 
-<p class="margin"></p>
-
-<h3>Week 6: Electronic Inputs</h3>
-
-<h4>Assignment: Sensors and Calibration</h4>
-
-<p>
-For this week’s assignment, I worked with electronic input devices by building and calibrating two different sensors: a capacitive touch sensor and an ultrasonic distance sensor. The goal of this week was to understand how raw sensor signals behave, how they vary with user interaction or distance, and how to calibrate these signals for meaningful interpretation.
-</p>
-
-<h4>Capacitive Sensor</h4>
-<p>
-I first built a capacitive sensor designed to measure changes in capacitance at a sensing electrode. The sensor outputs raw ADC values that vary depending on the amount of conductive material in proximity to the electrode. An image of my capacitive sensor setup and the corresponding sensor schematic are shown below.
-</p>
-
-<p>
-[cap.jpg]  
-[cap2.jpg]
-</p>
-
-<p>
-To calibrate the capacitive sensor, I recorded ADC values over time while interacting with the sensing surface using different levels of contact. The five calibration stages were no contact, hovering my finger over the sensor, lightly pressing on the sensor, firmly pressing on the sensor, and full palm contact.
-</p>
-
-<p>
-Looking at the plotted data below, the baseline readings with no contact ranged from approximately 840–850. As contact with the sensor increased, the ADC values decreased monotonically, eventually reaching values in the range of 0–20 during full palm contact. Some variation is present in the data, which is expected since the applied pressure and contact area are subjective and not perfectly repeatable.
-</p>
-
-<p>
-[cg.png]
-</p>
-
-<h4>Ultrasonic Distance Sensor</h4>
-<p>
-For my second sensor, I used an ultrasonic distance sensor to measure the separation between the sensor and a piece of cardboard. An image of the ultrasonic sensor setup and its schematic are shown below.
-</p>
-
-<p>
-[US.jpg]  
-[US2.jpg]
-</p>
-
-<p>
-I calibrated the ultrasonic sensor by recording distance values over time at known separations between the sensor and the cardboard. The five calibration distances were 2, 4, 6, 8, and 10 mm. These measurements were taken by positioning the cardboard at specific ruler ticks in front of the sensor.
-</p>
-
-<p>
-The plot below shows that the measured distance values cluster around the expected distances. As the separation between the sensor and the cardboard decreases, the reported ultrasonic distance correspondingly decreases. Some variation is present in the data due to manual movement of the cardboard along the ruler ticks and slight alignment changes during measurement.
-</p>
-
-<p>
-[ug.png]
-</p>
-
-<h4>Additional Work</h4>
-<p>
-In addition to sensor calibration, I also prepared a CAD file for next week’s assignment. I plan to fabricate a frame for my friend’s birthday gift. The design and fabrication process will be documented on the following week’s page.
-</p>
-
-<h4>Song Choice</h4>
-<p>
-I chose this song because light is a type of sensor, and I enjoy Ellie Goulding’s music.
-</p>
-
-<p>
-<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/11ozIUBoXAgRTVWelDn4pL?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-</p>
-
-</div>
-</xmp>
+  <!-- JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.navbar');
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
 </body>
-
-<script src="../strapdown.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
 </html>
