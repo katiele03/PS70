@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Week 7: Electronic Outputs</title>
 
-<title>PS70: Intro to Digital Fabrication </title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="../style.css" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../style.css" rel="stylesheet">
+</head>
 
-
-<nav class="navbar navbar-expand-sm navbar-dark" style=" color: #EEE7E8;">
-  <div style="align-items: center; justify-content: center;" class="container-fluid">
+<nav class="navbar navbar-expand-sm navbar-dark" style="color:#EEE7E8;">
+  <div class="container-fluid" style="align-items:center; justify-content:center;">
     <div class="flexrow">
       <h2 class="nav-title">PS70 Fall 2024</h2>
     </div>
@@ -21,20 +25,87 @@
 <body>
 <xmp style="display:none;">
 <div class="textcontainer">
-<p class="margin">   </p>
+
+<p class="margin"></p>
 
 <h3>Week 7: Electronic Outputs</h3>
 
-
-
 <h4>Assignment: Minimum Viable Product for Final Project</h4>
 
+<p>
+This week focused on electronic output devices, with an emphasis on building a minimum viable product (MVP) for my final project. My final project is a dynamic grip strengthener that can adjust resistance in real time based on user input. The system is designed for users whose hand strength may vary day to day, such as individuals with arthritis, Parkinson’s disease, or those recovering from hand surgery.
+</p>
+
+<p>
+The two core functional requirements of the device are: (1) detecting the force applied by the user during a grip, and (2) adjusting the mechanical resistance accordingly. Because real-time actuation is the most technically challenging aspect of this system, I focused this week on developing and validating the electronic output subsystem.
+</p>
+
+<h4>System Overview</h4>
+<p>
+The primary electronic outputs in this MVP are two NEMA 17 stepper motors, which are responsible for compressing a spring via lead screws to modulate grip resistance. Stepper motors were selected due to their precise positional control and repeatability, which are necessary for controlled resistance adjustments.
+</p>
+
+<h4>Components Used</h4>
+<ul>
+  <li>NEMA 17 stepper motors</li>
+  <li>Stepper motor drivers</li>
+  <li>External motor power supply</li>
+  <li>100 µF electrolytic capacitor</li>
+  <li>Breadboard and jumper wires</li>
+  <li>Lead screws and lead screw nuts</li>
+  <li>Steel guide rods</li>
+</ul>
+
+<h4>Motor Driver Wiring</h4>
+<p>
+Each stepper motor driver was wired using the following connections:
+</p>
+<ul>
+  <li><strong>STEP</strong> → GPIO pin</li>
+  <li><strong>DIR</strong> → GPIO pin</li>
+  <li><strong>ENABLE</strong> → Ground</li>
+  <li><strong>VMOT and GND</strong> → External motor power supply</li>
+</ul>
+
+<p>
+A 100 µF capacitor was placed across VMOT and GND to protect the driver from voltage spikes caused by rapid current changes in the motor coils.
+</p>
+
+<h4>Stepper Motor Control Code</h4>
+<p>
+To control the stepper motors, I wrote code using a C++ class-based structure to keep motor logic modular and scalable for future integration with sensor feedback. This code allows the motors to move forward and backward with defined speed and acceleration parameters.
+</p>
+
+<p>
+[step.jpg]
+</p>
+
+<h4>Physical Prototype</h4>
+<p>
+Using the CAD model as a reference, I assembled a rudimentary physical prototype to validate the actuation concept. The images below show the wiring setup and the mechanical assembly, followed by a video demonstrating spring compression driven by the stepper motors.
+</p>
+
+<p>
+[wires.jpg]
+</p>
+
+<p>
+[V1.png]
+</p>
+
+<p>
+[V1.mp4]
+</p>
+
+<p>
+This prototype demonstrates that electronically controlled actuation is feasible for dynamically adjusting grip resistance. Future work will integrate sensor feedback to close the control loop and enable adaptive resistance based on user input.
+</p>
 
 </div>
 </xmp>
 </body>
 
 <script src="../strapdown.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </html>
