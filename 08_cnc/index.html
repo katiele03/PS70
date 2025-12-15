@@ -93,7 +93,7 @@
   </nav>
 
   <!-- Hero -->
-  <header class="hero">
+  <header class="hero" data-aos="fade-down">
     <h1>PS70: Week 8 — CNC Milling</h1>
 
     <p><em>
@@ -108,15 +108,15 @@
   </header>
 
   <!-- Main Content -->
-  <div class="main">
+  <div class="main" data-aos="fade-up">
 
-    <section>
+    <section data-aos="fade-up">
       <p>
         For this week’s assignment, I wanted to create a gift for my friend’s birthday. For the first part of the assignment and for my friend’s gift, I decided to gift her a picture frame with an image of us. Since her favorite flowers are tulips and daises, I wanted to create a 4x6 picture frame with a tulip and daisy design on the border of the frame.
       </p>
     </section>
 
-    <section>
+    <section data-aos="fade-up">
       <p>
         I first sketched the picture frame on Fusion 360. The outside border of the frame is 6x8 and it fits a 4x6 picture. Then, I sketched tulips and daisies on the border. Here is the final sketch of the dxf I used and a video of a model of the frame.
       </p>
@@ -130,7 +130,7 @@
       </figure>
     </section>
 
-    <section>
+    <section data-aos="fade-up">
       <p>
         I then picked two pieces of wood, one for the actual frame and the other to be the sacrificial piece. I measured the thickness of the frame wood piece. Then, I used a nail gun to insure the wood pieces do not move during CNCing. Here is a video of me using a nail gun for the first time.
       </p>
@@ -140,7 +140,7 @@
       </figure>
     </section>
 
-    <section>
+    <section data-aos="fade-up">
       <p>
         I imported my file into the CNC software and defined the toolpaths, including which areas needed to be removed, the cut depths, and the XYZ origin. I then applied the appropriate feed and speed rates. Because the tulip and daisy designs were very thin, I chose to use the smallest end mill available. Here is a video of that setup process.
       </p>
@@ -162,7 +162,7 @@
       </figure>
     </section>
 
-    <section>
+    <section data-aos="fade-up">
       <p>
         After the frame was cut out, I cleaned the wooden debris using the vacuum and sanded down my wooden frame. Here are videos of this process.
       </p>
@@ -182,7 +182,7 @@
       </figure>
     </section>
 
-    <section>
+    <section data-aos="fade-up">
       <p>
         For the second part of the assignment regarding molding and casting, I collaborated with Kieran McDaniel. Please refer to his documentation page at this link:
         <a href="https://ksmcdaniel.github.io/PS70_documentation/index.html/" target="_blank">
@@ -194,5 +194,11 @@
   </div>
 
   <footer>Katie Le | Harvard University</footer>
+
+  <!-- JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+  </script>
 </body>
 </html>
