@@ -6,6 +6,7 @@
   <title>Weeks 10–12: Machine Building</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
   <style>
     body {
@@ -81,12 +82,12 @@
   </nav>
 
   <!-- Hero -->
-  <header class="hero">
+  <header class="hero" data-aos="fade-down">
     <h1>PS70: Weeks 10–12 — Machine Building</h1>
   </header>
 
   <!-- Main Content -->
-  <div class="main">
+  <div class="main" data-aos="fade-up">
     <h2>Assignment: Build a Drawing Robot</h2>
 
     <p>
@@ -110,5 +111,11 @@
   </div>
 
   <footer>Katie Le | Harvard University</footer>
+
+  <!-- JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+  </script>
 </body>
 </html>
